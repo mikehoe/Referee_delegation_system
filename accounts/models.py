@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db.models import Model, OneToOneField, CASCADE, CharField
-#from referees.models import Referee
+from referees.models import Referee
 
 class ProfileReferee(Model):
     user = OneToOneField(User, on_delete=CASCADE)
