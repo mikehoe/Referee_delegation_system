@@ -1,2 +1,4 @@
 /.venv/
 /.idea/
+/referee_delegation_system/secret_key.py
+/db.sqlite3
