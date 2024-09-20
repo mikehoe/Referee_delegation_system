@@ -1,5 +1,5 @@
 from django.db.models import *
-# from competitions.models import City
+from competitions.models import City
 
 class Referee(Model):
     class Licence(TextChoices):
