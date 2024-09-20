@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ from .secret_key import SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -71,7 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'referee_delegation_system.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -81,7 +78,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -101,7 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -113,7 +108,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -123,3 +117,37 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Settings for Slovak volleyball federation
+SEASON_NAMES = [
+    ('2024/2025', '2024/2025'),
+    ('2023/2024', '2023/2024'),
+    ('2022/2023', '2022/2023'),
+]
+
+COMPETITION_NAMES = [
+    ('EM', 'Extraliga muži'),
+    ('EZ', 'Extraliga ženy'),
+    ('M', '1. liga muži'),
+    ('Z', '1. liga ženy'),
+    ('RI', '1. liga juniori'),
+    ('RKY', '1. liga juniorky'),
+    ('TIZA', 'Kadeti západ'),
+    ('TKYZ', 'Kadetky západ'),
+]
+
+COMPETITION_LEVELS = [
+    ('extra_league', 'extra_league'),
+    ('first_league', 'first_league'),
+    ('regional', 'regional'),
+]
+
+COMPETITION_CATEGORIES = [
+    ('men', 'men'),
+    ('women', 'women'),
+    ('junior boys', 'junior boys'),
+    ('junior girls', 'junior girls'),
+    ('cadet boys', 'cadet boys'),
+    ('cadet girls', 'cadet girls'),
+]
+
