@@ -72,8 +72,7 @@ class Team(Model):
     contact_person = CharField(max_length=64, null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
     e_mail = EmailField(max_length=64)
-
-    # competition = ForeignKey(Competition, null=True, blank=True, on_delete=SET_NULL, related_name='team_in')
+    competition = ForeignKey(Competition, null=True, blank=True, on_delete=SET_NULL, related_name='team_in')
 
     class Meta:
         ordering = ['name']  # ascending
