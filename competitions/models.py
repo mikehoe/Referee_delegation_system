@@ -34,14 +34,26 @@ class Season(Model):
         return f"{self.name}"
 
 
+class CompetitionLevel(Model):
+    COMPETITION_LEVELS = COMPETITION_LEVELS
+
+    name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_LEVELS)
+
+
+class CompetitionCategory(Model):
+    COMPETITION_CATEGORIES = COMPETITION_CATEGORIES
+
+    name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_CATEGORIES)
+
+
 class Competition(Model):
     COMPETITION_NAMES = COMPETITION_NAMES
     COMPETITION_LEVELS = COMPETITION_LEVELS
     COMPETITION_CATEGORIES = COMPETITION_CATEGORIES
 
     name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_NAMES)
-    level = CharField(max_length=64, null=True, blank=True, unique=True, choices=COMPETITION_LEVELS)
-    category = CharField(max_length=64, null=True, blank=True, unique=True, choices=COMPETITION_CATEGORIES)
+    level = ForeignKey(CompetitionLevel, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
+    category = ForeignKey(CompetitionCategory, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
     season = ForeignKey(Season, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
 
     class Meta:
@@ -60,6 +72,8 @@ class Team(Model):
     contact_person = CharField(max_length=64, null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
     e_mail = EmailField(max_length=64)
+
+    # competition = ForeignKey(Competition, null=True, blank=True, on_delete=SET_NULL, related_name='team_in')
 
     class Meta:
         ordering = ['name']  # ascending
