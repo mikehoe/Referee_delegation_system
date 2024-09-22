@@ -1,7 +1,7 @@
 from referee_delegation_system.settings import SEASON_NAMES, COMPETITION_NAMES, COMPETITION_LEVELS, \
     COMPETITION_CATEGORIES
 
-from django.db.models import Model, CharField, DateField, ForeignKey, SET_NULL, EmailField, DateTimeField
+from django.db.models import Model, CharField, DateField, ForeignKey, SET_NULL, EmailField, DateTimeField, CASCADE
 
 
 class City(Model):
@@ -9,7 +9,7 @@ class City(Model):
 
     class Meta:
         verbose_name_plural = "Cities"
-        ordering = ['name']  # ascending
+        ordering = ['name']
 
     def __repr__(self):
         return f"City(name={self.name})"
@@ -39,31 +39,48 @@ class CompetitionLevel(Model):
 
     name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_LEVELS)
 
+    def __repr__(self):
+        return f"CompetitionLevel(name={self.name})"
 
-class CompetitionCategory(Model):
-    COMPETITION_CATEGORIES = COMPETITION_CATEGORIES
+    def __str__(self):
+        return f"{self.name}"
 
-    name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_CATEGORIES)
+    # TODO: It should be how it is ordered in configuration file
+    def __lt__(self, other):
+        return self.COMPETITION_LEVELS.index() < self.COMPETITION_LEVELS.index()
 
 
 class Competition(Model):
     COMPETITION_NAMES = COMPETITION_NAMES
-    COMPETITION_LEVELS = COMPETITION_LEVELS
     COMPETITION_CATEGORIES = COMPETITION_CATEGORIES
 
     name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_NAMES)
     level = ForeignKey(CompetitionLevel, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
-    category = ForeignKey(CompetitionCategory, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
-    season = ForeignKey(Season, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
+    category = CharField(max_length=64, null=True, blank=True, choices=COMPETITION_CATEGORIES)
 
     class Meta:
-        ordering = ['name']  # TODO: it should be from high to low level
+        ordering = ['level', 'name']  # TODO: It should be how it is defined in configuration file
 
     def __repr__(self):
-        return f"Season(name={self.name})"
+        return f"Competition(name={self.name})"
 
     def __str__(self):
         return f"{self.name}"
+
+
+class CompetitionInSeason(Model):
+    competition = ForeignKey(Competition, null=False, blank=False, on_delete=CASCADE,
+                             related_name='in_referred_competition')
+    season = ForeignKey(Season, null=False, blank=False, on_delete=CASCADE, related_name='in_referred_season')
+
+    class Meta:
+        ordering = ['-season__name', 'competition__level', 'competition__name']  # descending TODO: IS it OK?
+
+    def __repr__(self):
+        return f"CompetitionInSeason(name={self.competition.name} {self.season.name})"
+
+    def __str__(self):
+        return f"{self.competition.name} {self.season.name}"
 
 
 class Team(Model):
@@ -71,14 +88,17 @@ class Team(Model):
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='team_from')
     contact_person = CharField(max_length=64, null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
-    e_mail = EmailField(max_length=64)
-    competition = ForeignKey(Competition, null=True, blank=True, on_delete=SET_NULL, related_name='team_in')
+    e_mail = EmailField(null=True, blank=True)
+    competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
+                                       related_name='team_registered_in')
 
     class Meta:
-        ordering = ['name']  # ascending
+        ordering = ['name']
 
     def __repr__(self):
-        return f"Team(name={self.name})"
+        return (f"Team(name={self.name}, "
+                f"competition_in_season={self.competition_in_season.competition.name} "
+                f"{self.competition_in_season.season.name})")
 
     def __str__(self):
         return f"{self.name}"
@@ -86,11 +106,24 @@ class Team(Model):
 
 class Match(Model):
     code = CharField(max_length=10, null=False, blank=False)
-    competition = ForeignKey(Competition, on_delete=SET_NULL)
-    home_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='home_team')
-    away_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='away_team')
+    competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
+                                       related_name='match_in_competition_season')
+    home_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='as_home_team')
+    away_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='as_away_team')
     date_time = DateTimeField(null=True, blank=True)
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='match_played_in')
 
+    class Meta:
+        verbose_name_plural = "Matches"
+        ordering = ['date_time']
+
+    def __repr__(self):
+        return (f"Match(code={self.code}, "
+                f"competition_in_season={self.competition_in_season.competition.name} "
+                f"{self.competition_in_season.season.name}, "
+                f"home_team={self.home_team.name}, away_team={self.away_team.name}, "
+                f"date_time={self.date_time}, city={self.city.name})")
+
     def __str__(self):
-        return f"{self.home_team} vs {self.away_team} - {self.competition}"
+        return (f"{self.code} {self.home_team} vs. {self.away_team} {self.date_time.strftime("%x %H:%M")} "
+                f"sports hall: {self.city}")
