@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'competitions',
+
     'delegations',
 ]
 
@@ -123,6 +125,39 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Settings for Slovak volleyball federation
+SEASON_NAMES = [
+    ('2024/2025', '2024/2025'),
+    ('2023/2024', '2023/2024'),
+    ('2022/2023', '2022/2023'),
+]
+
+COMPETITION_NAMES = [
+    ('EM', 'Extraliga muži'),
+    ('EZ', 'Extraliga ženy'),
+    ('M', '1. liga muži'),
+    ('Z', '1. liga ženy'),
+    ('RI', '1. liga juniori'),
+    ('RKY', '1. liga juniorky'),
+    ('TIZA', 'Kadeti západ'),
+    ('TKYZ', 'Kadetky západ'),
+]
+
+COMPETITION_LEVELS = [
+    ('extra_league', 'extra_league'),
+    ('first_league', 'first_league'),
+    ('regional', 'regional'),
+]
+
+COMPETITION_CATEGORIES = [
+    ('men', 'men'),
+    ('women', 'women'),
+    ('junior boys', 'junior boys'),
+    ('junior girls', 'junior girls'),
+    ('cadet boys', 'cadet boys'),
+    ('cadet girls', 'cadet girls'),
+]
 
 REFEREE_ROLES = [
     ('1.R', '1.R'),
