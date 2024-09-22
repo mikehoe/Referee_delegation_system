@@ -121,3 +121,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REFEREE_ROLES = [
+    ('1.R', '1.R'),
+    ('2.R', '2.R'),
+    ('1.L', '1.L'),
+    ('1.L', '1.L'),
+]
