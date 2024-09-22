@@ -1,6 +1,7 @@
+from competitions.models import Match
+from referees.models import Referee
 from referee_delegation_system.settings import REFEREE_ROLES
-from competitions import Match
-from referees import Referee
+
 from django.db.models import Model, ForeignKey, CASCADE, CharField
 
 
