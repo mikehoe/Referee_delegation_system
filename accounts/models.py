@@ -4,7 +4,7 @@ from referees.models import Referee
 
 class ProfileReferee(Model):
     user = OneToOneField(User, on_delete=CASCADE)
-    referee = OneToOneField(Referee, on_delete=CASCADE)
+    referee = OneToOneField(Referee, on_delete=CASCADE, related_name='profile')
 
     class Meta:
         ordering = ['user__username']
