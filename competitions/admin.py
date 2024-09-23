@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from delegations.models import Delegation
+
+admin.site.register(Delegation)
