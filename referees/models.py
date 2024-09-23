@@ -43,6 +43,7 @@ class Unavailability(Model):
 
     class Meta:
         ordering = ['date_from', 'date_to']
+        verbose_name_plural = "Unavailabilities"
 
     def __repr__(self):
         return f"Referee(name={self.referee}), unavailable from: {self.date_from} to: {self.date_to}"
