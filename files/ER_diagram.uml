@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_city</OriginalElement>
+  <nodes>
+    <node x="656.6296231490295" y="-114.99499155801074">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.auth_user</node>
+    <node x="-481.5374567137111" y="331.4116318313909">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_refereelicence_level</node>
+    <node x="-468.5374567137111" y="784.4709795359113">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competition</node>
+    <node x="506.7216048301499" y="461.07929334806613">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_team</node>
+    <node x="-58.26906988451532" y="-71.03116693922652">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_referee</node>
+    <node x="280.99931694468046" y="48.96883306077348">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.accounts_profilereferee</node>
+    <node x="-69.13015699851223" y="278.5600499906601">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.delegations_delegation</node>
+    <node x="268.99931694468046" y="-118.36652998724085">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.accounts_profilemanager</node>
+    <node x="-457.5374567137111" y="101.00500844198925">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_refereelicence</node>
+    <node x="-488.5374567137111" y="549.067300264027">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitionlevel</node>
+    <node x="-54.20611678670241" y="808.4709795359113">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitioninseason</node>
+    <node x="3.548508707182691" y="523.7913607071821">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_match</node>
+    <node x="-453.5374567137111" y="-105.35654943237058">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_unavailability</node>
+    <node x="293.2771427166866" y="287.6876071602211">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_city</node>
+    <node x="446.9214205950973" y="784.4709795359113">df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_season</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_match" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_team" relationship="REFERENCES">
+      <point x="115.0" y="0.0" />
+      <point x="-115.0" y="62.71206735911596" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.delegations_delegation" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_match" relationship="REFERENCES">
+      <point x="71.17866570569493" y="68.0" />
+      <point x="0.0" y="-104.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_refereelicence_level" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitionlevel" relationship="REFERENCES">
+      <point x="0.0" y="56.0" />
+      <point x="0.0" y="-44.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_refereelicence_level" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_refereelicence" relationship="REFERENCES">
+      <point x="0.0" y="-56.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitioninseason" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_season" relationship="REFERENCES">
+      <point x="165.5" y="-12.0" />
+      <point x="-107.0" y="0.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_team" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_city" relationship="REFERENCES">
+      <point x="-112.72913669573506" y="-63.8011936956907" />
+      <point x="386.7771427166866" y="501.27809965237543" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_team" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitioninseason" relationship="REFERENCES">
+      <point x="0.0" y="104.0" />
+      <point x="621.7216048301499" y="764.2913607071821" />
+      <point x="235.08748551564327" y="764.2913607071821" />
+      <point x="123.79360230234568" y="-54.89624025433534" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competition" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitionlevel" relationship="REFERENCES">
+      <point x="0.0" y="-68.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.accounts_profilereferee" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_referee" relationship="REFERENCES">
+      <point x="-121.92226016600125" y="-24.988531786150077" />
+      <point x="198.01813017941097" y="79.9803012746234" />
+      <point x="198.01813017941097" y="79.9803012746234" />
+      <point x="86.71402932831614" y="35.01146821384992" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_referee" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_refereelicence" relationship="REFERENCES">
+      <point x="-87.5" y="100.03617538121577" />
+      <point x="117.5" y="0.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.delegations_delegation" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_referee" relationship="REFERENCES">
+      <point x="10.179163591401391" y="-68.0" />
+      <point x="57.54900659288916" y="219.7644415257168" />
+      <point x="29.230930115484682" y="219.7644415257168" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_unavailability" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_referee" relationship="REFERENCES">
+      <point x="113.5" y="0.0" />
+      <point x="-87.5" y="-82.32538249314406" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.accounts_profilereferee" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.auth_user" relationship="REFERENCES">
+      <point x="119.0" y="0.0" />
+      <point x="-89.5" y="67.96382461878422" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_match" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_city" relationship="REFERENCES">
+      <point x="77.23422593939904" y="-103.17606522630149" />
+      <point x="195.78273464658173" y="450.96775739835977" />
+      <point x="312.0276512332546" y="450.96775739835977" />
+      <point x="-74.74949148343205" y="44.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_match" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitioninseason" relationship="REFERENCES">
+      <point x="-7.254625493885101" y="104.0" />
+      <point x="0.0" y="-56.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.referees_referee" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_city" relationship="REFERENCES">
+      <point x="64.60510696446903" y="116.07751688128911" />
+      <point x="93.83603707995371" y="236.50500844198928" />
+      <point x="386.7771427166866" y="236.50500844198928" />
+      <point x="0.0" y="-44.0" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.accounts_profilemanager" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.auth_user" relationship="REFERENCES">
+      <point x="125.0" y="0.0" />
+      <point x="-89.5" y="-99.37153842923011" />
+    </edge>
+    <edge source="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competitioninseason" target="df53a421-2333-4bc1-bbdb-eb6231e46050.TABLE:main.competitions_competition" relationship="REFERENCES">
+      <point x="-165.5" y="-12.0" />
+      <point x="128.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8141509433962264" showDependencies="false" x="183.5" y="411.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
