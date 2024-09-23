@@ -10,10 +10,10 @@ class ProfileReferee(Model):
         ordering = ['user__username']
 
     def __repr__(self):
-        return f"Profile (user = '{self.user.username})'"
+        return f"Profile (user = '{self.user.username}')"
 
     def __str__(self):
-        return f"Profile (user = '{self.user.username})'"
+        return f"Profile (user = '{self.user.username}')"
 
 
 class ProfileManager(Model):
@@ -24,7 +24,7 @@ class ProfileManager(Model):
         ordering = ['user__username']
 
     def __repr__(self):
-        return f"Profile (user = '{self.user.username})'"
+        return f"Profile (user = '{self.user.username}')"
 
     def __str__(self):
-        return f"Profile (user = '{self.user.username})'"
+        return f"Profile (user = '{self.user.username}')"
