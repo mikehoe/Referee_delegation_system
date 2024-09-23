@@ -74,6 +74,7 @@ class CompetitionInSeason(Model):
     season = ForeignKey(Season, null=False, blank=False, on_delete=CASCADE, related_name='competitions_in_season')
 
     class Meta:
+        verbose_name_plural = "Competitions in seasons"
         ordering = ['-season__name', 'competition__level', 'competition__name']  # descending TODO: IS it OK?
 
     def __repr__(self):
