@@ -136,14 +136,14 @@ SEASON_NAMES = [
 ]
 
 COMPETITION_NAMES = [
-    ('EM', 'Extraliga muži'),
-    ('EZ', 'Extraliga ženy'),
-    ('M', '1. liga muži'),
-    ('Z', '1. liga ženy'),
-    ('RI', '1. liga juniori'),
-    ('RKY', '1. liga juniorky'),
-    ('TIZA', 'Kadeti západ'),
-    ('TKYZ', 'Kadetky západ'),
+    ('Extraliga muži', 'Extraliga muži'),
+    ('Extraliga ženy', 'Extraliga ženy'),
+    ('1. liga muži', '1. liga muži'),
+    ('1. liga ženy', '1. liga ženy'),
+    ('1. liga juniori', '1. liga juniori'),
+    ('1. liga juniorky', '1. liga juniorky'),
+    ('Kadeti západ', 'Kadeti západ'),
+    ('Kadetky západ', 'Kadetky západ'),
 ]
 
 COMPETITION_LEVELS = [
@@ -166,4 +166,11 @@ REFEREE_ROLES = [
     ('2.R', '2.R'),
     ('1.L', '1.L'),
     ('1.L', '1.L'),
+]
+
+REFEREE_LICENCES = [
+    ('AM', 'AM'),
+    ('A', 'A'),
+    ('B', 'B'),
+    ('C', 'C'),
 ]
