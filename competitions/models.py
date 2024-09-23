@@ -55,7 +55,7 @@ class Competition(Model):
     COMPETITION_CATEGORIES = COMPETITION_CATEGORIES
 
     name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_NAMES)
-    level = ForeignKey(CompetitionLevel, null=True, blank=True, on_delete=SET_NULL, related_name='competition_in')
+    level = ForeignKey(CompetitionLevel, null=True, blank=True, on_delete=SET_NULL, related_name='competitions')
     category = CharField(max_length=64, null=True, blank=True, choices=COMPETITION_CATEGORIES)
 
     class Meta:
@@ -70,8 +70,8 @@ class Competition(Model):
 
 class CompetitionInSeason(Model):
     competition = ForeignKey(Competition, null=False, blank=False, on_delete=CASCADE,
-                             related_name='in_referred_competition')
-    season = ForeignKey(Season, null=False, blank=False, on_delete=CASCADE, related_name='in_referred_season')
+                             related_name='competition_in_seasons')
+    season = ForeignKey(Season, null=False, blank=False, on_delete=CASCADE, related_name='competitions_in_season')
 
     class Meta:
         ordering = ['-season__name', 'competition__level', 'competition__name']  # descending TODO: IS it OK?
@@ -85,12 +85,12 @@ class CompetitionInSeason(Model):
 
 class Team(Model):
     name = CharField(max_length=64, null=False, blank=False)
-    city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='team_from')
+    city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='teams')
     contact_person = CharField(max_length=64, null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
     e_mail = EmailField(null=True, blank=True)
     competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
-                                       related_name='team_registered_in')
+                                       related_name='teams')
 
     class Meta:
         ordering = ['name']
@@ -107,11 +107,11 @@ class Team(Model):
 class Match(Model):
     code = CharField(max_length=10, null=False, blank=False)
     competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
-                                       related_name='match_in_competition_season')
-    home_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='as_home_team')
-    away_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='as_away_team')
+                                       related_name='matches')
+    home_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='matches_home')
+    away_team = ForeignKey(Team, null=True, blank=True, on_delete=SET_NULL, related_name='matches_away')
     date_time = DateTimeField(null=True, blank=True)
-    city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='match_played_in')
+    city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='matches')
 
     class Meta:
         verbose_name_plural = "Matches"
