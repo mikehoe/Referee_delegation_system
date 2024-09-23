@@ -8,8 +8,8 @@ from django.db.models import Model, ForeignKey, CASCADE, CharField
 class Delegation(Model):
     REFEREE_ROLES = REFEREE_ROLES
 
-    match = ForeignKey(Match, null=False, blank=False, on_delete=CASCADE, related_name='as_home_team')
-    referee = ForeignKey(Referee, null=False, blank=False, on_delete=CASCADE, related_name='as_away_team')
+    match = ForeignKey(Match, null=False, blank=False, on_delete=CASCADE, related_name='delegated_referees')
+    referee = ForeignKey(Referee, null=False, blank=False, on_delete=CASCADE, related_name='delegations')
     referee_role = CharField(max_length=5, null=False, blank=False, choices=REFEREE_ROLES)
 
     class Meta:
@@ -20,3 +20,6 @@ class Delegation(Model):
 
     def __str__(self):
         return f"{self.match}, {self.referee} ({self.referee_role})"
+
+    def notification(self):
+        pass
