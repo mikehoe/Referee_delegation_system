@@ -1,0 +1,45 @@
+digraph "competitions_city" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+accounts_profilemanager          [shape = record, pos = "3.736,16.088!"    , label = "{ accounts_profilemanager |  phone : varchar(20)\l  user_id : integer\l| id : integer\l }"];
+accounts_profilereferee          [shape = record, pos = "3.903,13.764!"    , label = "{ accounts_profilereferee |  referee_id : bigint\l  user_id : integer\l| id : integer\l }"];
+auth_user                        [shape = record, pos = "9.120,16.042!"    , label = "{ auth_user |  password : varchar(128)\l  last_login : datetime\l  is_superuser : bool\l  username : varchar(150)\l  last_name : varchar(150)\l  email : varchar(254)\l  is_staff : bool\l  is_active : bool\l  date_joined : datetime\l  first_name : varchar(150)\l| id : integer\l }"];
+competitions_city                [shape = record, pos = "4.073,10.449!"    , label = "{ competitions_city |  name : varchar(64)\l| id : integer\l }"];
+competitions_competition         [shape = record, pos = "-6.507,3.549!"    , label = "{ competitions_competition |  name : varchar(64)\l  category : varchar(64)\l  level_id : bigint\l| id : integer\l }"];
+competitions_competitioninseason [shape = record, pos = "-0.753,3.216!"    , label = "{ competitions_competitioninseason |  competition_id : bigint\l  season_id : bigint\l| id : integer\l }"];
+competitions_competitionlevel    [shape = record, pos = "-6.785,6.819!"    , label = "{ competitions_competitionlevel |  name : varchar(64)\l| id : integer\l }"];
+competitions_match               [shape = record, pos = "0.049,7.170!"     , label = "{ competitions_match |  code : varchar(10)\l  date_time : datetime\l  city_id : bigint\l  competition_in_season_id : bigint\l  away_team_id : bigint\l  home_team_id : bigint\l| id : integer\l }"];
+competitions_season              [shape = record, pos = "6.207,3.549!"     , label = "{ competitions_season |  name : varchar(20)\l  date_of_start : date\l  date_of_end : date\l| id : integer\l }"];
+competitions_team                [shape = record, pos = "7.038,8.041!"     , label = "{ competitions_team |  name : varchar(64)\l  contact_person : varchar(64)\l  phone : varchar(20)\l  e_mail : varchar(254)\l  city_id : bigint\l  competition_in_season_id : bigint\l| id : integer\l }"];
+delegations_delegation           [shape = record, pos = "-0.960,10.576!"   , label = "{ delegations_delegation |  referee_role : varchar(5)\l  match_id : bigint\l  referee_id : bigint\l| id : integer\l }"];
+referees_referee                 [shape = record, pos = "-0.809,15.431!"   , label = "{ referees_referee |  name : varchar(32)\l  surname : varchar(32)\l  date_of_birth : date\l  rating : real\l  phone : varchar(20)\l  city_id : bigint\l  licence_id : bigint\l| id : integer\l }"];
+referees_refereelicence          [shape = record, pos = "-6.355,13.042!"   , label = "{ referees_refereelicence |  name : varchar(5)\l| id : integer\l }"];
+referees_refereelicence_level    [shape = record, pos = "-6.688,9.842!"    , label = "{ referees_refereelicence_level |  refereelicence_id : bigint\l  competitionlevel_id : bigint\l| id : integer\l }"];
+referees_unavailability          [shape = record, pos = "-6.299,15.908!"   , label = "{ referees_unavailability |  date_from : date\l  date_to : date\l  referee_id : bigint\l| id : integer\l }"];
+
+accounts_profilemanager          -> auth_user                        [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "user_id:id", headlabel = ""];
+accounts_profilereferee          -> auth_user                        [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "user_id:id", headlabel = ""];
+accounts_profilereferee          -> referees_referee                 [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "referee_id:id", headlabel = ""];
+competitions_competition         -> competitions_competitionlevel    [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "level_id:id", headlabel = ""];
+competitions_competitioninseason -> competitions_competition         [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "competition_id:id", headlabel = ""];
+competitions_competitioninseason -> competitions_season              [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "season_id:id", headlabel = ""];
+competitions_match               -> competitions_city                [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "city_id:id", headlabel = ""];
+competitions_match               -> competitions_competitioninseason [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "competition_in_season_id:id", headlabel = ""];
+competitions_match               -> competitions_team                [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "home_team_id:id", headlabel = ""];
+competitions_match               -> competitions_team                [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "away_team_id:id", headlabel = ""];
+competitions_team                -> competitions_city                [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "city_id:id", headlabel = ""];
+competitions_team                -> competitions_competitioninseason [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "competition_in_season_id:id", headlabel = ""];
+delegations_delegation           -> competitions_match               [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "match_id:id", headlabel = ""];
+delegations_delegation           -> referees_referee                 [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "referee_id:id", headlabel = ""];
+referees_referee                 -> competitions_city                [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "city_id:id", headlabel = ""];
+referees_referee                 -> referees_refereelicence          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "licence_id:id", headlabel = ""];
+referees_refereelicence_level    -> competitions_competitionlevel    [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "competitionlevel_id:id", headlabel = ""];
+referees_refereelicence_level    -> referees_refereelicence          [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "refereelicence_id:id", headlabel = ""];
+referees_unavailability          -> referees_referee                 [color = "#595959", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "referee_id:id", headlabel = ""];
+
+}

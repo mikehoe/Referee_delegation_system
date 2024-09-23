@@ -1,0 +1,124 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class accounts_profilemanager {
+   phone: varchar(20)
+   user_id: integer
+   id: integer
+}
+class accounts_profilereferee {
+   referee_id: bigint
+   user_id: integer
+   id: integer
+}
+class auth_user {
+   password: varchar(128)
+   last_login: datetime
+   is_superuser: bool
+   username: varchar(150)
+   last_name: varchar(150)
+   email: varchar(254)
+   is_staff: bool
+   is_active: bool
+   date_joined: datetime
+   first_name: varchar(150)
+   id: integer
+}
+class competitions_city {
+   name: varchar(64)
+   id: integer
+}
+class competitions_competition {
+   name: varchar(64)
+   category: varchar(64)
+   level_id: bigint
+   id: integer
+}
+class competitions_competitioninseason {
+   competition_id: bigint
+   season_id: bigint
+   id: integer
+}
+class competitions_competitionlevel {
+   name: varchar(64)
+   id: integer
+}
+class competitions_match {
+   code: varchar(10)
+   date_time: datetime
+   city_id: bigint
+   competition_in_season_id: bigint
+   away_team_id: bigint
+   home_team_id: bigint
+   id: integer
+}
+class competitions_season {
+   name: varchar(20)
+   date_of_start: date
+   date_of_end: date
+   id: integer
+}
+class competitions_team {
+   name: varchar(64)
+   contact_person: varchar(64)
+   phone: varchar(20)
+   e_mail: varchar(254)
+   city_id: bigint
+   competition_in_season_id: bigint
+   id: integer
+}
+class delegations_delegation {
+   referee_role: varchar(5)
+   match_id: bigint
+   referee_id: bigint
+   id: integer
+}
+class referees_referee {
+   name: varchar(32)
+   surname: varchar(32)
+   date_of_birth: date
+   rating: real
+   phone: varchar(20)
+   city_id: bigint
+   licence_id: bigint
+   id: integer
+}
+class referees_refereelicence {
+   name: varchar(5)
+   id: integer
+}
+class referees_refereelicence_level {
+   refereelicence_id: bigint
+   competitionlevel_id: bigint
+   id: integer
+}
+class referees_unavailability {
+   date_from: date
+   date_to: date
+   referee_id: bigint
+   id: integer
+}
+
+accounts_profilemanager           -[#595959,plain]-^  auth_user                        : "user_id:id"
+accounts_profilereferee           -[#595959,plain]-^  auth_user                        : "user_id:id"
+accounts_profilereferee           -[#595959,plain]-^  referees_referee                 : "referee_id:id"
+competitions_competition          -[#595959,plain]-^  competitions_competitionlevel    : "level_id:id"
+competitions_competitioninseason  -[#595959,plain]-^  competitions_competition         : "competition_id:id"
+competitions_competitioninseason  -[#595959,plain]-^  competitions_season              : "season_id:id"
+competitions_match                -[#595959,plain]-^  competitions_city                : "city_id:id"
+competitions_match                -[#595959,plain]-^  competitions_competitioninseason : "competition_in_season_id:id"
+competitions_match                -[#595959,plain]-^  competitions_team                : "home_team_id:id"
+competitions_match                -[#595959,plain]-^  competitions_team                : "away_team_id:id"
+competitions_team                 -[#595959,plain]-^  competitions_city                : "city_id:id"
+competitions_team                 -[#595959,plain]-^  competitions_competitioninseason : "competition_in_season_id:id"
+delegations_delegation            -[#595959,plain]-^  competitions_match               : "match_id:id"
+delegations_delegation            -[#595959,plain]-^  referees_referee                 : "referee_id:id"
+referees_referee                  -[#595959,plain]-^  competitions_city                : "city_id:id"
+referees_referee                  -[#595959,plain]-^  referees_refereelicence          : "licence_id:id"
+referees_refereelicence_level     -[#595959,plain]-^  competitions_competitionlevel    : "competitionlevel_id:id"
+referees_refereelicence_level     -[#595959,plain]-^  referees_refereelicence          : "refereelicence_id:id"
+referees_unavailability           -[#595959,plain]-^  referees_referee                 : "referee_id:id"
+@enduml
