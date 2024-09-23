@@ -7,7 +7,7 @@ class RefereeLicence(Model):
     REFEREE_LICENCES = REFEREE_LICENCES
 
     name = CharField(max_length=5, null=False, blank=False, choices=REFEREE_LICENCES)
-    level = ManyToManyField(CompetitionLevel, null=True, blank=True, related_name='licences')
+    level = ManyToManyField(CompetitionLevel, blank=True, related_name='licences')
 
     def __repr__(self):
         return f"Licence(name={self.name})"
