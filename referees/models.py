@@ -17,12 +17,22 @@ class RefereeLicence(Model):
 
 
 class Referee(Model):
-    name = CharField(max_length=32, null=False, blank=False)
-    surname = CharField(max_length=32, null=False, blank=False)
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     licence = ForeignKey(RefereeLicence, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     rating = FloatField(null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
+
+    @property
+    def name(self):
+        return self.profile.user.first_name
+
+    @property
+    def surname(self):
+        return self.profile.user.last_name
+
+    @property
+    def email(self):
+        return self.profile.user.email
 
     class Meta:
         ordering = ['name']

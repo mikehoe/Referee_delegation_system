@@ -3,7 +3,7 @@ from django.db.models import Model, OneToOneField, CASCADE, CharField
 from referees.models import Referee
 
 class ProfileReferee(Model):
-    user = OneToOneField(User, on_delete=CASCADE)
+    user = OneToOneField(User, on_delete=CASCADE, related_name='profile')
     referee = OneToOneField(Referee, on_delete=CASCADE, related_name='profile')
 
     class Meta:
