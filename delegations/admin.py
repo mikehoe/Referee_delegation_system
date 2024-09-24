@@ -8,4 +8,5 @@ class DelegationAdmin(admin.ModelAdmin):
     ordering = ['match__date_time']
     search_fields = ['referee__name', 'referee__surname', 'match__code']
 
+
 admin.site.register(Delegation, DelegationAdmin)

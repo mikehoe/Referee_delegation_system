@@ -9,11 +9,14 @@ class RefereeLicence(Model):
     name = CharField(max_length=5, null=False, blank=False, choices=REFEREE_LICENCES)
     level = ManyToManyField(CompetitionLevel, blank=True, related_name='licences')
 
+    class Meta:
+        ordering = ['id']
+
     def __repr__(self):
         return f"Licence(name={self.name})"
 
     def __str__(self):
-        return f"Licence = {self.name}"
+        return f"{self.name}"
 
 
 class Referee(Model):
@@ -35,13 +38,13 @@ class Referee(Model):
         return self.profile.user.email
 
     class Meta:
-        ordering = ['name']
+        ordering = ['licence__id', 'profile__user__last_name', 'profile__user__first_name']
 
     def __repr__(self):
         return f"Referee(name={self.name}, surname={self.surname})"
 
     def __str__(self):
-        return f"{self.name} {self.surname} - licence: {self.licence.name}, city: {self.city}"
+        return f"{self.name} {self.surname} ({self.licence}, {self.rating}, {self.city})"
 
 
 class Unavailability(Model):

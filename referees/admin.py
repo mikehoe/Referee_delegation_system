@@ -3,7 +3,7 @@ from referees.models import *
 
 
 class RefereeLicenceAdmin(admin.ModelAdmin):
-    ordering = ['name']
+    ordering = ['id']
     list_display = ['id', 'name']
     list_display_links = ['id', 'name']
     list_filter = ['name', 'level']
@@ -12,9 +12,9 @@ class RefereeLicenceAdmin(admin.ModelAdmin):
 
 
 class RefereeAdmin(admin.ModelAdmin):
-    ordering = ['surname', 'name']
+    ordering = ['licence__id', 'profile__user__last_name', 'profile__user__first_name']
     list_display = ['id', 'name', 'surname', 'city', 'licence', 'rating']
-    list_display_links = ['id', 'name','surname']
+    list_display_links = ['id', 'name', 'surname']
     list_filter = ['city', 'licence']
     search_fields = ['name', 'surname']
     list_per_page = 20

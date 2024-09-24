@@ -39,15 +39,14 @@ class CompetitionLevel(Model):
 
     name = CharField(max_length=64, null=False, blank=False, unique=True, choices=COMPETITION_LEVELS)
 
+    class Meta:
+        ordering = ['id']
+
     def __repr__(self):
         return f"CompetitionLevel(name={self.name})"
 
     def __str__(self):
         return f"{self.name}"
-
-    # TODO: It should be how it is ordered in configuration file
-    def __lt__(self, other):
-        return self.COMPETITION_LEVELS.index() < self.COMPETITION_LEVELS.index()
 
 
 class Competition(Model):
@@ -59,7 +58,7 @@ class Competition(Model):
     category = CharField(max_length=64, null=True, blank=True, choices=COMPETITION_CATEGORIES)
 
     class Meta:
-        ordering = ['level', 'name']  # TODO: It should be how it is defined in configuration file
+        ordering = ['id']
 
     def __repr__(self):
         return f"Competition(name={self.name})"
@@ -75,7 +74,7 @@ class CompetitionInSeason(Model):
 
     class Meta:
         verbose_name_plural = "Competitions in seasons"
-        ordering = ['-season__name', 'competition__level', 'competition__name']  # descending TODO: IS it OK?
+        ordering = ['-season__name', 'competition__id']
 
     def __repr__(self):
         return f"CompetitionInSeason(name={self.competition.name} {self.season.name})"
