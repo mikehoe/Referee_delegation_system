@@ -167,7 +167,7 @@ REFEREE_ROLES = [
     ('2.L', '2.L'),
 ]
 
-REFEREE_LICENCES = [
+REFEREE_LICENCE_TYPES = [
     ('AM', 'AM'),
     ('A', 'A'),
     ('B', 'B'),

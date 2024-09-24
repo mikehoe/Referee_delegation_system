@@ -1,13 +1,13 @@
 from django.db.models import *
 from competitions.models import City, CompetitionLevel
-from referee_delegation_system.settings import REFEREE_LICENCES
+from referee_delegation_system.settings import REFEREE_LICENCE_TYPES
 
 
-class RefereeLicence(Model):
-    REFEREE_LICENCES = REFEREE_LICENCES
+class RefereeLicenceType(Model):
+    REFEREE_LICENCE_TYPES = REFEREE_LICENCE_TYPES
 
-    name = CharField(max_length=5, null=False, blank=False, choices=REFEREE_LICENCES)
-    level = ManyToManyField(CompetitionLevel, blank=True, related_name='licences')
+    name = CharField(max_length=5, null=False, blank=False, choices=REFEREE_LICENCE_TYPES)
+    competition_level = ManyToManyField(CompetitionLevel, blank=True, related_name='licence_types')
 
     class Meta:
         ordering = ['id']
@@ -20,8 +20,9 @@ class RefereeLicence(Model):
 
 
 class Referee(Model):
+    licence_number = IntegerField(null=False, blank=False, unique=True, default=None)
+    licence_type = ForeignKey(RefereeLicenceType, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
-    licence = ForeignKey(RefereeLicence, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     rating = FloatField(null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
 
@@ -38,7 +39,7 @@ class Referee(Model):
         return self.profile.user.email
 
     class Meta:
-        ordering = ['licence__id', 'profile__user__last_name', 'profile__user__first_name']
+        ordering = ['licence_type__id', 'profile__user__last_name', 'profile__user__first_name']
 
     def __repr__(self):
         return f"Referee(name={self.name}, surname={self.surname})"

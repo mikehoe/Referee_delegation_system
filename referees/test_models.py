@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Referee, RefereeLicence, Unavailability
+from .models import Referee, RefereeLicenceType, Unavailability
 from competitions.models import City, CompetitionLevel
 from datetime import date
 
@@ -13,27 +13,27 @@ class RefereeLicenceModelTest(TestCase):
         level_2 = CompetitionLevel.objects.create(name="first_league")
         level_3 = CompetitionLevel.objects.create(name="regional")
 
-        licence_1 = RefereeLicence.objects.create(name="A")
-        licence_2 = RefereeLicence.objects.create(name="B")
+        licence_1 = RefereeLicenceType.objects.create(name="A")
+        licence_2 = RefereeLicenceType.objects.create(name="B")
 
-        licence_1.level.add(level_1)
-        licence_1.level.add(level_2)
-        licence_1.level.add(level_3)
-        licence_2.level.add(level_3)
+        licence_1.competition_level.add(level_1)
+        licence_1.competition_level.add(level_2)
+        licence_1.competition_level.add(level_3)
+        licence_2.competition_level.add(level_3)
 
     def test_referee_licence_str(self):
-        licence = RefereeLicence.objects.get(name="A")
+        licence = RefereeLicenceType.objects.get(name="A")
         print(f"test_referee_licence_str: '{licence.__str__()}'")
         self.assertEqual(licence.__str__(), "Licence = A")
 
     def test_referee_licence_repr(self):
-        licence = RefereeLicence.objects.get(name="A")
+        licence = RefereeLicenceType.objects.get(name="A")
         print(f"test_referee_licence_repr: '{licence.__repr__()}'")
         self.assertEqual(licence.__repr__(), "Licence(name=A)")
 
     def test_referee_licence_has_level(self):
-        licence = RefereeLicence.objects.get(name="A")
-        level_count = licence.level.count()
+        licence = RefereeLicenceType.objects.get(name="A")
+        level_count = licence.competition_level.count()
         print(f"test_referee_licence_has_level: {level_count}")
         self.assertEqual(level_count, 3)
 
@@ -44,7 +44,7 @@ class RefereeModelTest(TestCase):
     def setUpTestData(cls):
         print('-' * 80)
         city = City.objects.create(name="Praha")
-        licence = RefereeLicence.objects.create(name="A")
+        licence = RefereeLicenceType.objects.create(name="A")
         referee = Referee.objects.create(
             name="Jan",
             surname="Novák",
@@ -83,7 +83,7 @@ class UnavailabilityModelTest(TestCase):
     def setUpTestData(cls):
         print('-' * 80)
         city = City.objects.create(name="Brno")
-        licence = RefereeLicence.objects.create(name="A")
+        licence = RefereeLicenceType.objects.create(name="A")
         referee = Referee.objects.create(
             name="Josef",
             surname="Dvořák",

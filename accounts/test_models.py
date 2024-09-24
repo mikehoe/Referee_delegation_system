@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 
 from competitions.models import City
-from referees.models import Referee, RefereeLicence
+from referees.models import Referee, RefereeLicenceType
 from .models import ProfileReferee, ProfileManager
 
 
@@ -14,7 +14,7 @@ class ProfileRefereeModelTest(TestCase):
     def setUpTestData(cls):
         print('-' * 80)
         city = City.objects.create(name="Praha")
-        licence = RefereeLicence.objects.create(name="A")
+        licence = RefereeLicenceType.objects.create(name="A")
         user = User.objects.create_user(username='jannovak', password='password')
         referee = Referee.objects.create(
             name="Jan",

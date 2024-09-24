@@ -1,7 +1,7 @@
 from django.test import TestCase
 from competitions.models import City, Match, Team, CompetitionInSeason, CompetitionLevel, Competition, Season
 from delegations.models import Delegation
-from referees.models import Referee, RefereeLicence
+from referees.models import Referee, RefereeLicenceType
 
 class DelegationModelTest(TestCase):
 
@@ -10,7 +10,7 @@ class DelegationModelTest(TestCase):
         print('-' * 80)
 
         city = City.objects.create(name="Olomouc")
-        licence = RefereeLicence.objects.create(name="A")
+        licence = RefereeLicenceType.objects.create(name="A")
         referee = Referee.objects.create(
             name="Bedřich",
             surname="Smetana",

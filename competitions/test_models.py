@@ -58,7 +58,7 @@ class CompetitionModelTest(TestCase):
 
     def test_competition_level_relation(self):
         competition = Competition.objects.get(name="Extraliga muži")
-        self.assertEqual(competition.level.name, "extra_league")
+        self.assertEqual(competition.competition_level.name, "extra_league")
 
 
 class CompetitionInSeasonModelTest(TestCase):
