@@ -48,7 +48,6 @@ class RefereeModelTest(TestCase):
         referee = Referee.objects.create(
             name="Jan",
             surname="Novák",
-            date_of_birth=date(1985, 6, 15),
             city=city,
             licence=licence,
             rating=95.5,
@@ -88,7 +87,6 @@ class UnavailabilityModelTest(TestCase):
         referee = Referee.objects.create(
             name="Josef",
             surname="Dvořák",
-            date_of_birth=date(1995, 5, 10),
             city=city,
             licence=licence
         )
