@@ -19,12 +19,10 @@ class RefereeLicence(Model):
 class Referee(Model):
     name = CharField(max_length=32, null=False, blank=False)
     surname = CharField(max_length=32, null=False, blank=False)
-    date_of_birth = DateField(null=True, blank=True)
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     licence = ForeignKey(RefereeLicence, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     rating = FloatField(null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
-    # e_mail = EmailField(null=True, blank=True)  - 'e-mail' is in User ?
 
     class Meta:
         ordering = ['name']

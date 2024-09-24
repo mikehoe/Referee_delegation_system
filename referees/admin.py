@@ -1,5 +1,4 @@
 from django.contrib import admin
-from accounts.models import *
 from referees.models import *
 
 
@@ -30,22 +29,6 @@ class UnavailabilityAdmin(admin.ModelAdmin):
     list_per_page = 20
 
 
-class ProfileRefereeAdmin(admin.ModelAdmin):
-    list_display = ['user', 'referee']
-    list_display_links = ['user', 'referee']
-    ordering = ['user__username']
-    search_fields = ['user__username', 'referee__name', 'referee__surname']
-
-
-class ProfileManagerAdmin(admin.ModelAdmin):
-    list_display = ['user']
-    list_display_links = ['user']
-    ordering = ['user__username']
-    search_fields = ['user__username']
-
-
 admin.site.register(Referee, RefereeAdmin)
 admin.site.register(Unavailability, UnavailabilityAdmin)
 admin.site.register(RefereeLicence, RefereeLicenceAdmin)
-admin.site.register(ProfileReferee, ProfileRefereeAdmin)
-admin.site.register(ProfileManager, ProfileManagerAdmin)
