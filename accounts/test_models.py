@@ -19,7 +19,6 @@ class ProfileRefereeModelTest(TestCase):
         referee = Referee.objects.create(
             name="Jan",
             surname="Novák",
-            date_of_birth=date(1985, 6, 15),
             city=city,
             licence=licence
         )
@@ -40,7 +39,6 @@ class ProfileRefereeModelTest(TestCase):
         referee = profile.referee
         self.assertEqual(referee.name, "Jan")
         self.assertEqual(referee.surname, "Novák")
-        self.assertEqual(referee.date_of_birth, date(1985, 6, 15))
         self.assertEqual(referee.city.name, "Praha")
         self.assertEqual(referee.licence.name, "A")
 
