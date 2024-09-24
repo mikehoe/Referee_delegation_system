@@ -31,7 +31,7 @@ class Referee(Model):
         return f"Referee(name={self.name}, surname={self.surname})"
 
     def __str__(self):
-        return f"{self.name} {self.surname} - licence: {self.licence.name}, city:{self.city}"
+        return f"{self.name} {self.surname} - licence: {self.licence.name}, city: {self.city}"
 
 
 class Unavailability(Model):
@@ -44,7 +44,7 @@ class Unavailability(Model):
         verbose_name_plural = "Unavailabilities"
 
     def __repr__(self):
-        return f"Referee(name={self.referee}), unavailable from: {self.date_from} to: {self.date_to}"
+        return f"Referee(name={self.referee.name} {self.referee.surname}), unavailable from: {self.date_from} to: {self.date_to}"
 
     def __str__(self):
-        return f'{self.referee} unavailable from {self.date_from} to {self.date_to}.'
+        return f'{self.referee.name} {self.referee.surname} unavailable from {self.date_from} to {self.date_to}.'
