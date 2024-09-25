@@ -1,10 +1,8 @@
-from datetime import date
-
 from django.test import TestCase
 from django.contrib.auth.models import User
 
 from competitions.models import City
-from referees.models import Referee, RefereeLicenceType
+from referees.models import RefereeLicenceType, Referee
 from .models import ProfileReferee, ProfileManager
 
 
@@ -15,12 +13,11 @@ class ProfileRefereeModelTest(TestCase):
         print('-' * 80)
         city = City.objects.create(name="Praha")
         licence = RefereeLicenceType.objects.create(name="A")
-        user = User.objects.create_user(username='jannovak', password='password')
+        user = User.objects.create_user(username='jannovak', password='test', first_name='Jan', last_name='Novák')
         referee = Referee.objects.create(
-            name="Jan",
-            surname="Novák",
-            city=city,
-            licence=licence
+            licence_number=123456,
+            licence_type=licence,
+            city=city
         )
         ProfileReferee.objects.create(user=user, referee=referee)
 
@@ -40,7 +37,7 @@ class ProfileRefereeModelTest(TestCase):
         self.assertEqual(referee.name, "Jan")
         self.assertEqual(referee.surname, "Novák")
         self.assertEqual(referee.city.name, "Praha")
-        self.assertEqual(referee.licence.name, "A")
+        self.assertEqual(referee.licence_type.name, "A")
 
 
 class ProfileManagerModelTest(TestCase):
@@ -48,7 +45,7 @@ class ProfileManagerModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         print('-' * 80)
-        user = User.objects.create_user(username='josefdvorak', password='password')
+        user = User.objects.create_user(username='josefdvorak', password='test', first_name='Josef', last_name='Dvořák')
         ProfileManager.objects.create(user=user, phone='123456789')
 
     def test_profile_manager_str(self):
