@@ -16,7 +16,7 @@ class Delegation(Model):
         ordering = ['match__date_time']
 
     def __repr__(self):
-        return f"Delegation(match={self.match.code}, referee={self.referee.name} {self.referee.surname}, referee_role={self.referee_role}"
+        return f"Delegation(match={self.match.code}, referee={self.referee.name} {self.referee.surname}, referee_role={self.referee_role})"
 
     def __str__(self):
         return f"{self.match.code}, {self.referee.name} {self.referee.surname}, ({self.referee_role})"
