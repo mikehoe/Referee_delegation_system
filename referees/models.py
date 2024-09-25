@@ -45,7 +45,7 @@ class Referee(Model):
         return f"Referee(name={self.name}, surname={self.surname})"
 
     def __str__(self):
-        return f"{self.name} {self.surname} ({self.licence}, {self.rating}, {self.city})"
+        return f"{self.name} {self.surname} ({self.licence_type}, {self.rating}, {self.city})"
 
 
 class Unavailability(Model):
