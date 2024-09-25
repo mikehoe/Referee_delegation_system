@@ -1,0 +1,359 @@
+[
+  {
+    "model": "competitions.season",
+    "pk": 1,
+    "fields": {
+      "name": "2022/2023",
+      "date_of_start": "2022-09-01",
+      "date_of_end": "2023-08-31"
+    }
+  },
+  {
+    "model": "competitions.season",
+    "pk": 2,
+    "fields": {
+      "name": "2023/2024",
+      "date_of_start": "2023-09-01",
+      "date_of_end": "2024-08-31"
+    }
+  },
+  {
+    "model": "competitions.season",
+    "pk": 3,
+    "fields": {
+      "name": "2024/2025",
+      "date_of_start": "2024-09-01",
+      "date_of_end": "2025-08-31"
+    }
+  },
+  {
+    "model": "competitions.competitionlevel",
+    "pk": 1,
+    "fields": {
+      "name": "extra_league"
+    }
+  },
+  {
+    "model": "competitions.competitionlevel",
+    "pk": 2,
+    "fields": {
+      "name": "first_league"
+    }
+  },
+  {
+    "model": "competitions.competitionlevel",
+    "pk": 3,
+    "fields": {
+      "name": "regional"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 1,
+    "fields": {
+      "name": "Extraliga muži",
+      "level": 1,
+      "category": "men"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 2,
+    "fields": {
+      "name": "Extraliga ženy",
+      "level": 1,
+      "category": "women"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 3,
+    "fields": {
+      "name": "1. liga muži",
+      "level": 2,
+      "category": "men"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 4,
+    "fields": {
+      "name": "1. liga ženy",
+      "level": 2,
+      "category": "women"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 5,
+    "fields": {
+      "name": "1. liga juniori",
+      "level": 2,
+      "category": "junior boys"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 6,
+    "fields": {
+      "name": "1. liga juniorky",
+      "level": 2,
+      "category": "junior girls"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 7,
+    "fields": {
+      "name": "Kadeti západ",
+      "level": 3,
+      "category": "cadet boys"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 8,
+    "fields": {
+      "name": "Kadetky západ",
+      "level": 3,
+      "category": "cadet girls"
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 1,
+    "fields": {
+      "competition": 1,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 2,
+    "fields": {
+      "competition": 2,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 3,
+    "fields": {
+      "competition": 3,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 4,
+    "fields": {
+      "competition": 4,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 5,
+    "fields": {
+      "competition": 5,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 6,
+    "fields": {
+      "competition": 6,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 7,
+    "fields": {
+      "competition": 7,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 8,
+    "fields": {
+      "competition": 8,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 9,
+    "fields": {
+      "competition": 1,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 10,
+    "fields": {
+      "competition": 2,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 11,
+    "fields": {
+      "competition": 3,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 12,
+    "fields": {
+      "competition": 4,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 13,
+    "fields": {
+      "competition": 5,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 14,
+    "fields": {
+      "competition": 6,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 15,
+    "fields": {
+      "competition": 7,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 16,
+    "fields": {
+      "competition": 8,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 17,
+    "fields": {
+      "competition": 1,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 18,
+    "fields": {
+      "competition": 2,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 19,
+    "fields": {
+      "competition": 3,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 20,
+    "fields": {
+      "competition": 4,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 21,
+    "fields": {
+      "competition": 5,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 22,
+    "fields": {
+      "competition": 6,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 23,
+    "fields": {
+      "competition": 7,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 24,
+    "fields": {
+      "competition": 8,
+      "season": 3
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 1,
+    "fields": {
+      "name": "AM",
+      "competition_level": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 2,
+    "fields": {
+      "name": "A",
+      "competition_level": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 3,
+    "fields": {
+      "name": "B",
+      "competition_level": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 4,
+    "fields": {
+      "name": "C",
+      "competition_level": [
+        3
+      ]
+    }
+  }
+]
