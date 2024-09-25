@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="licenceDropdown" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            Licence:
+        </button>
+        <div class="dropdown-menu" aria-labelledby="licenceDropdown">
+            <a class="dropdown-item" href="{% url 'referees' %}">All licences</a>
+            {% for licence in licences %}
+                <a class="dropdown-item" href="{% url 'referees' %}?licence={{ licence.id }}"
+                        {% if licence.id|stringformat:"d" == selected_licence_id|stringformat:"d" %}
+                            style="font-weight: bold; background-color: #69a7f4; color: white;"
+                        {% endif %}>
+                    {{ licence.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h2>Referees:</h2>
+    <ul>
+        {% for referee in referees %}
+            <li>{{ referee.name }} {{ referee.surname }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

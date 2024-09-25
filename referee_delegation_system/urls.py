@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from referees.views import RefereeListView
 from competitions.view_home import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('referees', RefereeListView.as_view(), name='referees'),
 ]
