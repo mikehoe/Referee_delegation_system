@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-light py-2">
+    <div class="container text-center">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Season {{ current_season.name }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for season in seasons %}
+                    <a class="dropdown-item" href="?season={{ season.id }}"{% if season == current_season %} style="font-weight: bold; background-color: #69a7f4; color: white;"{% endif %}>
+                        {{ season.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if current_season %}
+    <ul class="list-group text-center">
+        {% for competition in competitions %}
+            <li class="list-group-item">{{ competition.competition.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-center">No current season available.</p>
+{% endif %}
+{% endblock %}
