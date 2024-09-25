@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Referee</h2>
+<form method="POST">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <div class="form-group">
+        <label for="id_username">Username:</label>
+        <input type="text" id="id_username" name="username" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id_password">Password:</label>
+        <input type="password" id="id_password" name="password" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id_name">First Name:</label>
+        <input type="text" id="id_name" name="name" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id_surname">Last Name:</label>
+        <input type="text" id="id_surname" name="surname" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id_licence_number">Licence Number:</label>
+        <input type="number" id="id_licence_number" name="licence_number" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id_licence_type">Licence Type:</label>
+        <select id="id_licence_type" name="licence_type" class="form-control" required>
+            <option value="" disabled selected>Select licence type</option>
+            {% for licence in licence_types %}
+                <option value="{{ licence.id }}">{{ licence.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="id_city">City:</label>
+        <select id="id_city" name="city" class="form-control" required>
+            <option value="" disabled selected>Select city</option>
+            {% for city in cities %}
+                <option value="{{ city.id }}">{{ city.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="id_rating">Rating:</label>
+        <input type="number" step="0.1" id="id_rating" name="rating" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="id_phone">Phone:</label>
+        <input type="text" id="id_phone" name="phone" class="form-control" />
+    </div>
+    <input id="id_submit" type="submit" value="Save" class="btn btn-primary">
+</form>
+{% endblock %}

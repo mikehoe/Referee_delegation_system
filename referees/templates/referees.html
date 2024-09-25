@@ -1,28 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="licenceDropdown" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            Licence:
-        </button>
-        <div class="dropdown-menu" aria-labelledby="licenceDropdown">
-            <a class="dropdown-item" href="{% url 'referees' %}">All licences</a>
-            {% for licence in licences %}
-                <a class="dropdown-item" href="{% url 'referees' %}?licence={{ licence.id }}"
-                        {% if licence.id|stringformat:"d" == selected_licence_id|stringformat:"d" %}
-                            style="font-weight: bold; background-color: #69a7f4; color: white;"
-                        {% endif %}>
-                    {{ licence.name }}
-                </a>
-            {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Referees:</h2>
+                <ul>
+                    {% for referee in referees %}
+                        <li>
+                            {{ referee.name }} {{ referee.surname }}
+                            <a href="{% url 'referee_edit' referee.id %}" class="btn btn-link">
+                                ✏️
+                            </a>
+                            <a href="{% url 'referee_delete' referee.id %}" class="btn btn-link text-danger" onclick="return confirm('Opravdu chcete smazat tohoto rozhodčího?');">
+                                ❌
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="dropdown mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="licenceDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Licence: {{ selected_licence.name|default:"All licences" }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="licenceDropdown">
+                        <a class="dropdown-item" href="{% url 'referees' %}">All licences</a>
+                        {% for licence in licences %}
+                            <a class="dropdown-item" href="{% url 'referees' %}?licence={{ licence.id }}{% if selected_city_id %}&city={{ selected_city_id }}{% endif %}"
+                               {% if licence.id|stringformat:"d" == selected_licence_id|stringformat:"d" %}
+                                   style="font-weight: bold; background-color: #69a7f4; color: white;"
+                               {% endif %}>
+                                {{ licence.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="dropdown mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        City: {{ selected_city.name|default:"All cities" }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="cityDropdown">
+                        <a class="dropdown-item" href="{% url 'referees' %}">All cities</a>
+                        {% for city in cities %}
+                            <a class="dropdown-item" href="{% url 'referees' %}?city={{ city.id }}{% if selected_licence_id %}&licence={{ selected_licence_id }}{% endif %}"
+                               {% if city.id == selected_city_id %} style="font-weight: bold; background-color: #69a7f4; color: white;"{% endif %}>
+                                {{ city.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="text-left">
+                    <a href="{% url 'referee_add' %}" class="btn btn-primary d-inline-block mb-2">Add Referee</a>
+                </div>
+
+            </div>
         </div>
     </div>
-
-    <h2>Referees:</h2>
-    <ul>
-        {% for referee in referees %}
-            <li>{{ referee.name }} {{ referee.surname }}</li>
-        {% endfor %}
-    </ul>
 {% endblock %}
