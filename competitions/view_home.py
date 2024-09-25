@@ -10,10 +10,7 @@ def home(request):
     selected_season_id = request.GET.get('season')
 
     if selected_season_id:
-        try:
-            current_season = seasons.get(id=selected_season_id)
-        except Season.DoesNotExist:
-            current_season = None
+        current_season = Season.objects.filter(id=selected_season_id).first()
     else:
         current_season = None
         for season in seasons:
@@ -21,10 +18,10 @@ def home(request):
                 current_season = season
                 break
 
-        if not current_season:
+        if current_season is None:
             current_season = seasons.order_by('date_of_start').last()
 
-    if current_season:
+    if current_season is not None:
         competitions = CompetitionInSeason.objects.filter(season=current_season)
 
     context = {
@@ -32,4 +29,5 @@ def home(request):
         'competitions': competitions,
         'current_season': current_season,
     }
+
     return render(request, 'home.html', context)
