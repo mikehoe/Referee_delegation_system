@@ -5,7 +5,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 
 from accounts.models import ProfileReferee
 from competitions.models import City
-from referees.forms import RefereeForm
+from accounts.forms import RefereeForm
 from referees.models import Referee, RefereeLicenceType
 
 
