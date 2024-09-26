@@ -1,0 +1,5245 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add profile manager",
+      "content_type": 7,
+      "codename": "add_profilemanager"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change profile manager",
+      "content_type": 7,
+      "codename": "change_profilemanager"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete profile manager",
+      "content_type": 7,
+      "codename": "delete_profilemanager"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view profile manager",
+      "content_type": 7,
+      "codename": "view_profilemanager"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add profile referee",
+      "content_type": 8,
+      "codename": "add_profilereferee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change profile referee",
+      "content_type": 8,
+      "codename": "change_profilereferee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete profile referee",
+      "content_type": 8,
+      "codename": "delete_profilereferee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view profile referee",
+      "content_type": 8,
+      "codename": "view_profilereferee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add referee",
+      "content_type": 9,
+      "codename": "add_referee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change referee",
+      "content_type": 9,
+      "codename": "change_referee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete referee",
+      "content_type": 9,
+      "codename": "delete_referee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view referee",
+      "content_type": 9,
+      "codename": "view_referee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add unavailability",
+      "content_type": 10,
+      "codename": "add_unavailability"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change unavailability",
+      "content_type": 10,
+      "codename": "change_unavailability"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete unavailability",
+      "content_type": 10,
+      "codename": "delete_unavailability"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view unavailability",
+      "content_type": 10,
+      "codename": "view_unavailability"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add referee licence type",
+      "content_type": 11,
+      "codename": "add_refereelicencetype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change referee licence type",
+      "content_type": 11,
+      "codename": "change_refereelicencetype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete referee licence type",
+      "content_type": 11,
+      "codename": "delete_refereelicencetype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view referee licence type",
+      "content_type": 11,
+      "codename": "view_refereelicencetype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add city",
+      "content_type": 12,
+      "codename": "add_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change city",
+      "content_type": 12,
+      "codename": "change_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete city",
+      "content_type": 12,
+      "codename": "delete_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view city",
+      "content_type": 12,
+      "codename": "view_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add competition",
+      "content_type": 13,
+      "codename": "add_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change competition",
+      "content_type": 13,
+      "codename": "change_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete competition",
+      "content_type": 13,
+      "codename": "delete_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view competition",
+      "content_type": 13,
+      "codename": "view_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add competition level",
+      "content_type": 14,
+      "codename": "add_competitionlevel"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change competition level",
+      "content_type": 14,
+      "codename": "change_competitionlevel"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete competition level",
+      "content_type": 14,
+      "codename": "delete_competitionlevel"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view competition level",
+      "content_type": 14,
+      "codename": "view_competitionlevel"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add season",
+      "content_type": 15,
+      "codename": "add_season"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change season",
+      "content_type": 15,
+      "codename": "change_season"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete season",
+      "content_type": 15,
+      "codename": "delete_season"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view season",
+      "content_type": 15,
+      "codename": "view_season"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add competition in season",
+      "content_type": 16,
+      "codename": "add_competitioninseason"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change competition in season",
+      "content_type": 16,
+      "codename": "change_competitioninseason"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete competition in season",
+      "content_type": 16,
+      "codename": "delete_competitioninseason"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view competition in season",
+      "content_type": 16,
+      "codename": "view_competitioninseason"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add team",
+      "content_type": 17,
+      "codename": "add_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change team",
+      "content_type": 17,
+      "codename": "change_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete team",
+      "content_type": 17,
+      "codename": "delete_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view team",
+      "content_type": 17,
+      "codename": "view_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+      "name": "Can add match",
+      "content_type": 18,
+      "codename": "add_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+      "name": "Can change match",
+      "content_type": 18,
+      "codename": "change_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+      "name": "Can delete match",
+      "content_type": 18,
+      "codename": "delete_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+      "name": "Can view match",
+      "content_type": 18,
+      "codename": "view_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+      "name": "Can add delegation",
+      "content_type": 19,
+      "codename": "add_delegation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+      "name": "Can change delegation",
+      "content_type": 19,
+      "codename": "change_delegation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+      "name": "Can delete delegation",
+      "content_type": 19,
+      "codename": "delete_delegation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+      "name": "Can view delegation",
+      "content_type": 19,
+      "codename": "view_delegation"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wz0XCxRQRkMeDCgKqSKnFA$UC9mUuTPhVI7mvZUFOeITtQ0g7zfJgvlO1zq8FDscxY=",
+      "last_login": "2024-09-26T10:12:46.955",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$e69RnsqhqtJ71TErHBVkBE$7Nu1jp31wr2DmnyMqAbdhJ5srdMZQeiXe0vo5hGlfnQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "referee.admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$TQ80ylWJupgmSsGsZnfnFJ$k3bRJaqLgxM0z7UZqPEmmW5CN5612l3aIu7boLwuTpg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "competition.admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$LD4dLrmmBnCWlSMF5bg6er$Laz37SWwAiP1XvQSwicb8/L1LKOsLiD99f16fU2c8NE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "delegation.admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$QfXxzcR2MSylVQPrLu4Ty2$C7MRT5aqjQjYmx0BsB92cJwNuuVdk4u1SmpY6BqSZio=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "marian.kovacik",
+      "first_name": "Marián",
+      "last_name": "Kováčik",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$791z9V9u8TP5H1FqYJD4DE$JeUSjvy5wOzRQ+XwedFXrR9s25jCfNdoYkZsgZfV4eo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jan.folvarsky",
+      "first_name": "Ján",
+      "last_name": "Folvarský",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$nPHLzg04D9tjMzQY4a9mjO$+SV22G4yRJAkIMqX1bVjZezKct6uErND9AVwU8rj+/I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "igor.porvaznik",
+      "first_name": "Igor",
+      "last_name": "Porvazník",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$OjrWP53Z5QoruXiBMO1Npu$DhG+xOLijEaUiMmCd/vYv9rp99fRbAjnLDUcsW6Hcx0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jan.servicky",
+      "first_name": "Ján",
+      "last_name": "Servický",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$EBEKEijpk5YTHhe3BegnPn$yRhah6S36uQqhM4QB8wM2QYxua9I/AXLL6UbKtJK4HQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "danica.viktorini-lisa",
+      "first_name": "Danica",
+      "last_name": "Viktoríni-Lisá",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$HodTE4JgrGKflpOHbsHpbq$BltCzX2tk3mD2rh8Dcv4ogGF6huqCL7DipVUmSxieXg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "vladimir.zakutansky",
+      "first_name": "Vladimír",
+      "last_name": "Zakuťanský",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$yuY1phOKXXRwglJ5fYL68M$0ss84nDMSNc1hQPhJdA8ORG3/9w5iyb7P92fpH3xLzc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.kuzma",
+      "first_name": "Peter",
+      "last_name": "Kuzma",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$HhggxBSsC6nJQnn00zdChJ$/vVLZQqfGtMoSRUU+8/SQu0BvoqqvqRA1+hh7tY7wJI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "marek.szasz",
+      "first_name": "Marek",
+      "last_name": "Szász",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 13,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$yNF9Wy8ChoYxlxSBS91RvH$lJBC5nYzlEGNtf2ZrfzDz5/MmokORV0HEUo0nICUGmE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "juraj.mokry",
+      "first_name": "Juraj",
+      "last_name": "Mokrý",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 14,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$JlltHSoa92DwGaXysqeYR2$8XyWgjMw0vmR6c+VHVtZ3Wpn1aJcivN5k7YxwX6LcJI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "branislav.sekerka",
+      "first_name": "Branislav",
+      "last_name": "Sekerka",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 15,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$HKphfWHB0qwDk76VyU8x8H$OvZPo8Pb06Zq9jO92VgD6/RGjOOPgCa/gf1AI/6nOy0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.hoger",
+      "first_name": "Peter",
+      "last_name": "Höger",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 16,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$bbB8UWgP4EG7wXzcnDmrH6$ijIjyQ3HmOUN3NHSbm5/JGFOkvuYpN61xhy7ZDzaJN0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ruzena.silna",
+      "first_name": "Ružena",
+      "last_name": "Silná",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 17,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$K4vF9jWO0o3ppOP6C1r4WJ$4Dz0TvzPkXX7pY316FLi7b9TStDTTcsY/zV7103R0xo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "pavol.andrejcak",
+      "first_name": "Pavol",
+      "last_name": "Andrejčák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$F8CsnPmJSG2yClICz5qqWn$LQJXv61c2oWNMcsjehfNLZvE4ceUtLjbfSv+8GFCJPI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "miroslav.sarka",
+      "first_name": "Miroslav",
+      "last_name": "Sarka",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 19,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$kjmbOncGl6yjUQeYCPtat9$griFj/2K8Ge2dBizM62Ak+X8d1fP91aJORa3TWUuKWI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "miroslav.juracek",
+      "first_name": "Miroslav",
+      "last_name": "Juráček",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$knoGJx2nnp8noXsFuCr7W2$Sguf9QoB/SJkGwkCEoasjnxVEjDknRTAxmvHI7iNu/A=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "igor.schimpl",
+      "first_name": "Igor",
+      "last_name": "Schimpl",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 21,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$TLMIYm3EeAMZM6N3YEaxCX$mq7XZpKf/auWNSvYeBruut1H4zurlZmrIg31mDkWalM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "fedor.hnat",
+      "first_name": "Fedor",
+      "last_name": "Hnát",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 22,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$2iLgNB7lpU2H1kVpXc4ar3$QpoZkiEjQS0Pyzqyz7jkuYPtbbjp5eogsffHOjULlW8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jana.niklova",
+      "first_name": "Jana",
+      "last_name": "Niklová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 23,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$gjCipfY1hOlqZgZeTfACxb$84KiDfKGWrOr3m9VflncaKzirNGxuvKv2gaf8ojAF20=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "boris.kovac",
+      "first_name": "Boris",
+      "last_name": "Kováč",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 24,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$GrTnRlfwQ7GNczUVSUrZ8F$cggxKqcYFd04sjQDtZ7R4yHuzR158BeUl5Ar5Bp9rSA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "andrej.gerboc",
+      "first_name": "Andrej",
+      "last_name": "Gerboc",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 25,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$jDE0j2SSOn4dy5Ycj98YEr$uh2vyjq+VfkhUyHgi8wPCBm+dT9gBbMZ/ZboR4ki7iU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "dusan.abelovsky",
+      "first_name": "Dušan",
+      "last_name": "Abelovský",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 26,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$HanvoEdQPpnoDgBCMWreYJ$3V7tiQd0CuxJQwXlee3NZowmyqx0TX5rg5KY7lDv1J0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.cuntala",
+      "first_name": "Peter",
+      "last_name": "Čuntala",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 27,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$T31GQuhD5xEFVru33IEnPu$7Cc5jhw9BlYIH2sl1uVpq1zpWkMFkUxeICIe0KmhlfQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "fedor.tirsel",
+      "first_name": "Fedor",
+      "last_name": "Tiršel",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 28,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$QdId51Jo59IKKBnh971eMk$C6GWeR9Asz9DisS+VFJywToPK5FUhMnwYscsqzCgOjg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lubos.kohut",
+      "first_name": "Ľuboš",
+      "last_name": "Kohút",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 29,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$C6gwYu2CMowDCaR8APoHHb$wYanmwEO0uurpiqe6UP1dsSorCPT6r0dZjgEld31yoc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.malik",
+      "first_name": "Peter",
+      "last_name": "Malík",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 30,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$6m1U7nv0ssA5d9buz4Vz6w$E3UckcmomhvqUaJ8mrJcSSw4rqtYcD57Xzzyp8E0EqE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.tino",
+      "first_name": "Peter",
+      "last_name": "Tiňo",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 31,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$32r0A72Qg9WArQqXKxAcil$FxUUnQCAHNsuKBDq1Vqkzp1QYY/m7v880ARVZNoNAWA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "miroslav.orolim",
+      "first_name": "Miroslav",
+      "last_name": "Orolím",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 32,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$vFpIvm44AvJOlTZwn8Dxiw$/WE7l/rbMgLF2PkcmtbSo8Xcgw4mMMgxIDwR5LUMOL0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "vasil.cicak",
+      "first_name": "Vasil",
+      "last_name": "Cicák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 33,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$fp2XcVZaxD3MUH9pQZ6scv$IIp0CV6GlnqYKDDh9k/ysXk8V3XiZDOjjEYLGtDrfKE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "milan.pivarcek",
+      "first_name": "Milan",
+      "last_name": "Pivarček",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 34,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$4xYMbi8Ruzss7HyG5Ozc3w$9c4IWmVSDki8GXb7nPKE86+frCh1gg8G/Q5X1SCPOKg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "michal.svorencik",
+      "first_name": "Michal",
+      "last_name": "Svorenčík",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 35,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$GpsYZ0R1PsDGziDA6qyWWI$FNlacYwEB0Kg9WEYhZJOG/NZR3QgsNKfyARX9LlgrWs=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "julius.vavrek",
+      "first_name": "Július",
+      "last_name": "Vavrek",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 36,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$xZUfSdFU7eJdbxVVPo2zXc$wF0GTjYD6QWbMsTIue13xGQaPSIi48mTtMI+x2EpZao=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petra.myskova",
+      "first_name": "Petra",
+      "last_name": "Myšková",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 37,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$bNvbEaRx25vJUG5ttkBLPa$eYsDFJPTIXAscRKxVLWDu5jaKUBcqtQ2b+kGv+YASiQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lukas.kralovic",
+      "first_name": "Lukáš",
+      "last_name": "Královič",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 38,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$nlv3wFvC9cARH5YTlz7l8m$0NsZz03SuB6u4K7utBFXrY5qfvdjHc+J2BatQxvH8ts=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "veronika.garayova",
+      "first_name": "Veronika",
+      "last_name": "Garayová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 39,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$RRnWeXA4HSHYztlMm6o71M$eh1dwIksuD4UxzJ/kOkIRqYw8b442dxyjd76cFYS2Ug=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "martin.smolko",
+      "first_name": "Martin",
+      "last_name": "Smolko",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 40,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$xrOQHndbtOLrIPZOzP0Hn9$G40A8JSG/VJn3AkYXHyJ9jTC5mzeWGf73d/lnpxGfDk=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ladislav.jakab-ml",
+      "first_name": "Ladislav",
+      "last_name": "Jakab, ml.",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 41,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$c6AkvFNGDwz5bKDeYDIKfA$L4IdWvSD+djPNSXEXj4m0pCIGwdyxKnvBmPr/mCYyDk=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "dusan.dovicovic",
+      "first_name": "Dušan",
+      "last_name": "Dovičovič",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 42,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$naSOwZeU9oFr6XMY5asqzO$UGQXPd8syTp5vPxXoroyKAzJResbPofaQHPObuksBFQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "tibor.holcik",
+      "first_name": "Tibor",
+      "last_name": "Holčík",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 43,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$4tqLyxCMF1oJdPsFQdrUzr$Tq/JRUsNEk9OKnvl/zeu4zoLCX5zlrBeEH2uOx1yN54=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "katarina.nemcova",
+      "first_name": "Katarína",
+      "last_name": "Nemcová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 44,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$QvMF5OJonPz4E9zjtBecql$PwQs3yzP7QDUgjKQP0Fl7Nns4SNSzc+R7JVCiirz14U=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "luboslav.sotak",
+      "first_name": "Ľuboslav",
+      "last_name": "Soták",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 45,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$FYWnvWQs7t13gpQ5gSugzg$E9vtUH8Fg12YtlaLlYWlgmdnd9MXBQAHhqAIboOeYNg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ivan.hudak",
+      "first_name": "Ivan",
+      "last_name": "Hudák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 46,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$f7k3kGvIGJdwQqCUxqw8F6$FgJYvWKKSTBxeRQuOc6z6oPzV2O8/o6seyGwNjF+ZHk=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "michaela-maria.gregorova",
+      "first_name": "Michaela Mária",
+      "last_name": "Gregorová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 47,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$tzTLujm0Ql2AWHfK5hLtEF$INTsxbz62iJ8xQorB18IeAnzzm5wL+Twi6025KmqFfo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jaromir.stepanek",
+      "first_name": "Jaromír",
+      "last_name": "Štěpánek",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 48,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$IxH8wgtpvbOkqxzZp08akX$+Sj5TXPaKFkfIsOPNVgyBhhhxIvrMnHjUmi7XZXBZ2Q=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "marian.mitterpach",
+      "first_name": "Marián",
+      "last_name": "Mitterpach",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 49,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$cMcQgBuei273jeqcKgZ3RO$xP+8CaTFK2WPWVFthJeaP6PyKTTkSk1m7F3txObjV90=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "andrii.yurlov",
+      "first_name": "Andrii",
+      "last_name": "Yurlov",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 50,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$uSTKBQhLQeWqq98alXWl92$GXKUFfH8YOpmvYOK+CsZJes0eHL/XajAjo+Dcee1u6s=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "katarina.platznerova",
+      "first_name": "Katarína",
+      "last_name": "Platznerová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 51,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$jnrKQGjRyGK0MNADZTwM3f$Y74or75tvzhS/BrsZLwkOE6h80+HxUrw/eqL4YYulok=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "martin.hrcka",
+      "first_name": "Martin",
+      "last_name": "Hrčka",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 52,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$adJFtz00Ai14tZpeN3eXYo$lvYXbzB8Hio8TFeesvt37+GVrpCQj11LxhWyRi2yNNE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "marek.polcan",
+      "first_name": "Marek",
+      "last_name": "Polčan",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 53,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$mnZcWOmaNraMb3OvIqa1bL$0UzdG5RSVND3kTtIs4rcKzmVzRutfvT+wfiD8tN2U7I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "denisa.kubovicova",
+      "first_name": "Denisa",
+      "last_name": "Kubovičová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 54,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$HbL8wc6tmfQem36zCEVcAX$r8xzFfzqA27i/wbQk/6fXQ8PYDroE+Pi3saxh7/crAM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "michal.strelec",
+      "first_name": "Michal",
+      "last_name": "Strelec",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 55,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$XyohdoxWtd9WieKDk9A6ml$iTaVpdm8KRdsjSiL/eIvmbcJ7p1XcjYQX4lcB29g4Og=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.toman",
+      "first_name": "Peter",
+      "last_name": "Toman",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 56,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$susSLbiJV2xhABHwD23S4B$Vc2nE4Sxe37okZE3OmKz5rqPxsGqEHYW4QLFqu3CBSo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "martin.miscik",
+      "first_name": "Martin",
+      "last_name": "Miščík",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 57,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$Pz0MSmejCczLwZ8FuqzIzX$ssZeaWo3JEkiTKRekqf65x68laF5XBUgZKmngGHFFCc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "valter.repka",
+      "first_name": "Valter",
+      "last_name": "Repka",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 58,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$qnHuoePFNOT17cKzuwckQX$yvAXJEP9Ua4kBq5+9gvsHpjvGrJ1uK0vBa+LZHfzgqQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "matej.gala",
+      "first_name": "Matej",
+      "last_name": "Gála",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 59,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$5kNXJmbxH8QRvTDDKB0ODk$ju3mLmlWNf+aSelJFxV8ri3B8iKzpas5qEnHadOVHho=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "daniel.kohani",
+      "first_name": "Daniel",
+      "last_name": "Koháni",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 60,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$qiBCwM2h9C7XjoxQrV8JhC$pGAPP1g0rY1nmch6V0zVIAlmwYkCIWNrV1GJYZjH770=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "maros.sopko",
+      "first_name": "Maroš",
+      "last_name": "Sopko",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 61,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$uqI4v1K8lgB9gXiDEm6qVx$VLXNnt8eEfXXqvo6WkrgRrBOVC2J/PCdtq5Rp7K5xcU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "tomas.pikulik",
+      "first_name": "Tomáš",
+      "last_name": "Pikulík",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 62,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$upktNy3AEjfTsWx4nXJulE$BV7MD8PHLsg0ovoLcfYKaQAY9BeweIDT+oiPZz1utik=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "andrej.bartosovic",
+      "first_name": "Andrej",
+      "last_name": "Bartošovič",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 63,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$DeHQTWApJ3W0jtl4ieeKYk$B1rJVPws+gKB2+JemHaYVgDykFRH8kx3kjw3hqtzUjU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "milan.kohut",
+      "first_name": "Milan",
+      "last_name": "Kohút",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 64,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$RQXQMye0Ee65QDjSeZwhR1$ab04LDzLTnmrbUC86IylmvaRnS39QAEaaG+PMcTH6Zg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "adam.suchanek",
+      "first_name": "Adam",
+      "last_name": "Suchánek",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 65,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$FuVGpHUQJXhl37i4e6ytnM$lso19v7D3sytAZHlCIJ9NG+7L6tZpNdYkBDDBYKJ570=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "filip.duda",
+      "first_name": "Filip",
+      "last_name": "Duda",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 66,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$uuSmF4uLQGG9noz2Wsml8Q$xqK1yt8D6hLXZ04g98mZoO6BFEt75sU4mVgxFX4oXv4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "oleg.blicha",
+      "first_name": "Oleg",
+      "last_name": "Blicha",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 67,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$fWLCfOQKOePR1xqBfG0Fjy$V48VmKz9SSn/OIGs5gPnjtRsWGY5YnQD6tyCgHGj1/Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "miriama.hudacinova",
+      "first_name": "Miriama",
+      "last_name": "Hudačinová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 68,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$EfU8vEeKJLS7EF0AoWMchz$XWO+19/n5WFKTiE4G9BTrHIgNvwgJX7oXM7OXBIOKyY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "michal.grendel",
+      "first_name": "Michal",
+      "last_name": "Grendel",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 69,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$nGfs8W8oJxhg0UzfrZ4u0l$t8oYBE0DgjxJpHXiY/1EojX+lLw78ERJLkLC1xQ/Gus=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "matus.lehet",
+      "first_name": "Matúš",
+      "last_name": "Lehet",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 70,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$GvPCXnnIf4Ui60m3wJRMLW$04TZZmeWen57AFBLdwtvghPDsYJKtt+8DeeXblCAdIw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "martin.petrakovic",
+      "first_name": "Martin",
+      "last_name": "Petrakovič",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 71,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$dBPT7DAbxdaGXfea9Gfgtr$9ivpRuuUUU6zJC6nwoZEXLS9OVzFsRRc56dEnXBk00I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "andrej.slovak",
+      "first_name": "Andrej",
+      "last_name": "Slovák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 72,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$rLY7omhedzCxpJ9TyQS5Ab$mcdu5aT19JVYigw3MkGQH/sFVSdleT9PUxiUtkTWTrY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ema.szaszova",
+      "first_name": "Ema",
+      "last_name": "Szászová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 73,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$0Z9OtdlQExBc8LlQvcpibI$kxq/mUKsrc6SBQmKTJ2auhs+enSNlG3PuT/YiQoFY6Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "maros.sturak",
+      "first_name": "Maroš",
+      "last_name": "Šturák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 74,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$bgPuMOo57yh3ID0e0VYEzr$pPZN71aAsVzlFC4RQdDQyjKW103j4Os7kA+AgkhbNyc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "karol.sramek",
+      "first_name": "Karol",
+      "last_name": "Šrámek",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 75,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$Sd3N0XLOWGgtGiqHng3jLI$+NlQ6Pv7ydvkW2uldrROg5IYuevI9KMKfjo9ZmVAkJc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jan.maruniak",
+      "first_name": "Ján",
+      "last_name": "Maruniak",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 76,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$mOzR1d2dDEmWjBLDi4X8v2$SvTpvBuBj74C3o9TqjoYjnu7upk+3kqk/TjPhoycwfM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "samuel.horvath",
+      "first_name": "Samuel",
+      "last_name": "Horváth",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 77,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$cRoZiUKIP0Pesdp2QIUHO1$MW9x5kfqvVV+yx3LmfovNaHc6udUCJhCAuK9HtL7JO8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "marek.vozar",
+      "first_name": "Marek",
+      "last_name": "Vozár",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 78,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$ywT4LzUOTYCRfGUJPnOJfu$Qa8U2Zi9oSlSnNZhJ5AbvfMX2Nhv4X5yn996kXlpEMU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "timotej.palkovic",
+      "first_name": "Timotej",
+      "last_name": "Palkovič",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 79,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$TDEht6DmvO9a4qp4cUwlnQ$mH+K/9y71H8WutlCXRhfOpVWZ3O+psnSoPubyf4QCHI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "sona.salisova",
+      "first_name": "Soňa",
+      "last_name": "Sališová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 80,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$SziKf9Fuv14GVIcUSf8epz$WpcioMeH7ZVUuRQM3GZtZsA9Mm2ogAphdr934AfLQ0c=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "linda.zahradnikova",
+      "first_name": "Linda",
+      "last_name": "Zahradníková",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 81,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$dU8sd6kGOdxcCdZl5XiMRO$5O4RPwT4lyzXOyOpRzv8WjNCnTrPamMpKOhz+uR/cT0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "dominik.dlugos",
+      "first_name": "Dominik",
+      "last_name": "Dlugoš",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 82,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$rGolCbAYJhPcWwkjIoLZqt$vGSWcbENKSdp23rnq8oe/K7Hr8IHoHJ6guxN05c8+xg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "samuel.kundrata",
+      "first_name": "Samuel",
+      "last_name": "Kundrata",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 83,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$jMBXl5ca3k4OMs4kJ5orTU$6ZJjzQjzyuxvrQHhD6zut1IWu7c/qU8+NdGRoATCPMI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jan.vojcinak",
+      "first_name": "Ján",
+      "last_name": "Vojčinák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 84,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$vJOQUdqocYiePgifTN8LGW$81sI/lCorgTPh2oyBJf6QhruPoZHgdjP+s86DW70uYg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petra.ivancakova",
+      "first_name": "Petra",
+      "last_name": "Ivančáková",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 85,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$l2B7rP1UNYA0g1S1oG5aQS$odrt1z+1nowv/cEEeIKbvSrDZsaR+VE37gnwsXoW/Ns=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "danylo.romanov",
+      "first_name": "Danylo",
+      "last_name": "Romanov",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 86,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$hd3dS2NyoQ7NbfGzAlO4Fg$ceZmgH/FMmr4th+FG2wcYlT5E3VRiZY3kDuPwWTms9s=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "gregor.andrejko",
+      "first_name": "Gregor",
+      "last_name": "Andrejko",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 87,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$jAfs9F99stzvKOL6Dg45gD$PBDksIuutTt7xatCe0ZhNLFraQdxa/0p88VfdTd+QtA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "zoja.bohacsekova",
+      "first_name": "Zoja",
+      "last_name": "Bohácseková",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 88,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$v6LR243JeCgEyDJPRx9NZD$hOtFPaKdUl6i7n0w6VPnKt7twKe9pILEvdoeVY0JdHQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lukas.ganaj",
+      "first_name": "Lukáš",
+      "last_name": "Ganaj",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 89,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$q2XteJcvTTGRrwNf02S9gU$lKbgaCURrIC0w/+txhS7W8fbXywtuZ5UkN3sIWvaAH0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "leonard-erik.gombar",
+      "first_name": "Leonard Erik",
+      "last_name": "Gombár",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 90,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$vhbDKqYOaCSqeFYQqxVx3G$mfog+8+/d+7BCTeEpeQ9IlmahMe/+ngIPN/2xbRaD1U=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "michaela.dubenova",
+      "first_name": "Michaela",
+      "last_name": "Dubeňová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 91,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$RlxwUa0dnqh2m8AfHS5qlw$zCs7go3NYWPPEQtzAn5hL+LpPyqliP9Bh8x8Rz2RjLI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "miroslav.kadnar",
+      "first_name": "Miroslav",
+      "last_name": "Kadnár",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 92,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$BYlCWPVYJwB5OMuMWn5c47$0+llcAquCrzuFZN18QZ3fbhiix0ZpMgY4CRbIDviTLE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "natalia-marta.kajabova",
+      "first_name": "Natália Marta",
+      "last_name": "Kajabová",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 93,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$MUZ4DGZ9XlPZeV3FgLsAqM$mvgoW4yl9+KbrtC3Xx2PyIs8vQd/qvsV4gMZyzagy7w=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "adam.lastivka",
+      "first_name": "Adam",
+      "last_name": "Lastivka",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 94,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$TIFuFVObyMsAmIVPbwXuh9$dOUdWW7hk6/9KRNcsnod23lZy8wESYKEH3VX2f+0h8U=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lucia.liskova",
+      "first_name": "Lucia",
+      "last_name": "Lišková",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 95,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$jsIDjRXBH8BrxWXoxDBp5f$NaggpAUIrkZZSPHYpzBahl1gpjV3Qg0x1SHAejr63fM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "alexej.maslak",
+      "first_name": "Alexej",
+      "last_name": "Maslák",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 96,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$L9QjnZIrIy0E3uQ1GIduEg$tkjeT37mLVx05OKD3rOQw+s2OCywdIg9U2up4c/sO68=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "marcela.meroova",
+      "first_name": "Marcela",
+      "last_name": "Meroova",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 97,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$ljUdeQeT3zl547cikNAfvB$vFQA94++oLN0mgwMkdyM5r3fDY5I1MBl6LZmWPb3Pvc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "peter.schatz",
+      "first_name": "Peter",
+      "last_name": "Schatz",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 98,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$tDZxOxDOJmBCby1iUQzRnn$D3FDs7pPRF8D6cWblMznI/qmqWb50O9AtFPovpPrbN8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ivan.valasik",
+      "first_name": "Ivan",
+      "last_name": "Valašik",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 99,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$Q5QhQEaL0HNfKCqd3QK0lN$GUhLZVo3ILjY7RMFzUEj1lm6XgHpWa4FwBdtPwTQ5Po=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "rebeka-elizabeth.vuckan",
+      "first_name": "Rebeka Elizabeth",
+      "last_name": "Vučkan",
+      "email": "luboskohut.shop@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-23T20:17:00.296",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "accounts",
+      "model": "profilemanager"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "accounts",
+      "model": "profilereferee"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "referees",
+      "model": "referee"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "referees",
+      "model": "unavailability"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "referees",
+      "model": "refereelicencetype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "competitions",
+      "model": "city"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "competitions",
+      "model": "competition"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "competitions",
+      "model": "competitionlevel"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "competitions",
+      "model": "season"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "competitions",
+      "model": "competitioninseason"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "competitions",
+      "model": "team"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "competitions",
+      "model": "match"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "delegations",
+      "model": "delegation"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "05z82lmhwfaeeb32e96hu7c7p6pogi5r",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2pBShjK4dO8ZyNBhpGpoUtqV8e7apAvd_vfef6lI21ri1vISJ1ZnZdTpd0s0PnLdAd-p3mY9znVdpqR3RR-06evM-Xk53L-DQq1862BdFkgGpTMMHoHZ-sH1QayBIOQMOLEImaznnj0a1-HgCUBSCITq_QHFhzcE:1stjcE:bcdONik9yIm--bO5BG9Nc9etnm3_lhgq8J03ogrf148",
+      "expire_date": "2024-10-10T10:12:46.964"
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 1,
+    "fields": {
+      "user": 5,
+      "referee": 1
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 2,
+    "fields": {
+      "user": 6,
+      "referee": 2
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 3,
+    "fields": {
+      "user": 7,
+      "referee": 3
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 4,
+    "fields": {
+      "user": 8,
+      "referee": 4
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 5,
+    "fields": {
+      "user": 9,
+      "referee": 5
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 6,
+    "fields": {
+      "user": 10,
+      "referee": 6
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 7,
+    "fields": {
+      "user": 11,
+      "referee": 7
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 8,
+    "fields": {
+      "user": 12,
+      "referee": 8
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 9,
+    "fields": {
+      "user": 13,
+      "referee": 9
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 10,
+    "fields": {
+      "user": 14,
+      "referee": 10
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 11,
+    "fields": {
+      "user": 15,
+      "referee": 11
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 12,
+    "fields": {
+      "user": 16,
+      "referee": 12
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 13,
+    "fields": {
+      "user": 17,
+      "referee": 13
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 14,
+    "fields": {
+      "user": 18,
+      "referee": 14
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 15,
+    "fields": {
+      "user": 19,
+      "referee": 15
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 16,
+    "fields": {
+      "user": 20,
+      "referee": 16
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 17,
+    "fields": {
+      "user": 21,
+      "referee": 17
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 18,
+    "fields": {
+      "user": 22,
+      "referee": 18
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 19,
+    "fields": {
+      "user": 23,
+      "referee": 19
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 20,
+    "fields": {
+      "user": 24,
+      "referee": 20
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 21,
+    "fields": {
+      "user": 25,
+      "referee": 21
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 22,
+    "fields": {
+      "user": 26,
+      "referee": 22
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 23,
+    "fields": {
+      "user": 27,
+      "referee": 23
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 24,
+    "fields": {
+      "user": 28,
+      "referee": 24
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 25,
+    "fields": {
+      "user": 29,
+      "referee": 25
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 26,
+    "fields": {
+      "user": 30,
+      "referee": 26
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 27,
+    "fields": {
+      "user": 31,
+      "referee": 27
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 28,
+    "fields": {
+      "user": 32,
+      "referee": 28
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 29,
+    "fields": {
+      "user": 33,
+      "referee": 29
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 30,
+    "fields": {
+      "user": 34,
+      "referee": 30
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 31,
+    "fields": {
+      "user": 35,
+      "referee": 31
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 32,
+    "fields": {
+      "user": 36,
+      "referee": 32
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 33,
+    "fields": {
+      "user": 37,
+      "referee": 33
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 34,
+    "fields": {
+      "user": 38,
+      "referee": 34
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 35,
+    "fields": {
+      "user": 39,
+      "referee": 35
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 36,
+    "fields": {
+      "user": 40,
+      "referee": 36
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 37,
+    "fields": {
+      "user": 41,
+      "referee": 37
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 38,
+    "fields": {
+      "user": 42,
+      "referee": 38
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 39,
+    "fields": {
+      "user": 43,
+      "referee": 39
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 40,
+    "fields": {
+      "user": 44,
+      "referee": 40
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 41,
+    "fields": {
+      "user": 45,
+      "referee": 41
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 42,
+    "fields": {
+      "user": 46,
+      "referee": 42
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 43,
+    "fields": {
+      "user": 47,
+      "referee": 43
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 44,
+    "fields": {
+      "user": 48,
+      "referee": 44
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 45,
+    "fields": {
+      "user": 49,
+      "referee": 45
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 46,
+    "fields": {
+      "user": 50,
+      "referee": 46
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 47,
+    "fields": {
+      "user": 51,
+      "referee": 47
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 48,
+    "fields": {
+      "user": 52,
+      "referee": 48
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 49,
+    "fields": {
+      "user": 53,
+      "referee": 49
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 50,
+    "fields": {
+      "user": 54,
+      "referee": 50
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 51,
+    "fields": {
+      "user": 55,
+      "referee": 51
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 52,
+    "fields": {
+      "user": 56,
+      "referee": 52
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 53,
+    "fields": {
+      "user": 57,
+      "referee": 53
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 54,
+    "fields": {
+      "user": 58,
+      "referee": 54
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 55,
+    "fields": {
+      "user": 59,
+      "referee": 55
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 56,
+    "fields": {
+      "user": 60,
+      "referee": 56
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 57,
+    "fields": {
+      "user": 61,
+      "referee": 57
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 58,
+    "fields": {
+      "user": 62,
+      "referee": 58
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 59,
+    "fields": {
+      "user": 63,
+      "referee": 59
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 60,
+    "fields": {
+      "user": 64,
+      "referee": 60
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 61,
+    "fields": {
+      "user": 65,
+      "referee": 61
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 62,
+    "fields": {
+      "user": 66,
+      "referee": 62
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 63,
+    "fields": {
+      "user": 67,
+      "referee": 63
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 64,
+    "fields": {
+      "user": 68,
+      "referee": 64
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 65,
+    "fields": {
+      "user": 69,
+      "referee": 65
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 66,
+    "fields": {
+      "user": 70,
+      "referee": 66
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 67,
+    "fields": {
+      "user": 71,
+      "referee": 67
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 68,
+    "fields": {
+      "user": 72,
+      "referee": 68
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 69,
+    "fields": {
+      "user": 73,
+      "referee": 69
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 70,
+    "fields": {
+      "user": 74,
+      "referee": 70
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 71,
+    "fields": {
+      "user": 75,
+      "referee": 71
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 72,
+    "fields": {
+      "user": 76,
+      "referee": 72
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 73,
+    "fields": {
+      "user": 77,
+      "referee": 73
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 74,
+    "fields": {
+      "user": 78,
+      "referee": 74
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 75,
+    "fields": {
+      "user": 79,
+      "referee": 75
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 76,
+    "fields": {
+      "user": 80,
+      "referee": 76
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 77,
+    "fields": {
+      "user": 81,
+      "referee": 77
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 78,
+    "fields": {
+      "user": 82,
+      "referee": 78
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 79,
+    "fields": {
+      "user": 83,
+      "referee": 79
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 80,
+    "fields": {
+      "user": 84,
+      "referee": 80
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 81,
+    "fields": {
+      "user": 85,
+      "referee": 81
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 82,
+    "fields": {
+      "user": 86,
+      "referee": 82
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 83,
+    "fields": {
+      "user": 87,
+      "referee": 83
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 84,
+    "fields": {
+      "user": 88,
+      "referee": 84
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 85,
+    "fields": {
+      "user": 89,
+      "referee": 85
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 86,
+    "fields": {
+      "user": 90,
+      "referee": 86
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 87,
+    "fields": {
+      "user": 91,
+      "referee": 87
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 88,
+    "fields": {
+      "user": 92,
+      "referee": 88
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 89,
+    "fields": {
+      "user": 93,
+      "referee": 89
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 90,
+    "fields": {
+      "user": 94,
+      "referee": 90
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 91,
+    "fields": {
+      "user": 95,
+      "referee": 91
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 92,
+    "fields": {
+      "user": 96,
+      "referee": 92
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 93,
+    "fields": {
+      "user": 97,
+      "referee": 93
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 94,
+    "fields": {
+      "user": 98,
+      "referee": 94
+    }
+  },
+  {
+    "model": "accounts.profilereferee",
+    "pk": 95,
+    "fields": {
+      "user": 99,
+      "referee": 95
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 1,
+    "fields": {
+      "name": "AM",
+      "competition_level": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 2,
+    "fields": {
+      "name": "A",
+      "competition_level": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 3,
+    "fields": {
+      "name": "B",
+      "competition_level": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.refereelicencetype",
+    "pk": 4,
+    "fields": {
+      "name": "C",
+      "competition_level": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 1,
+    "fields": {
+      "licence_number": 56,
+      "licence_type": 4,
+      "city": 30,
+      "rating": 79.5,
+      "phone": "+421911570905"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 2,
+    "fields": {
+      "licence_number": 67,
+      "licence_type": 4,
+      "city": 23,
+      "rating": 74.6,
+      "phone": "+421908973090"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 3,
+    "fields": {
+      "licence_number": 92,
+      "licence_type": 1,
+      "city": 29,
+      "rating": 92.8,
+      "phone": "+421905696130"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 4,
+    "fields": {
+      "licence_number": 95,
+      "licence_type": 3,
+      "city": 23,
+      "rating": 78.4,
+      "phone": "+421905832246"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 5,
+    "fields": {
+      "licence_number": 123,
+      "licence_type": 1,
+      "city": 1,
+      "rating": 92.0,
+      "phone": "+421905263888"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 6,
+    "fields": {
+      "licence_number": 133,
+      "licence_type": 3,
+      "city": 1,
+      "rating": 76.9,
+      "phone": "+421904364239"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 7,
+    "fields": {
+      "licence_number": 139,
+      "licence_type": 3,
+      "city": 4,
+      "rating": 75.3,
+      "phone": "+421905876777"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 8,
+    "fields": {
+      "licence_number": 141,
+      "licence_type": 2,
+      "city": 12,
+      "rating": 87.5,
+      "phone": "+421918799631"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 9,
+    "fields": {
+      "licence_number": 169,
+      "licence_type": 1,
+      "city": 31,
+      "rating": 96.0,
+      "phone": "+421905791604"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 10,
+    "fields": {
+      "licence_number": 172,
+      "licence_type": 3,
+      "city": 10,
+      "rating": 85.6,
+      "phone": "+421948600748"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 11,
+    "fields": {
+      "licence_number": 230,
+      "licence_type": 1,
+      "city": 23,
+      "rating": 93.6,
+      "phone": "+421905604576"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 12,
+    "fields": {
+      "licence_number": 271,
+      "licence_type": 4,
+      "city": 4,
+      "rating": 68.8,
+      "phone": "+421903437417"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 13,
+    "fields": {
+      "licence_number": 280,
+      "licence_type": 2,
+      "city": 32,
+      "rating": 88.0,
+      "phone": "+421905121322"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 14,
+    "fields": {
+      "licence_number": 307,
+      "licence_type": 2,
+      "city": 1,
+      "rating": 95.0,
+      "phone": "+421903822180"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 15,
+    "fields": {
+      "licence_number": 343,
+      "licence_type": 1,
+      "city": 1,
+      "rating": 95.8,
+      "phone": "+421948304308"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 16,
+    "fields": {
+      "licence_number": 346,
+      "licence_type": 1,
+      "city": 1,
+      "rating": 92.8,
+      "phone": "+421948141277"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 17,
+    "fields": {
+      "licence_number": 350,
+      "licence_type": 3,
+      "city": 33,
+      "rating": 74.8,
+      "phone": "+421918080221"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 18,
+    "fields": {
+      "licence_number": 388,
+      "licence_type": 1,
+      "city": 34,
+      "rating": 86.6,
+      "phone": "+421907647812"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 19,
+    "fields": {
+      "licence_number": 394,
+      "licence_type": 1,
+      "city": 35,
+      "rating": 94.0,
+      "phone": "+421903327409"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 20,
+    "fields": {
+      "licence_number": 407,
+      "licence_type": 2,
+      "city": 1,
+      "rating": 84.3,
+      "phone": "+421903286040"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 21,
+    "fields": {
+      "licence_number": 439,
+      "licence_type": 4,
+      "city": 36,
+      "rating": 75.8,
+      "phone": "+421903163747"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 22,
+    "fields": {
+      "licence_number": 477,
+      "licence_type": 2,
+      "city": 9,
+      "rating": 93.0,
+      "phone": "+421904962286"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 23,
+    "fields": {
+      "licence_number": 489,
+      "licence_type": 1,
+      "city": 64,
+      "rating": 89.0,
+      "phone": "+420776253362"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 24,
+    "fields": {
+      "licence_number": 491,
+      "licence_type": 2,
+      "city": 11,
+      "rating": 88.0,
+      "phone": "+420774580960"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 25,
+    "fields": {
+      "licence_number": 511,
+      "licence_type": 2,
+      "city": 37,
+      "rating": 95.0,
+      "phone": "+421905226509"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 26,
+    "fields": {
+      "licence_number": 517,
+      "licence_type": 2,
+      "city": 25,
+      "rating": 88.5,
+      "phone": "+421949287029"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 27,
+    "fields": {
+      "licence_number": 522,
+      "licence_type": 3,
+      "city": 38,
+      "rating": 73.5,
+      "phone": "+421908941924"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 28,
+    "fields": {
+      "licence_number": 530,
+      "licence_type": 3,
+      "city": 18,
+      "rating": 87.0,
+      "phone": "+421904679616"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 29,
+    "fields": {
+      "licence_number": 534,
+      "licence_type": 2,
+      "city": 15,
+      "rating": 86.8,
+      "phone": "+421910247631"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 30,
+    "fields": {
+      "licence_number": 536,
+      "licence_type": 2,
+      "city": 1,
+      "rating": 77.0,
+      "phone": "+421901770030"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 31,
+    "fields": {
+      "licence_number": 541,
+      "licence_type": 3,
+      "city": 39,
+      "rating": 71.7,
+      "phone": "+421905524901"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 32,
+    "fields": {
+      "licence_number": 545,
+      "licence_type": 3,
+      "city": 40,
+      "rating": 71.6,
+      "phone": "+421908233513"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 33,
+    "fields": {
+      "licence_number": 547,
+      "licence_type": 1,
+      "city": 1,
+      "rating": 94.0,
+      "phone": "+421908223279"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 34,
+    "fields": {
+      "licence_number": 557,
+      "licence_type": 3,
+      "city": 15,
+      "rating": 76.5,
+      "phone": "+421902490215"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 35,
+    "fields": {
+      "licence_number": 558,
+      "licence_type": 2,
+      "city": 27,
+      "rating": 81.8,
+      "phone": "+421902305340"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 36,
+    "fields": {
+      "licence_number": 561,
+      "licence_type": 3,
+      "city": 1,
+      "rating": 77.8,
+      "phone": "+421904015939"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 37,
+    "fields": {
+      "licence_number": 576,
+      "licence_type": 2,
+      "city": 1,
+      "rating": 91.5,
+      "phone": "+421904908780"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 38,
+    "fields": {
+      "licence_number": 603,
+      "licence_type": 2,
+      "city": 18,
+      "rating": 83.0,
+      "phone": "+421905608246"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 39,
+    "fields": {
+      "licence_number": 606,
+      "licence_type": 3,
+      "city": 1,
+      "rating": 84.3,
+      "phone": "+421905131237"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 40,
+    "fields": {
+      "licence_number": 617,
+      "licence_type": 2,
+      "city": 41,
+      "rating": 95.0,
+      "phone": "+421907915595"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 41,
+    "fields": {
+      "licence_number": 622,
+      "licence_type": 2,
+      "city": 24,
+      "rating": 83.8,
+      "phone": "+421904381297"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 42,
+    "fields": {
+      "licence_number": 646,
+      "licence_type": 4,
+      "city": 42,
+      "rating": 79.0,
+      "phone": "+421908669996"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 43,
+    "fields": {
+      "licence_number": 648,
+      "licence_type": 2,
+      "city": 11,
+      "rating": 80.6,
+      "phone": "+421948223449"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 44,
+    "fields": {
+      "licence_number": 649,
+      "licence_type": 3,
+      "city": 21,
+      "rating": 83.4,
+      "phone": "+421903513881"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 45,
+    "fields": {
+      "licence_number": 655,
+      "licence_type": 2,
+      "city": 10,
+      "rating": 90.5,
+      "phone": "+421949200009"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 46,
+    "fields": {
+      "licence_number": 680,
+      "licence_type": 4,
+      "city": 1,
+      "rating": 69.7,
+      "phone": "+421908604180"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 47,
+    "fields": {
+      "licence_number": 691,
+      "licence_type": 2,
+      "city": 43,
+      "rating": 88.0,
+      "phone": "+421907406015"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 48,
+    "fields": {
+      "licence_number": 703,
+      "licence_type": 3,
+      "city": 44,
+      "rating": 70.4,
+      "phone": "+421903854965"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 49,
+    "fields": {
+      "licence_number": 710,
+      "licence_type": 4,
+      "city": 45,
+      "rating": 79.2,
+      "phone": "+421911900171"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 50,
+    "fields": {
+      "licence_number": 713,
+      "licence_type": 4,
+      "city": 46,
+      "rating": 70.1,
+      "phone": "+421905113355"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 51,
+    "fields": {
+      "licence_number": 717,
+      "licence_type": 2,
+      "city": 47,
+      "rating": 86.0,
+      "phone": "+421907313962"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 52,
+    "fields": {
+      "licence_number": 726,
+      "licence_type": 4,
+      "city": 27,
+      "rating": 73.9,
+      "phone": "+421908981612"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 53,
+    "fields": {
+      "licence_number": 742,
+      "licence_type": 4,
+      "city": 46,
+      "rating": 65.9,
+      "phone": "+421919170360"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 54,
+    "fields": {
+      "licence_number": 751,
+      "licence_type": 3,
+      "city": 48,
+      "rating": 84.5,
+      "phone": "+421910144691"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 55,
+    "fields": {
+      "licence_number": 757,
+      "licence_type": 3,
+      "city": 25,
+      "rating": 76.9,
+      "phone": "+421908104036"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 56,
+    "fields": {
+      "licence_number": 765,
+      "licence_type": 3,
+      "city": 25,
+      "rating": 74.6,
+      "phone": "+421908210800"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 57,
+    "fields": {
+      "licence_number": 767,
+      "licence_type": 4,
+      "city": 1,
+      "rating": 72.4,
+      "phone": "+421918713838"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 58,
+    "fields": {
+      "licence_number": 768,
+      "licence_type": 3,
+      "city": 49,
+      "rating": 87.9,
+      "phone": "+421949714124"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 59,
+    "fields": {
+      "licence_number": 780,
+      "licence_type": 4,
+      "city": 25,
+      "rating": 68.1,
+      "phone": "+421905327350"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 60,
+    "fields": {
+      "licence_number": 786,
+      "licence_type": 3,
+      "city": 43,
+      "rating": 79.6,
+      "phone": "+421917505000"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 61,
+    "fields": {
+      "licence_number": 790,
+      "licence_type": 4,
+      "city": 50,
+      "rating": 65.4,
+      "phone": "+421948449788"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 62,
+    "fields": {
+      "licence_number": 791,
+      "licence_type": 3,
+      "city": 25,
+      "rating": 83.2,
+      "phone": "+421905453264"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 63,
+    "fields": {
+      "licence_number": 792,
+      "licence_type": 4,
+      "city": 51,
+      "rating": 66.5,
+      "phone": "+421903949801"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 64,
+    "fields": {
+      "licence_number": 796,
+      "licence_type": 4,
+      "city": 52,
+      "rating": 70.6,
+      "phone": "+421908306277"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 65,
+    "fields": {
+      "licence_number": 800,
+      "licence_type": 4,
+      "city": 25,
+      "rating": 78.7,
+      "phone": "+421917440431"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 66,
+    "fields": {
+      "licence_number": 806,
+      "licence_type": 4,
+      "city": 1,
+      "rating": 79.8,
+      "phone": "+421902870557"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 67,
+    "fields": {
+      "licence_number": 808,
+      "licence_type": 4,
+      "city": 53,
+      "rating": 66.5,
+      "phone": "+421902124212"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 68,
+    "fields": {
+      "licence_number": 809,
+      "licence_type": 4,
+      "city": 12,
+      "rating": 71.5,
+      "phone": "+421917843340"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 69,
+    "fields": {
+      "licence_number": 812,
+      "licence_type": 4,
+      "city": 54,
+      "rating": 69.5,
+      "phone": "+421907739892"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 70,
+    "fields": {
+      "licence_number": 820,
+      "licence_type": 3,
+      "city": 1,
+      "rating": 75.9,
+      "phone": "+421904522435"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 71,
+    "fields": {
+      "licence_number": 821,
+      "licence_type": 4,
+      "city": 55,
+      "rating": 65.2,
+      "phone": "+421911523223"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 72,
+    "fields": {
+      "licence_number": 822,
+      "licence_type": 4,
+      "city": 9,
+      "rating": 73.9,
+      "phone": "+421948694466"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 73,
+    "fields": {
+      "licence_number": 823,
+      "licence_type": 4,
+      "city": 9,
+      "rating": 71.0,
+      "phone": "+421949305621"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 74,
+    "fields": {
+      "licence_number": 826,
+      "licence_type": 4,
+      "city": 56,
+      "rating": 72.0,
+      "phone": "+421948415095"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 75,
+    "fields": {
+      "licence_number": 829,
+      "licence_type": 4,
+      "city": 57,
+      "rating": 66.6,
+      "phone": "+421915082764"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 76,
+    "fields": {
+      "licence_number": 830,
+      "licence_type": 4,
+      "city": 22,
+      "rating": 66.8,
+      "phone": "+421950515462"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 77,
+    "fields": {
+      "licence_number": 831,
+      "licence_type": 4,
+      "city": 22,
+      "rating": 67.5,
+      "phone": "+421950494936"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 78,
+    "fields": {
+      "licence_number": 834,
+      "licence_type": 4,
+      "city": 22,
+      "rating": 76.4,
+      "phone": "+421904093645"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 79,
+    "fields": {
+      "licence_number": 838,
+      "licence_type": 4,
+      "city": 10,
+      "rating": 70.2,
+      "phone": "+421905730994"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 80,
+    "fields": {
+      "licence_number": 840,
+      "licence_type": 4,
+      "city": 24,
+      "rating": 65.0,
+      "phone": "+421948272280"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 81,
+    "fields": {
+      "licence_number": 841,
+      "licence_type": 4,
+      "city": 58,
+      "rating": 72.5,
+      "phone": "+421944427707"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 82,
+    "fields": {
+      "licence_number": 842,
+      "licence_type": 4,
+      "city": 2,
+      "rating": 69.9,
+      "phone": "+421915557666"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 83,
+    "fields": {
+      "licence_number": 843,
+      "licence_type": 4,
+      "city": 1,
+      "rating": 71.9,
+      "phone": "+421907404273"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 84,
+    "fields": {
+      "licence_number": 844,
+      "licence_type": 4,
+      "city": 52,
+      "rating": 70.3,
+      "phone": "+421902767853"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 85,
+    "fields": {
+      "licence_number": 845,
+      "licence_type": 4,
+      "city": 52,
+      "rating": 76.5,
+      "phone": "+421940838886"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 86,
+    "fields": {
+      "licence_number": 846,
+      "licence_type": 3,
+      "city": 1,
+      "rating": 74.3,
+      "phone": "+421902232356"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 87,
+    "fields": {
+      "licence_number": 848,
+      "licence_type": 4,
+      "city": 1,
+      "rating": 67.6,
+      "phone": "+421951778117"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 88,
+    "fields": {
+      "licence_number": 849,
+      "licence_type": 4,
+      "city": 1,
+      "rating": 74.4,
+      "phone": "+421908793856"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 89,
+    "fields": {
+      "licence_number": 851,
+      "licence_type": 4,
+      "city": 25,
+      "rating": 70.9,
+      "phone": "+421944387166"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 90,
+    "fields": {
+      "licence_number": 853,
+      "licence_type": 4,
+      "city": 17,
+      "rating": 73.9,
+      "phone": "+421917059739"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 91,
+    "fields": {
+      "licence_number": 855,
+      "licence_type": 4,
+      "city": 59,
+      "rating": 76.8,
+      "phone": "+421903059305"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 92,
+    "fields": {
+      "licence_number": 857,
+      "licence_type": 4,
+      "city": 60,
+      "rating": 66.7,
+      "phone": "+421919162696"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 93,
+    "fields": {
+      "licence_number": 858,
+      "licence_type": 4,
+      "city": 61,
+      "rating": 74.6,
+      "phone": "+421950499000"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 94,
+    "fields": {
+      "licence_number": 863,
+      "licence_type": 4,
+      "city": 62,
+      "rating": 74.2,
+      "phone": "+421905498615"
+    }
+  },
+  {
+    "model": "referees.referee",
+    "pk": 95,
+    "fields": {
+      "licence_number": 865,
+      "licence_type": 4,
+      "city": 63,
+      "rating": 76.7,
+      "phone": "+421915600594"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 1,
+    "fields": {
+      "name": "Bratislava"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 2,
+    "fields": {
+      "name": "Hamuliakovo"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 3,
+    "fields": {
+      "name": "Pezinok"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 4,
+    "fields": {
+      "name": "Trnava"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 5,
+    "fields": {
+      "name": "Senica"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 6,
+    "fields": {
+      "name": "Myjava"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 7,
+    "fields": {
+      "name": "Nové Mesto nad Váhom"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 8,
+    "fields": {
+      "name": "Trenčín"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 9,
+    "fields": {
+      "name": "Púchov"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 10,
+    "fields": {
+      "name": "Žilina"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 11,
+    "fields": {
+      "name": "Prievidza"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 12,
+    "fields": {
+      "name": "Komárno"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 13,
+    "fields": {
+      "name": "Nitra"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 14,
+    "fields": {
+      "name": "Levice"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 15,
+    "fields": {
+      "name": "Komjatice"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 16,
+    "fields": {
+      "name": "Žiar nad Hronom"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 17,
+    "fields": {
+      "name": "Zvolen"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 18,
+    "fields": {
+      "name": "Banská Bystrica"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 19,
+    "fields": {
+      "name": "Slovenská Ľupča"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 20,
+    "fields": {
+      "name": "Liptovský Hrádok"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 21,
+    "fields": {
+      "name": "Liptovský Mikuláš"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 22,
+    "fields": {
+      "name": "Poprad"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 23,
+    "fields": {
+      "name": "Stará Ľubovňa"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 24,
+    "fields": {
+      "name": "Spišská Nová Ves"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 25,
+    "fields": {
+      "name": "Prešov"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 26,
+    "fields": {
+      "name": "Košice"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 27,
+    "fields": {
+      "name": "Svidník"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 28,
+    "fields": {
+      "name": "Stropkov"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 29,
+    "fields": {
+      "name": "Vyšné Hágy"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 30,
+    "fields": {
+      "name": "Chrenovec-Brusno"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 31,
+    "fields": {
+      "name": "Turčiansky Peter"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 32,
+    "fields": {
+      "name": "Nemecká"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 33,
+    "fields": {
+      "name": "Martin"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 34,
+    "fields": {
+      "name": "Bacúch"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 35,
+    "fields": {
+      "name": "Piešťany"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 36,
+    "fields": {
+      "name": "Cinobaňa"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 37,
+    "fields": {
+      "name": "Vrútky"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 38,
+    "fields": {
+      "name": "Veličná"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 39,
+    "fields": {
+      "name": "Považská Bystrica"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 40,
+    "fields": {
+      "name": "Ďurkov"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 41,
+    "fields": {
+      "name": "Vranov nad Topľou"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 42,
+    "fields": {
+      "name": "Lipník"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 43,
+    "fields": {
+      "name": "Lutila"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 44,
+    "fields": {
+      "name": "Bardejov"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 45,
+    "fields": {
+      "name": "Vráble"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 46,
+    "fields": {
+      "name": "Krupina"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 47,
+    "fields": {
+      "name": "Biely Kostol"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 48,
+    "fields": {
+      "name": "Brestovec"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 49,
+    "fields": {
+      "name": "Jaslovské Bohunice"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 50,
+    "fields": {
+      "name": "Kokošovce"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 51,
+    "fields": {
+      "name": "Duplín"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 52,
+    "fields": {
+      "name": "Revúca"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 53,
+    "fields": {
+      "name": "Dobrá Niva"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 54,
+    "fields": {
+      "name": "Kapišová"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 55,
+    "fields": {
+      "name": "Banská Belá"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 56,
+    "fields": {
+      "name": "Bobrovec"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 57,
+    "fields": {
+      "name": "Harichovce"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 58,
+    "fields": {
+      "name": "Lozorno"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 59,
+    "fields": {
+      "name": "Streženice"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 60,
+    "fields": {
+      "name": "Moldava nad Bodvou"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 61,
+    "fields": {
+      "name": "Hrnčiarovce nad Parnou"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 62,
+    "fields": {
+      "name": "Viničné"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 63,
+    "fields": {
+      "name": "Gôtovany"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 64,
+    "fields": {
+      "name": "Brno"
+    }
+  },
+  {
+    "model": "competitions.city",
+    "pk": 65,
+    "fields": {
+      "name": "Brati"
+    }
+  },
+  {
+    "model": "competitions.season",
+    "pk": 1,
+    "fields": {
+      "name": "2022/2023",
+      "date_of_start": "2022-09-01",
+      "date_of_end": "2023-08-31"
+    }
+  },
+  {
+    "model": "competitions.season",
+    "pk": 2,
+    "fields": {
+      "name": "2023/2024",
+      "date_of_start": "2023-09-01",
+      "date_of_end": "2024-08-31"
+    }
+  },
+  {
+    "model": "competitions.season",
+    "pk": 3,
+    "fields": {
+      "name": "2024/2025",
+      "date_of_start": "2024-09-01",
+      "date_of_end": "2025-08-31"
+    }
+  },
+  {
+    "model": "competitions.competitionlevel",
+    "pk": 1,
+    "fields": {
+      "name": "extra_league"
+    }
+  },
+  {
+    "model": "competitions.competitionlevel",
+    "pk": 2,
+    "fields": {
+      "name": "first_league"
+    }
+  },
+  {
+    "model": "competitions.competitionlevel",
+    "pk": 3,
+    "fields": {
+      "name": "regional"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 1,
+    "fields": {
+      "name": "Extraliga muži",
+      "level": 1,
+      "category": "men"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 2,
+    "fields": {
+      "name": "Extraliga ženy",
+      "level": 1,
+      "category": "women"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 3,
+    "fields": {
+      "name": "1. liga muži",
+      "level": 2,
+      "category": "men"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 4,
+    "fields": {
+      "name": "1. liga ženy",
+      "level": 2,
+      "category": "women"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 5,
+    "fields": {
+      "name": "1. liga juniori",
+      "level": 2,
+      "category": "junior boys"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 6,
+    "fields": {
+      "name": "1. liga juniorky",
+      "level": 2,
+      "category": "junior girls"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 7,
+    "fields": {
+      "name": "Kadeti západ",
+      "level": 3,
+      "category": "cadet boys"
+    }
+  },
+  {
+    "model": "competitions.competition",
+    "pk": 8,
+    "fields": {
+      "name": "Kadetky západ",
+      "level": 3,
+      "category": "cadet girls"
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 1,
+    "fields": {
+      "competition": 1,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 2,
+    "fields": {
+      "competition": 2,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 3,
+    "fields": {
+      "competition": 3,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 4,
+    "fields": {
+      "competition": 4,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 5,
+    "fields": {
+      "competition": 5,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 6,
+    "fields": {
+      "competition": 6,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 7,
+    "fields": {
+      "competition": 7,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 8,
+    "fields": {
+      "competition": 8,
+      "season": 1
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 9,
+    "fields": {
+      "competition": 1,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 10,
+    "fields": {
+      "competition": 2,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 11,
+    "fields": {
+      "competition": 3,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 12,
+    "fields": {
+      "competition": 4,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 13,
+    "fields": {
+      "competition": 5,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 14,
+    "fields": {
+      "competition": 6,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 15,
+    "fields": {
+      "competition": 7,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 16,
+    "fields": {
+      "competition": 8,
+      "season": 2
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 17,
+    "fields": {
+      "competition": 1,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 18,
+    "fields": {
+      "competition": 2,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 19,
+    "fields": {
+      "competition": 3,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 20,
+    "fields": {
+      "competition": 4,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 21,
+    "fields": {
+      "competition": 5,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 22,
+    "fields": {
+      "competition": 6,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 23,
+    "fields": {
+      "competition": 7,
+      "season": 3
+    }
+  },
+  {
+    "model": "competitions.competitioninseason",
+    "pk": 24,
+    "fields": {
+      "competition": 8,
+      "season": 3
+    }
+  }
+]
