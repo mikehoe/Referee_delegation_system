@@ -1,18 +1,18 @@
-from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.db import transaction
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from accounts.models import ProfileReferee
+from accounts.forms import AddProfileRefereeForm, EditProfileRefereeForm
 from competitions.models import City
-from accounts.forms import RefereeForm
 from referees.models import Referee, RefereeLicenceType
 
 
 class ProfileRefereeAddView(CreateView):
     model = Referee
+    form_class = AddProfileRefereeForm
     template_name = "form_add.html"
-    form_class = RefereeForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -20,49 +20,15 @@ class ProfileRefereeAddView(CreateView):
         context['cities'] = City.objects.all()
         return context
 
-    def post(self, request, *args, **kwargs):
-        licence_number = request.POST.get('licence_number')
-        licence_type_id = request.POST.get('licence_type')
-        city_id = request.POST.get('city')
-        rating = request.POST.get('rating')
-        phone = request.POST.get('phone')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        name = request.POST.get('name')
-        surname = request.POST.get('surname')
-
-        if User.objects.filter(username=username).exists():
-            form = self.get_form()
-            form.add_error(None, 'Username already exists.')
-            return self.form_invalid(form)
-
-        user = User.objects.create_user(username=username, password=password, first_name=name, last_name=surname)
-
-        referee = Referee(
-            licence_number=licence_number,
-            licence_type_id=licence_type_id,
-            city_id=city_id,
-            rating=rating,
-            phone=phone
-        )
-        referee.save()
-
-        ProfileReferee.objects.create(
-            user=user,
-            referee=referee
-        )
-
-        return super().form_valid(referee)
-
     def get_success_url(self):
-        return reverse('referees')
+        return reverse('referees_list')
 
 
 class ProfileRefereeEditView(UpdateView):
     model = Referee
     template_name = "form_edit.html"
     fields = ['licence_number', 'licence_type', 'city', 'rating', 'phone']
-    success_url = reverse_lazy('referees')
+    success_url = reverse_lazy('referees_list')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -81,30 +47,51 @@ class ProfileRefereeEditView(UpdateView):
         return context
 
     def form_valid(self, form):
-        profile_referee = ProfileReferee.objects.get(referee=self.object)
+        # Získání rozhodčího a jeho profilu
+        referee = form.save(commit=False)
+        profile_referee = ProfileReferee.objects.get(referee=referee)
 
-        profile_referee.user.first_name = self.request.POST.get('name')
-        profile_referee.user.last_name = self.request.POST.get('surname')
-        profile_referee.user.save()
+        # Aktualizace jména a příjmení v User modelu
+        user = profile_referee.user
+        user.first_name = self.request.POST.get('name')
+        user.last_name = self.request.POST.get('surname')
+        user.save()
 
-        form.save()
+        # Uložení samotného rozhodčího
+        referee.save()
         return super().form_valid(form)
+
+    def get_initial(self):
+        profile_referee = ProfileReferee.objects.get(referee=self.object)
+        initial = super().get_initial()
+        initial['name'] = profile_referee.user.first_name
+        initial['surname'] = profile_referee.user.last_name
+        return initial
 
 
 class ProfileRefereeDeleteView(DeleteView):
     model = Referee
     template_name = 'form_delete.html'
-    success_url = reverse_lazy('referees')
+    success_url = reverse_lazy('referees_list')
 
+    @transaction.atomic
     def delete(self, request, *args, **kwargs):
         referee = self.get_object()
 
-        if not ProfileReferee.objects.filter(referee=referee).exists():
+        try:
+            # Nalezení profilu rozhodčího
+            profile_referee = ProfileReferee.objects.get(referee=referee)
+        except ProfileReferee.DoesNotExist:
             return HttpResponse("No Profile found for this Referee.", status=400)
 
-        profile_referee = ProfileReferee.objects.get(referee=referee)
+        # Uložení uživatele pro pozdější smazání
         user = profile_referee.user
-        response = super().delete(request, *args, **kwargs)
-        user.delete()
-        return response
 
+        # Smažeme všechny tři objekty v rámci jedné atomické transakce
+        profile_referee.delete()  # Smažeme profil
+        referee.delete()          # Smažeme rozhodčího
+
+        # Smažeme uživatele mimo transakci
+        user.delete()
+
+        return HttpResponseRedirect(self.success_url)

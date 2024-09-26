@@ -5,12 +5,12 @@
 <form method="POST">
     {% csrf_token %}
     <div class="form-group">
-        <label for="id_name">First Name:</label>
-        <input type="text" id="id_name" name="name" value="{{ first_name }}" required class="form-control" />
+    <label for="id_name">First Name:</label>
+    <input type="text" id="id_name" name="name" value="{{ profile_referee.user.first_name }}" required class="form-control" />
     </div>
     <div class="form-group">
-        <label for="id_surname">Last Name:</label>
-        <input type="text" id="id_surname" name="surname" value="{{ last_name }}" required class="form-control" />
+    <label for="id_surname">Last Name:</label>
+    <input type="text" id="id_surname" name="surname" value="{{ profile_referee.user.last_name }}" required class="form-control" />
     </div>
     <div class="form-group">
         <label for="id_licence_number">Licence Number:</label>
@@ -42,6 +42,10 @@
         <label for="id_phone">Phone:</label>
         <input type="text" id="id_phone" name="phone" value="{{ referee.phone }}" class="form-control" />
     </div>
-    <input id="id_submit" type="submit" value="Save" class="btn btn-primary">
+    <div class="d-flex justify-content-between">
+        <input id="id_submit" type="submit" value="Save" class="btn btn-primary">
+
+        <a href="{% url 'referee_detail' referee.id %}" class="btn btn-secondary">Back</a>
+    </div>
 </form>
 {% endblock %}

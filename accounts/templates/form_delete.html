@@ -6,6 +6,6 @@
 <form method="POST">
     {% csrf_token %}
     <input id="id_submit" type="submit" value="Delete" class="btn btn-danger">
-    <a href="{% url 'referees' %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'referees_list' %}" class="btn btn-secondary">Cancel</a>
 </form>
 {% endblock %}
