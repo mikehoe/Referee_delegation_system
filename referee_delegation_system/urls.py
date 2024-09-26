@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
 
-    path('referees/referees/', RefereesListView.as_view(), name='referees'),
+    path('referees/referees/', RefereesListView.as_view(), name='referees_list'),
     path('referees/referee/<pk>/', RefereeDetailView.as_view(), name='referee_detail'),
 
     path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),

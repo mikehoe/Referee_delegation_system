@@ -7,7 +7,7 @@ LOGGER = getLogger()
 
 class RefereesListView(ListView):
     model = Referee
-    template_name = "referees.html"
+    template_name = "referees_list.html"
     context_object_name = 'referees'
 
     def get_context_data(self, **kwargs):
