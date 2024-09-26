@@ -24,6 +24,9 @@ class RefereeLicenceTypeModelTest(TestCase):
         licence_1.competition_level.add(level_3)
         licence_2.competition_level.add(level_3)
 
+        licence_1.save()
+        licence_2.save()
+
     def test_referee_licence_str(self):
         licence = RefereeLicenceType.objects.get(name="A")
         print(f"test_referee_licence_str: '{licence.__str__()}'")
@@ -57,6 +60,8 @@ class RefereeModelTest(TestCase):
             phone="123456789"
         )
         referee.profile = ProfileReferee.objects.create(user=user, referee=referee)
+        print(referee.name)
+        referee.save()
 
     def test_referee_str(self):
         referee = Referee.objects.get(licence_number=12345)
@@ -80,13 +85,20 @@ class RefereeModelTest(TestCase):
         print(f"test_referee_licence_relation: {licence_name}")
         self.assertEqual(licence_name, "A")
 
+    def test_referee_name_property(self):
+        referee = Referee.objects.get(licence_number=12345)
+        licence_name = referee.licence_type.name
+        print(f"test_referee_licence_relation: {licence_name}")
+        self.assertEqual(licence_name, "A")
+
 
 class UnavailabilityModelTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
         print('-' * 80)
-        user = User.objects.create_user(username='josef_dvorak', first_name='Josef', last_name='Dvořák', password='test')
+        user = User.objects.create_user(username='josef_dvorak', first_name='Josef', last_name='Dvořák',
+                                        password='test')
         city = City.objects.create(name="Brno")
         licence = RefereeLicenceType.objects.create(name="A")
         referee = Referee.objects.create(
@@ -96,11 +108,13 @@ class UnavailabilityModelTest(TestCase):
         )
         # Create ProfileReferee
         referee.profile = ProfileReferee.objects.create(user=user, referee=referee)
-        unavailability = Unavailability.objects.create(
+        referee.unavailability = Unavailability.objects.create(
             referee=referee,
             date_from=date(2024, 9, 1),
             date_to=date(2024, 9, 5)
         )
+
+        referee.save()
 
     def test_unavailability_str(self):
         unavailability = Unavailability.objects.get(referee__profile__user__first_name="Josef")

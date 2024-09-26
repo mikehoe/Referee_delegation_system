@@ -1,0 +1,5 @@
+username,password,first_name,last_name,email,is_superuser,is_staff,is_active,date_joined,last_login
+admin,admin1234,,,luboskohut.shop@gmail.com,1,1,1,2024-09-23 20:17:00.296183,
+referee.admin,admin1234,,,luboskohut.shop@gmail.com,0,0,1,2024-09-23 20:17:00.296184,
+competition.admin,admin1234,,,luboskohut.shop@gmail.com,0,0,1,2024-09-23 20:17:00.296185,
+delegation.admin,admin1234,,,luboskohut.shop@gmail.com,0,0,1,2024-09-23 20:17:00.296186,
