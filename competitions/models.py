@@ -88,7 +88,7 @@ class Team(Model):
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='teams')
     contact_person = CharField(max_length=64, null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
-    e_mail = EmailField(null=True, blank=True)
+    email = EmailField(null=True, blank=True)
     competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
                                        related_name='teams')
 

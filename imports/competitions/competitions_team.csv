@@ -1,0 +1,197 @@
+id,name,contact_person,phone,email,city_id,competition_in_season_id
+1,Projekt RD SVF,Daniel Bruch,+421917117581,bruch@svf.sk,8,1
+2,Rieker UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,1
+3,TJ Slávia Svidník,Rastislav Paňko,+421903549256,pankorasto@gmail.com,27,1
+4,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,1
+5,VK MIRAD UNIPO Prešov,Milan Kundľa,+421907354049,milan.kundla@gmail.com,25,1
+6,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,1
+7,VolleyTeam Prievidza,Milan Javorčík,+421915833430,javorcik.mj@gmail.com,11,1
+8,Hit UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,2
+9,Projekt RD SVF,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,2
+10,ŠVK Pezinok,Ladislav Popeláš,+421907754377,selovica@gmail.com,3,2
+11,VA UNIZA Žilina,Dalibor Andrisík,+421903666772,andrisik.dalibor@gmail.com,10,2
+12,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,2
+13,VK Pirane Brusno,Alexander Šabo,+421911338969,alexander.sabo2@gmail.com,19,2
+14,VK Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,2
+15,VK Slávia EU Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,2
+16,VKP Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,2
+17,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,2
+18,MVK Zvolen,Marek Rojík,+421903359254,marek.rojik@mvkzvolen.sk,17,3
+19,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,3
+20,ŠK Lokomotiv Komjatice,Filip Hajas,+421950444322,filip.hajas@gmail.com,15,3
+21,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,3
+22,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,3
+23,VK Spartak UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,3
+24,VKM Stará Ľubovňa,Marek Kseňák,+421917291051,maximus791@gmail.com,23,3
+25,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,3
+26,VolleyTeam AC UNIZA Žilina,Peter Minárik,+421915832898,minarik.za@gmail.com,10,3
+27,VolleyTeam Prievidza,Milan Javorčík,+421915833430,javorcik.mj@gmail.com,11,3
+28,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,4
+29,MŠK Žiar nad Hronom,Alena Bieliková,+421911655619,bielikova.alena@gmail.com,16,4
+30,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,4
+31,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,4
+32,ŠKM Liptovský Hrádok,Vladimír Vyšný,+421903523363,volejbal@alconet.sk,20,4
+33,VK Iskra Hnúšťa,Igor Pasiar,+421905723902,pasiar.igor@gmail.com,65,4
+34,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,4
+35,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,5
+36,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,5
+37,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,5
+38,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,5
+39,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,5
+40,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,5
+41,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,6
+42,MVK Stropkov,Maroš Šturák,+421907352951,maros112@gmail.com,28,6
+43,Palas VK Levice,Lukáš Lanča,+421910204021,lukas.lanca@gmail.com,14,6
+44,Slávia UK DRÁČIK Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,6
+45,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,6
+46,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,6
+47,ŠŠK Bilíkova Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,6
+48,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,6
+49,VM Senica,Ľubomír Pöštényi,+421903236980,lubomir.postenyi@introplast.sk,5,6
+50,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,7
+51,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,7
+52,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,7
+53,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,7
+54,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,7
+55,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,7
+56,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,7
+57,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,8
+58,MVK Stropkov,Maroš Šturák,+421907352951,maros112@gmail.com,28,8
+59,Palas VK Levice,Lukáš Lanča,+421910204021,lukas.lanca@gmail.com,14,8
+60,Slávia UK DRÁČIK Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,8
+61,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,8
+62,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,8
+63,ŠŠK Bilíkova Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,8
+64,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,8
+65,VM Senica,Ľubomír Pöštényi,+421903236980,lubomir.postenyi@introplast.sk,5,8
+66,SŠŠ Trenčín - Projekt RD SVF,Daniel Bruch,+421917117581,bruch@svf.sk,8,9
+67,Rieker UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,9
+68,TJ Slávia Svidník,Rastislav Paňko,+421903549256,pankorasto@gmail.com,27,9
+69,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,9
+70,VK MIRAD UNIPO Prešov,Milan Kundľa,+421907354049,milan.kundla@gmail.com,25,9
+71,VKP FTVŠ UK Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,9
+72,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,9
+73,ŠVK Tatran Banská Bystrica - Slovenská Ľupča,Radovan Štrbavý,+421905012252,radovan.strbavy@gmail.com,19,9
+74,Hit UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,10
+75,Projekt RD SVF,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,10
+76,ŠVK Pezinok,Ladislav Popeláš,+421907754377,selovica@gmail.com,3,10
+77,VA UNIZA Žilina,Dalibor Andrisík,+421903666772,andrisik.dalibor@gmail.com,10,10
+78,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,10
+79,VK Pirane Brusno,Alexander Šabo,+421911338969,alexander.sabo2@gmail.com,19,10
+80,VK Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,10
+81,VK Slávia EU Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,10
+82,VKP Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,10
+83,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,10
+84,MVK Zvolen,Marek Rojík,+421903359254,marek.rojik@mvkzvolen.sk,17,11
+85,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,11
+86,ŠK Lokomotiv Komjatice,Filip Hajas,+421950444322,filip.hajas@gmail.com,15,11
+87,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,11
+88,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,11
+89,VK Spartak UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,11
+90,VKM Stará Ľubovňa,Marek Kseňák,+421917291051,maximus791@gmail.com,23,11
+91,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,11
+92,VolleyTeam AC UNIZA Žilina,Peter Minárik,+421915832898,minarik.za@gmail.com,10,11
+93,VolleyTeam Prievidza,Milan Javorčík,+421915833430,javorcik.mj@gmail.com,11,11
+94,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,12
+95,MŠK Žiar nad Hronom,Alena Bieliková,+421911655619,bielikova.alena@gmail.com,16,12
+96,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,12
+97,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,12
+98,ŠKM Liptovský Hrádok,Vladimír Vyšný,+421903523363,volejbal@alconet.sk,20,12
+99,VK Iskra Hnúšťa,Igor Pasiar,+421905723902,pasiar.igor@gmail.com,65,12
+100,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,12
+101,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,13
+102,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,13
+103,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,13
+104,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,13
+105,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,13
+106,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,13
+107,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,14
+108,MVK Stropkov,Maroš Šturák,+421907352951,maros112@gmail.com,28,14
+109,Palas VK Levice,Lukáš Lanča,+421910204021,lukas.lanca@gmail.com,14,14
+110,Slávia UK DRÁČIK Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,14
+111,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,14
+112,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,14
+113,ŠŠK Bilíkova Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,14
+114,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,14
+115,VM Senica,Ľubomír Pöštényi,+421903236980,lubomir.postenyi@introplast.sk,5,14
+116,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,15
+117,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,15
+118,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,15
+119,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,15
+120,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,15
+121,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,15
+122,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,15
+123,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,16
+124,MVK Stropkov,Maroš Šturák,+421907352951,maros112@gmail.com,28,16
+125,Palas VK Levice,Lukáš Lanča,+421910204021,lukas.lanca@gmail.com,14,16
+126,Slávia UK DRÁČIK Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,16
+127,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,16
+128,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,16
+129,ŠŠK Bilíkova Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,16
+130,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,16
+131,VM Senica,Ľubomír Pöštényi,+421903236980,lubomir.postenyi@introplast.sk,5,16
+132,Rieker UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,17
+133,TJ Slávia Svidník,Rastislav Paňko,+421903549256,pankorasto@gmail.com,27,17
+134,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,17
+135,VK MIRAD UNIPO Prešov,Milan Kundľa,+421907354049,milan.kundla@gmail.com,25,17
+136,VKP FTVŠ UK Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,17
+137,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,17
+138,ŠVK Tatran Banská Bystrica - Slovenská Ľupča,Radovan Štrbavý,+421905012252,radovan.strbavy@gmail.com,19,17
+139,Hit UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,18
+140,VK Spartak UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,18
+141,ŠVK Pezinok,Ladislav Popeláš,+421907754377,selovica@gmail.com,3,18
+142,VA UNIZA Žilina,Dalibor Andrisík,+421903666772,andrisik.dalibor@gmail.com,10,18
+143,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,18
+144,VK Pirane Brusno,Alexander Šabo,+421911338969,alexander.sabo2@gmail.com,19,18
+145,VK Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,18
+146,Slávia Kooperativa EUBA,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,18
+147,VKP FTVŠ UK Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,18
+148,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,18
+149,MVK Zvolen,Marek Rojík,+421903359254,marek.rojik@mvkzvolen.sk,17,19
+150,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,19
+151,ŠK Lokomotiv Komjatice,Filip Hajas,+421950444322,filip.hajas@gmail.com,15,19
+152,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,19
+153,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,19
+154,VK Spartak UJS Komárno,Róbert Mihalička,+421908136747,robert.mihalicka@zoznam.sk,12,19
+155,VKM Stará Ľubovňa,Marek Kseňák,+421917291051,maximus791@gmail.com,23,19
+156,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,19
+157,VolleyTeam AC UNIZA Žilina,Peter Minárik,+421915832898,minarik.za@gmail.com,10,19
+158,VolleyTeam Prievidza,Milan Javorčík,+421915833430,javorcik.mj@gmail.com,11,19
+159,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,20
+160,MŠK Žiar nad Hronom,Alena Bieliková,+421911655619,bielikova.alena@gmail.com,16,20
+161,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,20
+162,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,20
+163,ŠKM Liptovský Hrádok,Vladimír Vyšný,+421903523363,volejbal@alconet.sk,20,20
+164,VK Iskra Hnúšťa,Igor Pasiar,+421905723902,pasiar.igor@gmail.com,65,20
+165,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,20
+166,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,21
+167,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,21
+168,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,21
+169,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,21
+170,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,21
+171,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,21
+172,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,22
+173,MVK Stropkov,Maroš Šturák,+421907352951,maros112@gmail.com,28,22
+174,Palas VK Levice,Lukáš Lanča,+421910204021,lukas.lanca@gmail.com,14,22
+175,Slávia UK DRÁČIK Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,22
+176,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,22
+177,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,22
+178,ŠŠK Bilíkova Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,22
+179,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,22
+180,VM Senica,Ľubomír Pöštényi,+421903236980,lubomir.postenyi@introplast.sk,5,22
+181,Volley project UKF Nitra,Ľuboš Červeň,+421903471830,luboscerven@yahoo.com,13,23
+182,SŠŠ Volejbal Trenčín,Daniel Bruch,+421917117581,bruch@svf.sk,8,23
+183,TJ Spartak Myjava,Jaroslav Petrucha,+421908267490,j.petrucha@centrum.cz,6,23
+184,VK MTF Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,23
+185,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,23
+186,VK Slávia SPU Nitra,Ľubomír Paška,+421905226889,lupaska@gmail.com,13,23
+187,VKP Bratislava,Juraj Tiňo,+421919024775,tinojuraj@gmail.com,1,23
+188,HIT UCM Trnava,Pavol Mančák,+421915966089,hittrnava@gmail.com,4,24
+189,MVK Stropkov,Maroš Šturák,+421907352951,maros112@gmail.com,28,24
+190,Palas VK Levice,Lukáš Lanča,+421910204021,lukas.lanca@gmail.com,14,24
+191,Slávia UK DRÁČIK Bratislava,Vladimír Hančík,+421905613908,slaviauk-volley@slovanet.sk,1,24
+192,SŠŠ Volejbal Nitra,Slavomír Huba,+421917117580,slafkohubini@gmail.com,13,24
+193,ŠK ELBA Prešov,Imrich Olejník,+421905748683,imrich.olejnik@gmail.com,25,24
+194,ŠŠK Bilíkova Bratislava,Róbert Hronský,+421908755491,hronsky@vkpbratislava.sk,1,24
+195,VK Nové Mesto nad Váhom,Juraj Šujan,+421904847030,juraj.sujan@vknovemesto.sk,7,24
+196,VM Senica,Ľubomír Pöštényi,+421903236980,lubomir.postenyi@introplast.sk,5,24
