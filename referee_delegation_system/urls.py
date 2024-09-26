@@ -17,14 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from referees.views import RefereeListView, RefereeAddView, RefereeEditView, RefereeDeleteView
+from referees.views import RefereesListView
+from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
 from competitions.view_home import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('referees/', RefereeListView.as_view(), name='referees'),
-    path('referee/add/', RefereeAddView.as_view(), name='referee_add'),
-    path('referee/<pk>/edit/', RefereeEditView.as_view(), name='referee_edit'),
-    path('referee/<pk>/delete/', RefereeDeleteView.as_view(), name='referee_delete'),
+
+    path('referees/referees', RefereesListView.as_view(), name='referees'),
+
+    path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),
+    path('accounts/profilereferee/<pk>/edit/', ProfileRefereeEditView.as_view(), name='profile_referee_edit'),
+    path('accounts/profilereferee/<pk>/delete/', ProfileRefereeDeleteView.as_view(), name='profile_referee_delete'),
 ]

@@ -9,10 +9,10 @@
                     {% for referee in referees %}
                         <li>
                             {{ referee.name }} {{ referee.surname }}
-                            <a href="{% url 'referee_edit' referee.id %}" class="btn btn-link">
+                            <a href="{% url 'profile_referee_edit' referee.id %}" class="btn btn-link">
                                 ✏️
                             </a>
-                            <a href="{% url 'referee_delete' referee.id %}" class="btn btn-link text-danger">
+                            <a href="{% url 'profile_referee_delete' referee.id %}" class="btn btn-link text-danger">
                                 ❌
                             </a>
                         </li>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="text-left">
-                    <a href="{% url 'referee_add' %}" class="btn btn-primary d-inline-block mb-2">Add Referee</a>
+                    <a href="{% url 'profile_referee_add' %}" class="btn btn-primary d-inline-block mb-2">Add Referee</a>
                 </div>
 
             </div>
