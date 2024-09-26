@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from referees.views import RefereesListView
+from referees.views import RefereesListView, RefereeDetailView
 from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
 from competitions.view_home import home
 
@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
 
-    path('referees/referees', RefereesListView.as_view(), name='referees'),
+    path('referees/referees/', RefereesListView.as_view(), name='referees'),
+    path('referees/referee/<pk>/', RefereeDetailView.as_view(), name='referee_detail'),
 
     path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),
     path('accounts/profilereferee/<pk>/edit/', ProfileRefereeEditView.as_view(), name='profile_referee_edit'),

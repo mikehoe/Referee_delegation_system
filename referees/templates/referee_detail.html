@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center">
+    <h1 class="mr-2">{{ referee.name }} {{ referee.surname }}</h1>
+    <a href="{% url 'profile_referee_edit' referee.id %}" class="btn btn-link">✏️</a>
+    <a href="{% url 'profile_referee_delete' referee.id %}" class="btn btn-link text-danger">❌</a>
+</div>
+
+<p style="margin-bottom: 30px;"></p>
+
+<p><strong>City:</strong> {{ referee.city }}</p>
+<p><strong>Licence Number:</strong> {{ referee.licence_number }}</p>
+<p><strong>Licence Type:</strong> {{ referee.licence_type }}</p>
+<p><strong>Email:</strong> {{ referee.email }}</p>
+<p><strong>Phone:</strong> {{ referee.phone }}</p>
+<p><strong>Rating:</strong> {{ referee.rating }}</p>
+
+<div class="d-flex justify-content-end">
+    <a href="{% url 'referees' %}" class="btn btn-secondary">Back</a>
+</div>
+
+{% endblock %}

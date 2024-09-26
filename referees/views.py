@@ -1,5 +1,5 @@
 from logging import getLogger
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from referees.models import Referee, RefereeLicenceType, City
 
 LOGGER = getLogger()
@@ -33,4 +33,15 @@ class RefereesListView(ListView):
         context['referees'] = referees
         return context
 
+
+class RefereeDetailView(DetailView):
+    model = Referee
+    template_name = "referee_detail.html"
+    context_object_name = 'referee'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['licences'] = RefereeLicenceType.objects.all()
+        context['cities'] = City.objects.all()
+        return context
 

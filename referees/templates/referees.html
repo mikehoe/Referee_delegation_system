@@ -8,12 +8,8 @@
                 <ul>
                     {% for referee in referees %}
                         <li>
-                            {{ referee.name }} {{ referee.surname }}
-                            <a href="{% url 'profile_referee_edit' referee.id %}" class="btn btn-link">
-                                ✏️
-                            </a>
-                            <a href="{% url 'profile_referee_delete' referee.id %}" class="btn btn-link text-danger">
-                                ❌
+                            <a href="{% url 'referee_detail' referee.id %}">
+                                {{ referee.name }} {{ referee.surname }}
                             </a>
                         </li>
                     {% endfor %}
