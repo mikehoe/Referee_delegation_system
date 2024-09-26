@@ -1,7 +1,7 @@
 from logging import getLogger
 
 from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
@@ -130,10 +130,12 @@ class RefereeDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         referee = self.get_object()
-        profile_referee = get_object_or_404(ProfileReferee, referee=referee)
+
+        if not ProfileReferee.objects.filter(referee=referee).exists():
+            return HttpResponse("No Profile found for this Referee.", status=400)
+
+        profile_referee = ProfileReferee.objects.get(referee=referee)
         user = profile_referee.user
-
         response = super().delete(request, *args, **kwargs)
-
         user.delete()
         return response
