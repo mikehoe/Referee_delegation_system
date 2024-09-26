@@ -34,6 +34,7 @@ class Command(BaseCommand):
                 rating = row['rating']
                 phone = row['phone']
 
+                # TODO: atomic
                 user, user_created = User.objects.get_or_create(
                     username=username, first_name=first_name, last_name=last_name, email=email,
                     is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, date_joined=date_joined, )
