@@ -1,10 +1,11 @@
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from accounts.models import ProfileReferee
-from accounts.forms import AddProfileRefereeForm, EditProfileRefereeForm
+from accounts.forms import AddProfileRefereeForm
 from competitions.models import City
 from referees.models import Referee, RefereeLicenceType
 
@@ -20,15 +21,22 @@ class ProfileRefereeAddView(CreateView):
         context['cities'] = City.objects.all()
         return context
 
+    def form_valid(self, form):
+        referee, user = form.save(commit=True)
+        return HttpResponseRedirect(self.get_success_url())
+
     def get_success_url(self):
         return reverse('referees_list')
 
 
 class ProfileRefereeEditView(UpdateView):
     model = Referee
+    form_class = AddProfileRefereeForm
     template_name = "form_edit.html"
-    fields = ['licence_number', 'licence_type', 'city', 'rating', 'phone']
-    success_url = reverse_lazy('referees_list')
+
+    def get_object(self, queryset=None):
+        referee_id = self.kwargs.get("pk")
+        return get_object_or_404(Referee, pk=referee_id)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -36,37 +44,33 @@ class ProfileRefereeEditView(UpdateView):
         context['cities'] = City.objects.all()
 
         referee = self.get_object()
-        context['referee'] = referee
-
-        profile_referee = ProfileReferee.objects.get(referee=referee)
-        context['profile_referee'] = profile_referee
-
-        context['first_name'] = profile_referee.user.first_name
-        context['last_name'] = profile_referee.user.last_name
-
+        profile = ProfileReferee.objects.get(referee=referee)
+        context['user'] = profile.user
         return context
 
     def form_valid(self, form):
-        # Získání rozhodčího a jeho profilu
-        referee = form.save(commit=False)
-        profile_referee = ProfileReferee.objects.get(referee=referee)
+        referee = self.get_object()
+        profile = ProfileReferee.objects.get(referee=referee)
 
-        # Aktualizace jména a příjmení v User modelu
-        user = profile_referee.user
-        user.first_name = self.request.POST.get('name')
-        user.last_name = self.request.POST.get('surname')
+        # Update referee information
+        referee.licence_number = form.cleaned_data['licence_number']
+        referee.licence_type = form.cleaned_data['licence_type']
+        referee.city = form.cleaned_data['city']
+        referee.rating = form.cleaned_data['rating']
+        referee.phone = form.cleaned_data['phone']
+        referee.save()
+
+        # Update user information
+        user = profile.user
+        user.first_name = form.cleaned_data['name']
+        user.last_name = form.cleaned_data['surname']
+        user.email = form.cleaned_data['email']
         user.save()
 
-        # Uložení samotného rozhodčího
-        referee.save()
-        return super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
 
-    def get_initial(self):
-        profile_referee = ProfileReferee.objects.get(referee=self.object)
-        initial = super().get_initial()
-        initial['name'] = profile_referee.user.first_name
-        initial['surname'] = profile_referee.user.last_name
-        return initial
+    def get_success_url(self):
+        return reverse('referees_list')
 
 
 class ProfileRefereeDeleteView(DeleteView):
@@ -88,8 +92,8 @@ class ProfileRefereeDeleteView(DeleteView):
         user = profile_referee.user
 
         # Smažeme všechny tři objekty v rámci jedné atomické transakce
-        profile_referee.delete()  # Smažeme profil
-        referee.delete()          # Smažeme rozhodčího
+        profile_referee.delete()
+        referee.delete()
 
         # Smažeme uživatele mimo transakci
         user.delete()
