@@ -54,7 +54,7 @@ class TeamAdmin(admin.ModelAdmin):
 
 
 class MatchAdmin(admin.ModelAdmin):
-    ordering = ['date_time']
+    ordering = ['id', 'date_time']
     list_display = ['id', 'code', 'competition_in_season', 'home_team', 'away_team', 'date_time', 'city']
     list_display_links = ['id', 'home_team', 'away_team']
     list_filter = ['competition_in_season', 'date_time', 'city', 'home_team', 'away_team']
