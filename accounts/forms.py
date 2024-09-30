@@ -1,8 +1,11 @@
 from django import forms
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db.transaction import atomic
 from django.forms import ModelForm, CharField
+from django.shortcuts import redirect
 
 from referees.models import Referee
 from accounts.models import ProfileReferee
@@ -99,4 +102,10 @@ class AddProfileRefereeForm(ModelForm):
 
         return referee, user
 
+
+@login_required
+def user_logout(request):
+    logout(request)
+    #return render(request, 'home.html')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 

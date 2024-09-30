@@ -30,6 +30,8 @@ class RefereesListView(ListView):
             referees = referees.filter(city_id=selected_city_id)
             context['selected_city'] = City.objects.get(id=selected_city_id)
 
+        referees = referees.order_by('profile__user__last_name', 'profile__user__first_name')
+
         context['referees'] = referees
         return context
 

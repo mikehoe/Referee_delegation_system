@@ -9,7 +9,7 @@
                     {% for referee in referees %}
                         <li>
                             <a href="{% url 'referee_detail' referee.id %}">
-                                {{ referee.name }} {{ referee.surname }}
+                                {{ referee.surname }} {{ referee.name }}
                             </a>
                         </li>
                     {% endfor %}
