@@ -46,15 +46,15 @@ class CompetitionInSeasonAdmin(admin.ModelAdmin):
 
 class TeamAdmin(admin.ModelAdmin):
     ordering = ['name']
-    list_display = ['id', 'name', 'city', 'contact_person', 'phone', 'e_mail', 'competition_in_season']
+    list_display = ['id', 'name', 'city', 'contact_person', 'phone', 'email', 'competition_in_season']
     list_display_links = ['id', 'name']
-    list_filter = ['city', 'competition_in_season']
+    list_filter = ['competition_in_season', 'city']
     search_fields = ['name', 'city__name', 'competition_in_season__competition__name']
     list_per_page = 20
 
 
 class MatchAdmin(admin.ModelAdmin):
-    ordering = ['date_time']
+    ordering = ['id', 'date_time']
     list_display = ['id', 'code', 'competition_in_season', 'home_team', 'away_team', 'date_time', 'city']
     list_display_links = ['id', 'home_team', 'away_team']
     list_filter = ['competition_in_season', 'date_time', 'city', 'home_team', 'away_team']

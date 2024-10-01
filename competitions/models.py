@@ -1,3 +1,5 @@
+import datetime
+
 from referee_delegation_system.settings import SEASON_NAMES, COMPETITION_NAMES, COMPETITION_LEVELS, \
     COMPETITION_CATEGORIES
 
@@ -66,6 +68,12 @@ class Competition(Model):
     def __str__(self):
         return f"{self.name}"
 
+    def generate_competition_code(self):
+        competition_initial = self.name[0].upper()
+        category_initials = ''.join(
+            [word[0].upper() for word in self.category.split()])
+        return f'{competition_initial}{category_initials}'
+
 
 class CompetitionInSeason(Model):
     competition = ForeignKey(Competition, null=False, blank=False, on_delete=CASCADE,
@@ -88,7 +96,7 @@ class Team(Model):
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='teams')
     contact_person = CharField(max_length=64, null=True, blank=True)
     phone = CharField(max_length=20, null=True, blank=True)
-    e_mail = EmailField(null=True, blank=True)
+    email = EmailField(null=True, blank=True)
     competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
                                        related_name='teams')
 
@@ -127,3 +135,17 @@ class Match(Model):
     def __str__(self):
         return (f"{self.code} {self.home_team} vs. {self.away_team} {self.date_time.strftime("%x %H:%M")} "
                 f"sports hall: {self.city}")
+
+    @staticmethod
+    def generate_match_code(competition_in_season, match_number):
+        competition_code = competition_in_season.competition.generate_competition_code()
+        return f'{competition_code}{match_number}'
+
+    @staticmethod
+    def get_start_datetime(date_of_start, weekday, hour, minute):
+        """ Generates the start datetime of first round of matches
+        - the first given weekday at exact time after given start date. """
+        start_date = date_of_start
+        while start_date.weekday() != weekday:  # Find the first given weekday
+            start_date += datetime.timedelta(days=1)
+        return datetime.datetime.combine(start_date, datetime.time(hour=hour, minute=minute))  # Add exact time
