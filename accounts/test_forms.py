@@ -61,14 +61,14 @@ class AddProfileRefereeFormTest(TestCase):
     def test_clean_name_and_surname(self):
         """Test that the clean methods strip and capitalize names."""
         form_data = self.valid_form_data.copy()
-        form_data['name'] = '  john  '  # Leading and trailing spaces
-        form_data['surname'] = '  doe  '  # Leading and trailing spaces
+        form_data['name'] = '  jan  '  # Leading and trailing spaces
+        form_data['surname'] = '  novak  '  # Leading and trailing spaces
 
         form = AddProfileRefereeForm(data=form_data)
         form.is_valid()  # Call is_valid to trigger clean methods
 
-        self.assertEqual(form.cleaned_data['name'], 'John')
-        self.assertEqual(form.cleaned_data['surname'], 'Doe')
+        self.assertEqual(form.cleaned_data['name'], 'Jan')
+        self.assertEqual(form.cleaned_data['surname'], 'Novak')
 
     def test_clean_rating_valid(self):
         """Test that rating is valid between 0 and 100."""

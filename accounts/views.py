@@ -1,5 +1,5 @@
-from django.db import transaction
-from django.http import HttpResponse, HttpResponseRedirect
+from django.db.transaction import atomic
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -74,28 +74,28 @@ class ProfileRefereeEditView(UpdateView):
 
 
 class ProfileRefereeDeleteView(DeleteView):
-    model = Referee
-    template_name = 'form_delete.html'
+    model = ProfileReferee
+    template_name = "form_delete.html"
     success_url = reverse_lazy('referees_list')
 
-    @transaction.atomic
+    @atomic
     def delete(self, request, *args, **kwargs):
-        referee = self.get_object()
-
-        try:
-            # Nalezení profilu rozhodčího
-            profile_referee = ProfileReferee.objects.get(referee=referee)
-        except ProfileReferee.DoesNotExist:
-            return HttpResponse("No Profile found for this Referee.", status=400)
-
-        # Uložení uživatele pro pozdější smazání
+        profile_referee = self.get_object()
+        referee = profile_referee.referee
         user = profile_referee.user
 
-        # Smažeme všechny tři objekty v rámci jedné atomické transakce
-        profile_referee.delete()
+        # Deaktivace uživatele
+        user.is_active = False
+        user.save()
+
+        # Smazání rozhodčího, pokud má přiřazený profil
         referee.delete()
 
-        # Smažeme uživatele mimo transakci
-        user.delete()
+        # Smazání profilu rozhodčího
+        profile_referee.delete()
 
-        return HttpResponseRedirect(self.success_url)
+        # Kontrola a smazání orphan referee záznamů
+        orphaned_referees = Referee.objects.filter(profile=None)
+        orphaned_referees.delete()
+
+        return HttpResponseRedirect(self.get_success_url())

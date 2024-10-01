@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2>Delete Referee</h2>
-<p>Are you sure you want to delete the referee <strong>{{ referee.name }} {{ referee.surname }}</strong>?</p>
+<p>Are you sure you want to delete the referee <strong>{{ object.referee.name }} {{ object.referee.surname }} (username = '{{ object.user.username }}')</strong>?</p>
 <form method="POST">
     {% csrf_token %}
     <input id="id_submit" type="submit" value="Delete" class="btn btn-danger">
