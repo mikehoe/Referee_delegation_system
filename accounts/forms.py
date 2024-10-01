@@ -106,6 +106,6 @@ class AddProfileRefereeForm(ModelForm):
 @login_required
 def user_logout(request):
     logout(request)
-    #return render(request, 'home.html')
+    #return render(request, 'competitions_in_season.html')
     return redirect(request.META.get('HTTP_REFERER', '/'))
 

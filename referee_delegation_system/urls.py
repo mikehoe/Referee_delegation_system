@@ -18,13 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 
 from accounts.forms import user_logout
+from competitions.views import MatchesListView, TeamDetailView, TeamsListView
 from referees.views import RefereesListView, RefereeDetailView
 from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
-from competitions.view_home import home
+from competitions.view_home import competitions_in_season
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
+    path('', competitions_in_season, name='competitions_in_season'),
+
+    path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='competition_matches'),
+
+    path('competitions/team/<pk>/', TeamDetailView.as_view(), name='team_detail'),
+    path('competitions/teams', TeamsListView.as_view(), name='teams_list'),
 
     path('referees/referees/', RefereesListView.as_view(), name='referees_list'),
     path('referees/referee/<pk>/', RefereeDetailView.as_view(), name='referee_detail'),

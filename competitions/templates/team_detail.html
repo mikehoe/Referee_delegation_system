@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center">
+    <h1 class="mr-2">{{ team.name }}</h1>
+</div>
+
+<p style="margin-bottom: 30px;"></p>
+
+<ul>
+    <li><strong>City:</strong> {{ team.city.name }}</li>
+    <li><strong>Contact Person:</strong> {{ team.contact_person }}</li>
+    <li><strong>Phone:</strong> {{ team.phone }}</li>
+    {% if team.email %}
+        <li><strong>Email:</strong> {{ team.email }}</li>
+    {% endif %}
+</ul>
+
+<div class="d-flex justify-content-end">
+    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+</div>
+
+{% endblock %}

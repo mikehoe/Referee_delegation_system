@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
+
+    {% if competition_matches %}
+        <ul class="list-group">
+            {% for match in competition_matches %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.date_time|date:"d.m.Y H:i" }}</div>
+                    <div class="flex-shrink-0 text-center" style="width: 180px;">{{ match.city }}</div>
+                    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+                        <span style="flex: 1; text-align: right; max-width: 210px;">
+                            <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
+                        </span>
+                        <span style="margin: 0 20px; text-align: center;"> - </span>
+                        <span style="flex: 1; text-align: left; max-width: 210px;">
+                            <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
+                        </span>
+                    </div>
+                    <div class="flex-shrink-0 text-center" style="width: 150px;">
+                        {% if match.delegated_referees.count > 0 %}
+                            {% for delegation in match.delegated_referees.all %}
+                                {% if delegation.referee_role == '1.R' %}
+                                    1.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
+                                {% elif delegation.referee_role == '2.R' %}
+                                    2.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            {# if no delegation yet, leave empty #}
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {# if no matches in competition_in_season, leave empty #}
+    {% endif %}
+</div>
+{% endblock %}

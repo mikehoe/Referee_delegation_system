@@ -21,7 +21,11 @@
 {% if current_season %}
     <ul class="list-group text-center">
         {% for competition in competitions %}
-            <li class="list-group-item">{{ competition.competition.name }}</li>
+            <li class="list-group-item">
+                <a href="{% url 'competition_matches' competition.pk %}">
+                {{ competition.competition.name }} - {{ competition.season.name }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
 {% else %}

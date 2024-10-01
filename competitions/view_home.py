@@ -1,11 +1,11 @@
+from datetime import datetime
 from django.shortcuts import render
-from django.utils import timezone
 from .models import CompetitionInSeason, Season
 
-def home(request):
+def competitions_in_season(request):
     seasons = Season.objects.all()
     competitions = []
-    today = timezone.now().date()
+    today = datetime.now().date()
 
     selected_season_id = request.GET.get('season')
 
@@ -30,4 +30,4 @@ def home(request):
         'current_season': current_season,
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'competitions_in_season.html', context)

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Teams:</h2>
+                <ul>
+                    {% for team in teams_list %}
+                        <li>
+                            <a href="{% url 'team_detail' team.id %}">{{ team.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <div class="dropdown mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="cityDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        City: {{ selected_city.name|default:"All cities" }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="cityDropdown">
+                        <a class="dropdown-item" href="{% url 'teams_list' %}">All cities</a>
+                        {% for city in cities %}
+                            <a class="dropdown-item" href="{% url 'teams_list' %}?city={{ city.id }}{% if selected_competition_id %}&competition={{ selected_competition_id }}{% endif %}"
+                               {% if city.id|stringformat:"d" == selected_city_id %} style="font-weight: bold; background-color: #69a7f4; color: white;"{% endif %}>
+                                {{ city.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="dropdown mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="competitionDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Competition: {{ selected_competition.competition.name|default:"All competitions" }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="competitionDropdown">
+                        <a class="dropdown-item" href="{% url 'teams_list' %}">All competitions</a>
+                        {% for competition in competitions_in_seasons %}
+                            <a class="dropdown-item" href="{% url 'teams_list' %}?competition={{ competition.id }}{% if selected_city_id %}&city={{ selected_city_id }}{% endif %}"
+                               {% if competition.id|stringformat:"d" == selected_competition_id %} style="font-weight: bold; background-color: #69a7f4; color: white;"{% endif %}>
+                                {{ competition.competition.name }} ({{ competition.season.name }})
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
