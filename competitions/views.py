@@ -53,8 +53,6 @@ class TeamsListView(ListView):
 
         return context
 
-# TODO: chci, aby se při nulování jednoho filtru nevynuloval druhý (competitions x cities)
-
 class TeamDetailView(DetailView):
     model = Team
     template_name = "team_detail.html"
