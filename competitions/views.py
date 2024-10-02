@@ -1,7 +1,10 @@
+from datetime import datetime
+
 from django.db.models import Count
 from django.views.generic import ListView, DetailView
 
-from competitions.models import Match, CompetitionInSeason, Team, City
+from competitions.models import Match, CompetitionInSeason, Team, City, Season
+from competitions.view_home import get_current_season
 
 
 class MatchesListView(ListView):
@@ -28,32 +31,28 @@ class TeamsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Získání pouze těch měst, ve kterých existují týmy
-        context['cities'] = City.objects.annotate(num_teams=Count('teams')).filter(num_teams__gt=0)
-        context['competitions_in_seasons'] = CompetitionInSeason.objects.all()
+        # Získání aktuální sezóny pomocí pomocné funkce
+        selected_season_id = self.request.GET.get('season')
+        current_season = get_current_season(selected_season_id)
 
-        context['selected_city_id'] = self.request.GET.get('city', None)
-        context['selected_competition_id'] = self.request.GET.get('competition', None)
+        # Získání soutěží v aktuální sezóně
+        competitions = CompetitionInSeason.objects.filter(season=current_season)
 
-        selected_city_id = context['selected_city_id']
-        selected_competition_id = context['selected_competition_id']
+        # Pro každou soutěž v sezóně získáme týmy
+        competitions_teams = []
+        for competition_in_season in competitions:
+            teams_in_competition = Team.objects.filter(
+                competition_in_season=competition_in_season).order_by('name')
+            competitions_teams.append((competition_in_season, teams_in_competition))
 
-        teams = Team.objects.all().distinct()
+        # Přidání sezón a soutěží do kontextu
+        context['seasons'] = Season.objects.all()
+        context['competitions'] = competitions
+        context['current_season'] = current_season
+        context['competition_teams'] = competitions_teams
 
-        if selected_city_id:
-            teams = teams.filter(city_id=selected_city_id)
-            context['selected_city'] = City.objects.get(id=selected_city_id)
-
-        if selected_competition_id:
-            teams = teams.filter(competition_in_season_id=selected_competition_id)
-            context['selected_competition'] = CompetitionInSeason.objects.get(id=selected_competition_id)
-
-        teams = teams.distinct().order_by('name')
-
-        context['teams_list'] = teams
         return context
 
-# TODO: potřebuji, aby se každý tým zobrazil jednou
 # TODO: chci, aby se při nulování jednoho filtru nevynuloval druhý (competitions x cities)
 
 class TeamDetailView(DetailView):
@@ -63,6 +62,5 @@ class TeamDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        team = self.get_object()
         context['cities'] = City.objects.all()
         return context
