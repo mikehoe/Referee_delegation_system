@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db.transaction import atomic
-from django.forms import ModelForm, CharField
+from django.forms import ModelForm, CharField, EmailField
 from django.shortcuts import redirect
 
 from referees.models import Referee
@@ -12,14 +12,14 @@ from accounts.models import ProfileReferee
 
 
 class AddProfileRefereeForm(ModelForm):
-    name = CharField(max_length=16)
-    surname = CharField(max_length=16)
-    email = CharField(required=False)
+    name = CharField(max_length=16, label='First name')
+    surname = CharField(max_length=16, label='Last name')
+    email = EmailField(label='E-mail')
 
 
     class Meta:
         model = Referee
-        fields = ['licence_number', 'licence_type', 'city', 'rating', 'phone']
+        fields = ['name', 'surname', 'licence_number', 'licence_type', 'email', 'city', 'rating', 'phone']
 
     def clean_name(self):
         initial = self.cleaned_data.get('name')
@@ -82,25 +82,23 @@ class AddProfileRefereeForm(ModelForm):
         username = generate_unique_username(name, surname)
         initial_password = "Admin1234"
 
-        # 3. Vytvoření instance uživatele
-        user = User.objects.create_user(
+
+        referee = super().save(commit=False)
+        user = User(
             username=username,
             password=initial_password,
             first_name=name,
             last_name=surname,
             email=email,
         )
-
-        # 4. Vytvoření instance Referee bez uložení
-        referee = super().save(commit=False)
+        profile_referee = ProfileReferee(user=user, referee=referee)
 
         if commit:
             referee.save()
+            user.save()
+            profile_referee.save()
 
-        # 5. Vytvoření profilu rozhodčího, který propojí uživatele a rozhodčího
-        ProfileReferee.objects.create(user=user, referee=referee)
-
-        return referee, user
+        return referee
 
 
 @login_required
