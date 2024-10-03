@@ -20,7 +20,7 @@
 
 {% if current_season %}
     <ul class="list-group text-center">
-        {% for competition_in_season, teams in competition_teams %}
+        {% for competition_in_season, teams in competitions_teams %}
             <li class="list-group-item d-flex justify-content-start align-items-start">
                 <div class="flex-shrink-0 text-left" style="flex-basis: 33.33%;">
                     <a href="{% url 'competition_matches' competition_in_season.competition.pk %}">

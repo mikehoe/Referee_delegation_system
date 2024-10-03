@@ -1,10 +1,14 @@
 from datetime import datetime
+from logging import getLogger
 
-from django.db.models import Count
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
+from competitions.forms import CityModelForm
 from competitions.models import Match, CompetitionInSeason, Team, City, Season
 from competitions.view_home import get_current_season
+
+LOGGER = getLogger()
 
 
 class MatchesListView(ListView):
@@ -49,9 +53,10 @@ class TeamsListView(ListView):
         context['seasons'] = Season.objects.all()
         context['competitions'] = competitions
         context['current_season'] = current_season
-        context['competition_teams'] = competitions_teams
+        context['competitions_teams'] = competitions_teams
 
         return context
+
 
 class TeamDetailView(DetailView):
     model = Team
@@ -62,3 +67,37 @@ class TeamDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['cities'] = City.objects.all()
         return context
+
+
+class CityAddView(CreateView):
+    model = City
+    form_class = CityModelForm
+    template_name = "form.html"
+    success_url = reverse_lazy('cities_list')
+
+    def form_invalid(self, form):
+        LOGGER.warning('User provided invalid data while adding a city.')
+        return super().form_invalid(form)
+
+
+class CityUpdateView(UpdateView):
+    model = City
+    form_class = CityModelForm
+    template_name = "form.html"
+    success_url = reverse_lazy('cities_list')
+
+    def form_invalid(self, form):
+        LOGGER.warning('User provided invalid data while updating a city.')
+        return super().form_invalid(form)
+
+
+class CityDeleteView(DeleteView):
+    model = City
+    template_name = "city_delete.html"
+    success_url = reverse_lazy('cities_list')
+
+
+class CitiesListView(ListView):
+    model = City
+    template_name = 'cities_list.html'
+    context_object_name = 'cities'
