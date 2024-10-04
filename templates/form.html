@@ -5,5 +5,8 @@
     {% csrf_token %}
     <table>{{ form.as_table }}</table>
     <input id="id_submit" type="submit" value="Uložit" class="btn btn-primary">
+    <div class="d-flex justify-content-end">
+    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+    </div>
 </form>
 {% endblock %}

@@ -22,7 +22,7 @@
     <ul class="list-group text-center">
         {% for competition in competitions %}
             <li class="list-group-item">
-                <a href="{% url 'competition_matches' competition.pk %}">
+                <a href="{% url 'matches_list' competition.pk %}">
                 {{ competition.competition.name }} - {{ competition.season.name }}
                 </a>
             </li>

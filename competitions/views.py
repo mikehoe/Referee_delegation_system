@@ -4,8 +4,8 @@ from logging import getLogger
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from competitions.forms import CityModelForm
-from competitions.models import Match, CompetitionInSeason, Team, City, Season
+from competitions.forms import CityModelForm, MatchModelForm, TeamModelForm
+from competitions.models import Match, CompetitionInSeason, Team, City, Season, Competition
 from competitions.view_home import get_current_season
 
 LOGGER = getLogger()
@@ -25,6 +25,50 @@ class MatchesListView(ListView):
     def get_queryset(self):
         competition_in_season = CompetitionInSeason.objects.get(pk=self.kwargs['pk'])
         return Match.objects.filter(competition_in_season=competition_in_season)
+
+
+class MatchAddView(CreateView):
+    model = Match
+    form_class = MatchModelForm
+    template_name = "form.html"
+    success_url = reverse_lazy('matches_list')
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        # Get the CompetitionInSeason instance based on pk in URL
+        competition_in_season = CompetitionInSeason.objects.get(pk=self.kwargs['pk'])
+        # Pass the CompetitionInSeason instance as the initial value for the form
+        kwargs['initial']['competition_in_season'] = competition_in_season
+        return kwargs
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        competition_in_season = CompetitionInSeason.objects.get(pk=self.kwargs['pk'])
+        # Limits the choice of teams to home_team a away_team from the chosen competition_in_season
+        form.fields['home_team'].queryset = Team.objects.filter(competition_in_season=competition_in_season)
+        form.fields['away_team'].queryset = Team.objects.filter(competition_in_season=competition_in_season)
+        return form
+
+    def form_invalid(self, form):
+        LOGGER.warning('User provided invalid data while adding a city.')
+        return super().form_invalid(form)
+
+
+class MatchUpdateView(UpdateView):
+    model = Match
+    form_class = MatchModelForm
+    template_name = "form.html"
+    success_url = reverse_lazy('matches_list')
+
+    def form_invalid(self, form):
+        LOGGER.warning('User provided invalid data while updating a city.')
+        return super().form_invalid(form)
+
+
+class MatchDeleteView(DeleteView):
+    model = Match
+    template_name = "match_delete.html"
+    success_url = reverse_lazy('matches_list')
 
 
 class TeamsListView(ListView):
@@ -69,6 +113,40 @@ class TeamDetailView(DetailView):
         return context
 
 
+class CitiesListView(ListView):
+    model = City
+    template_name = 'cities_list.html'
+    context_object_name = 'cities'
+
+
+class TeamAddView(CreateView):
+    model = Team
+    form_class = TeamModelForm
+    template_name = "form.html"
+    success_url = reverse_lazy('teams_list')
+
+    def form_invalid(self, form):
+        LOGGER.warning('User provided invalid data while adding a city.')
+        return super().form_invalid(form)
+
+
+class TeamUpdateView(UpdateView):
+    model = Team
+    form_class = TeamModelForm
+    template_name = "form.html"
+    success_url = reverse_lazy('teams_list')
+
+    def form_invalid(self, form):
+        LOGGER.warning('User provided invalid data while updating a city.')
+        return super().form_invalid(form)
+
+
+class TeamDeleteView(DeleteView):
+    model = Team
+    template_name = "team_delete.html"
+    success_url = reverse_lazy('teams_list')
+
+
 class CityAddView(CreateView):
     model = City
     form_class = CityModelForm
@@ -97,7 +175,3 @@ class CityDeleteView(DeleteView):
     success_url = reverse_lazy('cities_list')
 
 
-class CitiesListView(ListView):
-    model = City
-    template_name = 'cities_list.html'
-    context_object_name = 'cities'

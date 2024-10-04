@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="bg-light py-2">
-    <div class="container text-center">
+    <div class="container d-flex justify-content-between align-items-center">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Season {{ current_season.name }}
@@ -15,7 +15,8 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
+        <a href="{% url 'team_add' %}" class="btn btn-primary">Add Team</a>
+        </div>
 </div>
 
 {% if current_season %}
@@ -23,7 +24,7 @@
         {% for competition_in_season, teams in competitions_teams %}
             <li class="list-group-item d-flex justify-content-start align-items-start">
                 <div class="flex-shrink-0 text-left" style="flex-basis: 33.33%;">
-                    <a href="{% url 'competition_matches' competition_in_season.competition.pk %}">
+                    <a href="{% url 'matches_list' competition_in_season.competition.pk %}">
                         <strong>{{ competition_in_season.competition.name }}</strong>
                     </a>
                 </div>
@@ -32,6 +33,8 @@
                         {% for team in teams %}
                             <li>
                                 <a href="{% url 'team_detail' team.id %}">{{ team.name }}</a>
+                                <a href="{% url 'team_update' team.id %}" title="Edit"><span class="emoji">✏️</span></a>
+                                <a href="{% url 'team_delete' team.id %}" title="Delete"><span class="emoji">❌</span></a>
                             </li>
                         {% empty %}
                             <li>No teams available</li>

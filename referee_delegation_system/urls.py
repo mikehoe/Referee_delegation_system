@@ -19,7 +19,8 @@ from django.urls import path, include
 
 from accounts.forms import user_logout
 from competitions.views import MatchesListView, TeamDetailView, TeamsListView, CityAddView, CityUpdateView, \
-    CitiesListView, CityDeleteView
+    CitiesListView, CityDeleteView, MatchAddView, MatchUpdateView, MatchDeleteView, TeamAddView, TeamUpdateView, \
+    TeamDeleteView
 from referees.views import RefereesListView, RefereeDetailView
 from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
 from competitions.view_home import competitions_in_season
@@ -28,10 +29,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', competitions_in_season, name='competitions_in_season'),
 
-    path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='competition_matches'),
+    path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='matches_list'),
+    path('competitions/competitioninseason/<pk>/match/add/', MatchAddView.as_view(), name='match_add'),
+    path('competitions/match/<pk>/update/', MatchUpdateView.as_view(), name='match_update'),
+    path('competitions/match/<pk>/delete/', MatchDeleteView.as_view(), name='match_delete'),
 
-    path('competitions/team/<pk>/', TeamDetailView.as_view(), name='team_detail'),
     path('competitions/teams/', TeamsListView.as_view(), name='teams_list'),
+    path('competitions/team/add/', TeamAddView.as_view(), name='team_add'),
+    path('competitions/team/<pk>/', TeamDetailView.as_view(), name='team_detail'),
+    path('competitions/team/<pk>/update', TeamUpdateView.as_view(), name='team_update'),
+    path('competitions/team/<pk>/delete/', TeamDeleteView.as_view(), name='team_delete'),
+
     path('competitions/cities/', CitiesListView.as_view(), name='cities_list'),
     path('competitions/city/add/', CityAddView.as_view(), name='city_add'),
     path('competitions/city/<pk>/update/', CityUpdateView.as_view(), name='city_update'),
