@@ -19,7 +19,7 @@ from django.urls import path, include
 
 from accounts.forms import user_logout
 from referees.views import RefereesListView, RefereeDetailView
-from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, profile_referee_delete
+from accounts.views import ProfileRefereeAddView, update_profile_referee, profile_referee_delete
 from competitions.view_home import home
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     path('referees/referee/<pk>/', RefereeDetailView.as_view(), name='referee_detail'),
 
     path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),
-    path('accounts/profilereferee/<pk>/edit/', ProfileRefereeEditView.as_view(), name='profile_referee_edit'),
+    path('accounts/profilereferee/<pk>/edit/', update_profile_referee, name='profile_referee_edit'),
     path('accounts/profilereferee/<pk>/delete/', profile_referee_delete, name='profile_referee_delete'),
 
     path('accounts/logout/', user_logout, name='logout'),

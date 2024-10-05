@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Delete Referee</h2>
-<p>Are you sure you want to delete the referee <strong>{{ referee.name }} {{ referee.surname }} (licence number = '{{ referee.licence_number }}')</strong>?</p>
+<h2>Delete Profile</h2>
+<p>Are you sure you want to delete profile <strong>{{ object }}</strong>?</p>
 <form method="POST">
     {% csrf_token %}
     <input id="id_submit" type="submit" value="Delete" class="btn btn-danger">
