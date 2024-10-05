@@ -23,12 +23,19 @@ def update_profile_referee(request, pk):
     user = profile_referee.user
     if request.method == 'POST':
         form = AddProfileRefereeForm(request.POST, instance=referee)
+        form.fields['first_name'].initial = user.first_name
+        form.fields['last_name'].initial = user.last_name
+        form.fields['email'].initial = user.email
         if form.is_valid():
             form.save()
             return redirect('referees_list')
     else:
         form = AddProfileRefereeForm(instance=referee)
         print(user.first_name)
+        form.fields['first_name'].initial = user.first_name
+        form.fields['last_name'].initial = user.last_name
+        form.fields['email'].initial = user.email
+
     return render(request, 'form.html', {'form': form})
 
 
