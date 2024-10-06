@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ referee.name }} {{ referee.surname }}</h2>
+<br>
+<div class="d-flex justify-content-between align-items-center"> <!-- Flexbox pro zarovnání -->
+    <h3>Unavailabilities:</h3>
+    <a href="{% url 'unavailability_add' referee.id %}" class="btn btn-primary">Add Unavailability</a>
+</div>
+<br>
+<ul class="list-group">
+    {% for unavailability in unavailabilities %}
+        <li class="list-group-item">
+            {{ unavailability.date_from }} - {{ unavailability.date_to }}
+            <a href="{% url 'unavailability_update' referee.id unavailability.id %}">✏️</a>
+            <a href="{% url 'unavailability_delete' referee.id unavailability.id %}">❌</a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No unavailabilities found.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

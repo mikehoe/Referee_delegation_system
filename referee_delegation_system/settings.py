@@ -125,7 +125,7 @@ USE_I18N = True
 USE_TZ = False
 
 # login redirect
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'competitions_in_season'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

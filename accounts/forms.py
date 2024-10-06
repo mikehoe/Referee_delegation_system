@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db.transaction import atomic
 from django.forms import ModelForm, CharField
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 from referees.models import Referee
 from accounts.models import ProfileReferee
@@ -106,6 +106,5 @@ class AddProfileRefereeForm(ModelForm):
 @login_required
 def user_logout(request):
     logout(request)
-    #return render(request, 'competitions_in_season.html')
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect('competitions_in_season')
 

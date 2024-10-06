@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Delete Unavailability</h2>
+<h3><strong>"{{ unavailability.date_from }} - {{ unavailability.date_to }}" </strong></h3>
+<p>Are you sure you want to delete this unavailability?</p>
+<form method="POST">
+    {% csrf_token %}
+    <input id="id_submit" type="submit" value="Delete" class="btn btn-danger">
+    <a href="{% url 'unavailabilities_list' unavailability.referee.id %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
