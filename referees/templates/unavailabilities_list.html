@@ -11,7 +11,7 @@
 <ul class="list-group">
     {% for unavailability in unavailabilities %}
         <li class="list-group-item">
-            {{ unavailability.date_from }} - {{ unavailability.date_to }}
+            {{ unavailability.date_from|date:'d. m. Y' }} - {{ unavailability.date_to|date:'d. m. Y' }}
             <a href="{% url 'unavailability_update' referee.id unavailability.id %}">✏️</a>
             <a href="{% url 'unavailability_delete' referee.id unavailability.id %}">❌</a>
         </li>

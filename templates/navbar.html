@@ -21,6 +21,9 @@
                 <a class="nav-item nav-link active" href="{% url 'unavailabilities_list' profile_referee.referee.id %}">Unavailabilities</a>
             {% endif %}
         {% endwith %}
+        {% if 'referees.view_unavailability' in user.get_all_permissions %}
+            <a class="nav-item nav-link active" href="{% url 'all_unavailabilities_list' %}">All Unavailabilities</a>
+        {% endif %}
         <div class="nav-item dropdown">
             <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
                 {{ user.username }}

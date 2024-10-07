@@ -22,7 +22,7 @@ from competitions.views import MatchesListView, TeamDetailView, TeamsListView, C
     CitiesListView, CityDeleteView, MatchAddView, MatchUpdateView, MatchDeleteView, TeamAddView, TeamUpdateView, \
     TeamDeleteView
 from referees.views import RefereesListView, RefereeDetailView, UnavailabilityListView, UnavailabilityCreateView, \
-    UnavailabilityDeleteView, UnavailabilityUpdateView
+    UnavailabilityDeleteView, UnavailabilityUpdateView, AllUnavailabilitiesListView
 from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
 from competitions.view_home import competitions_in_season
 
@@ -49,6 +49,7 @@ urlpatterns = [
     path('referees/referees/', RefereesListView.as_view(), name='referees_list'),
     path('referees/referee/<pk>/', RefereeDetailView.as_view(), name='referee_detail'),
 
+    path('referees/unavailabilities/', AllUnavailabilitiesListView.as_view(), name='all_unavailabilities_list'),
     path('referee/<pk>/unavailabilities/', UnavailabilityListView.as_view(), name='unavailabilities_list'),
     path('referee/<pk>/unavailability/add', UnavailabilityCreateView.as_view(), name='unavailability_add'),
     path('referee/<referee_pk>/unavailability/<pk>/update', UnavailabilityUpdateView.as_view(), name='unavailability_update'),

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ view.action }} Unavailability</h2>
+<br>
+
+<form method="POST" style="display: flex; flex-direction: column;">
+    {% csrf_token %}
+
+    <div style="display: flex;">
+        <div style="margin-right: 10px;">
+            Date From: {{ form.date_from }}
+        </div>
+        <div style="margin-right: 10px;">
+            Date To: {{ form.date_to }}
+        </div>
+    </div>
+
+    <br>
+
+    <div id="calendar" style="width: 75%; margin-top: 20px;"></div>
+
+    <input id="id_submit" type="submit" value="Save" class="btn btn-primary">
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+
+    let calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        selectable: true,
+        select: function(info) {
+            const start = info.startStr;
+            let end = info.endStr;
+
+            // Adjust the end date to be the day before the displayed date
+            const endDate = new Date(end);
+            endDate.setDate(endDate.getDate() - 1);
+            end = endDate.toISOString().slice(0, 10);
+
+            // Set the selected values into the form input fields
+            document.getElementById("id_date_from").value = start;
+            document.getElementById("id_date_to").value = end;
+        }
+    });
+    calendar.render();
+});
+</script>
+{% endblock %}

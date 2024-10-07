@@ -79,21 +79,21 @@ class TeamsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Získání aktuální sezóny pomocí pomocné funkce
+        # Getting current season with a function
         selected_season_id = self.request.GET.get('season')
         current_season = get_current_season(selected_season_id)
 
-        # Získání soutěží v aktuální sezóně
+        # Getting competitions in current season
         competitions = CompetitionInSeason.objects.filter(season=current_season)
 
-        # Pro každou soutěž v sezóně získáme týmy
+        # For each competition in season we get teams
         competitions_teams = []
         for competition_in_season in competitions:
             teams_in_competition = Team.objects.filter(
                 competition_in_season=competition_in_season).order_by('name')
             competitions_teams.append((competition_in_season, teams_in_competition))
 
-        # Přidání sezón a soutěží do kontextu
+        # Adding seasons and competitions in context
         context['seasons'] = Season.objects.all()
         context['competitions'] = competitions
         context['current_season'] = current_season
@@ -111,12 +111,6 @@ class TeamDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['cities'] = City.objects.all()
         return context
-
-
-class CitiesListView(ListView):
-    model = City
-    template_name = 'cities_list.html'
-    context_object_name = 'cities'
 
 
 class TeamAddView(CreateView):
@@ -145,6 +139,12 @@ class TeamDeleteView(DeleteView):
     model = Team
     template_name = "team_delete.html"
     success_url = reverse_lazy('teams_list')
+
+
+class CitiesListView(ListView):
+    model = City
+    template_name = 'cities_list.html'
+    context_object_name = 'cities'
 
 
 class CityAddView(CreateView):

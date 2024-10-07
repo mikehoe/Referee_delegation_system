@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -70,7 +70,7 @@ class UnavailabilityListView(ListView):
 
         self.referee = referee
 
-        return Unavailability.objects.filter(referee=referee)
+        return Unavailability.objects.filter(referee=referee).order_by('date_from', 'date_to')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -79,10 +79,45 @@ class UnavailabilityListView(ListView):
         return context
 
 
+class AllUnavailabilitiesListView(PermissionRequiredMixin, ListView):
+    model = Unavailability
+    template_name = "all_unavailabilities_list.html"
+    context_object_name = 'all_unavailabilities'
+    permission_required = 'referees.view_unavailability'
+
+    def get_queryset(self):
+        # Getting all unavailabilities with a referee
+        return Unavailability.objects.select_related('referee').order_by('referee', 'date_from', 'date_to')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        referees = Referee.objects.filter(unavailabilities__isnull=False).distinct()
+        referee_unavailabilities = []
+
+        # Getting selected referee from GET parameter
+        selected_referee_pk = self.request.GET.get('referee')
+
+        # If selected filter his unavailabilities
+        if selected_referee_pk:
+            selected_referee = Referee.objects.get(pk=selected_referee_pk)
+            referee_unavailability = Unavailability.objects.filter(referee=selected_referee).order_by('date_from')
+            referee_unavailabilities.append((selected_referee, referee_unavailability))
+        else:
+            # If not selected, show all
+            for referee in referees:
+                referee_unavailability = Unavailability.objects.filter(referee=referee).order_by('date_from')
+                referee_unavailabilities.append((referee, referee_unavailability))
+
+        context['referee_unavailabilities'] = referee_unavailabilities
+        context['referees'] = referees
+        context['selected_referee'] = selected_referee_pk
+        return context
+
+
 class UnavailabilityCreateView(CreateView):
     model = Unavailability
     form_class = UnavailabilityForm
-    template_name = "form.html"
+    template_name = "unavailability_form.html"
     success_url = reverse_lazy('unavailabilities_list')
 
     def form_valid(self, form):
@@ -99,7 +134,7 @@ class UnavailabilityCreateView(CreateView):
 class UnavailabilityUpdateView(LoginRequiredMixin, UpdateView):
     model = Unavailability
     fields = ['date_from', 'date_to']
-    template_name = 'form.html'
+    template_name = 'unavailability_form.html'
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
@@ -138,7 +173,4 @@ class UnavailabilityDeleteView(DeleteView):
         return reverse('unavailabilities_list', kwargs={'pk': referee_id})
 
 
-# TODO: date_time format = "10.5.2024"
-# TODO: create and update -> calendar (Javascript?)
-# TODO: unavailalibities_list - ordering date_from, date_to
-# TODO: unavailabilities list, view, edit and delete also for ProfileManager and Superuser (now only for the logged_in referee)
+# TODO: merge of unavailabilities in case of overlaying time intervals
