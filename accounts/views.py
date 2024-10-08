@@ -1,40 +1,39 @@
 from django.db.transaction import atomic
-from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
+from accounts.forms import ProfileRefereeForm
 from accounts.models import ProfileReferee
-from accounts.forms import AddProfileRefereeForm
-from competitions.models import City
-from referees.models import Referee, RefereeLicenceType
+from referees.models import Referee
 
 
 class ProfileRefereeAddView(CreateView):
-    form_class = AddProfileRefereeForm
+    form_class = ProfileRefereeForm
     template_name = "form.html"
     success_url = reverse_lazy('referees_list')
 
 
 # TODO FIX
-def update_profile_referee(request, pk):
+def profile_referee_update(request, pk):
     referee = get_object_or_404(Referee, pk=pk)
     profile_referee = ProfileReferee.objects.get(referee=referee)
     user = profile_referee.user
+
+    initial_data = {
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'email': user.email,
+    }
+
     if request.method == 'POST':
-        form = AddProfileRefereeForm(request.POST, instance=referee)
-        form.fields['first_name'].initial = user.first_name
-        form.fields['last_name'].initial = user.last_name
-        form.fields['email'].initial = user.email
+        form = ProfileRefereeForm(request.POST, instance=referee, initial=initial_data)
         if form.is_valid():
-            form.save()
+            form.update(pk)
             return redirect('referees_list')
     else:
-        form = AddProfileRefereeForm(instance=referee)
-        print(user.first_name)
-        form.fields['first_name'].initial = user.first_name
-        form.fields['last_name'].initial = user.last_name
-        form.fields['email'].initial = user.email
+        form = ProfileRefereeForm(instance=referee, initial=initial_data)
+        print(f"Load initial form data from referee profile: {profile_referee}")
 
     return render(request, 'form.html', {'form': form})
 
@@ -45,11 +44,11 @@ def profile_referee_delete(request, pk):
     profile_referee = ProfileReferee.objects.get(referee=referee)
     user = profile_referee.user
     if request.method == 'POST':
-        print(profile_referee)
+        print(f"Delete referee profile: {profile_referee}")
         referee.profile.delete()
-        print(referee)
+        print(f"Delete referee: {referee}")
         referee.delete()
-        print(user)
+        print(f"Delete user: {user}")
         user.delete()
         return redirect('referees_list')
     return render(request, 'form_delete.html', {'object': referee})

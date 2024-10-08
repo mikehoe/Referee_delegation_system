@@ -3,7 +3,7 @@
 {% block content %}
 <div class="d-flex align-items-center">
     <h1 class="mr-2">{{ referee.name }} {{ referee.surname }}</h1>
-    <a href="{% url 'profile_referee_edit' referee.id %}" class="btn btn-link">✏️</a>
+    <a href="{% url 'profile_referee_update' referee.id %}" class="btn btn-link">✏️</a>
     <a href="{% url 'profile_referee_delete' referee.id %}" class="btn btn-link text-danger">❌</a>
 </div>
 

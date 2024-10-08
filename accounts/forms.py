@@ -1,5 +1,4 @@
 import unicodedata
-from django import forms
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -8,8 +7,8 @@ from django.db.transaction import atomic
 from django.forms import ModelForm, CharField, EmailField
 from django.shortcuts import redirect
 
-from referees.models import Referee
 from accounts.models import ProfileReferee
+from referees.models import Referee
 
 
 def remove_diacritics(input_str):
@@ -32,7 +31,7 @@ def generate_unique_username_and_password(first_name, last_name, number):
     return username, f"{username}{number}"
 
 
-class AddProfileRefereeForm(ModelForm):
+class ProfileRefereeForm(ModelForm):
     first_name = CharField(max_length=150, required=True)
     last_name = CharField(max_length=150, required=True)
     email = EmailField(required=True)
@@ -45,7 +44,7 @@ class AddProfileRefereeForm(ModelForm):
         first_name = self.cleaned_data.get('first_name')
         if first_name:
             first_name = ' '.join([n.capitalize() for n in first_name.strip().split()])  # Capitalize also middle names
-            print(first_name)
+            print(f"clean:{first_name}")
             return first_name
         return first_name
 
@@ -87,6 +86,29 @@ class AddProfileRefereeForm(ModelForm):
             user.save()
             referee.save()
             profile_referee.save()
+            print(f"Add profile_referee = {profile_referee}")
+
+        return profile_referee
+
+    @atomic
+    def update(self, pk, commit=True):
+        first_name = self.cleaned_data['first_name']
+        last_name = self.cleaned_data.get('last_name')
+        email = self.cleaned_data.get('email')
+
+        referee = Referee.objects.get(pk=pk)
+        profile_referee = ProfileReferee.objects.get(referee=referee)
+        user = profile_referee.user
+
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        referee = super().save(commit=False)
+
+        if commit:
+            user.save()
+            referee.save()
+            print(f"Update referee profile = {profile_referee}")
 
         return profile_referee
 

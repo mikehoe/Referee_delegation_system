@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
-from accounts.forms import AddProfileRefereeForm
+from accounts.forms import ProfileRefereeForm
 from referees.models import Referee, RefereeLicenceType
 from accounts.models import ProfileReferee
 from competitions.models import City
@@ -31,7 +31,7 @@ class AddProfileRefereeFormTest(TestCase):
 
     def test_valid_form_creates_user_referee_profile(self):
         """Test that valid form data creates a User, Referee, and ProfileReferee with generated username."""
-        form = AddProfileRefereeForm(data=self.valid_form_data)
+        form = ProfileRefereeForm(data=self.valid_form_data)
 
         # Assert the form is valid
         self.assertTrue(form.is_valid(), msg=str(form.errors))
@@ -54,7 +54,7 @@ class AddProfileRefereeFormTest(TestCase):
 
     def test_invalid_form_empty_fields(self):
         """Test that the form is invalid when required fields are missing."""
-        form = AddProfileRefereeForm(data=self.empty_form_data)
+        form = ProfileRefereeForm(data=self.empty_form_data)
         self.assertFalse(form.is_valid())
         self.assertEqual(len(form.errors), 4)
 
@@ -64,7 +64,7 @@ class AddProfileRefereeFormTest(TestCase):
         form_data['name'] = '  jan  '  # Leading and trailing spaces
         form_data['surname'] = '  novak  '  # Leading and trailing spaces
 
-        form = AddProfileRefereeForm(data=form_data)
+        form = ProfileRefereeForm(data=form_data)
         form.is_valid()  # Call is_valid to trigger clean methods
 
         self.assertEqual(form.cleaned_data['name'], 'Jan')
@@ -74,7 +74,7 @@ class AddProfileRefereeFormTest(TestCase):
         """Test that rating is valid between 0 and 100."""
         form_data = self.valid_form_data.copy()
         form_data['rating'] = 50  # Valid rating
-        form = AddProfileRefereeForm(data=form_data)
+        form = ProfileRefereeForm(data=form_data)
         self.assertTrue(form.is_valid())  # Rating is valid
 
     def test_clean_rating_out_of_bounds(self):
@@ -83,19 +83,19 @@ class AddProfileRefereeFormTest(TestCase):
 
         # Test with a rating less than 0
         form_data['rating'] = -1
-        form = AddProfileRefereeForm(data=form_data)
+        form = ProfileRefereeForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
 
         # Test with a rating greater than 100
         form_data['rating'] = 101
-        form = AddProfileRefereeForm(data=form_data)
+        form = ProfileRefereeForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
 
         # Test with a rating with more than one decimal place
         form_data['rating'] = 50.123
-        form = AddProfileRefereeForm(data=form_data)
+        form = ProfileRefereeForm(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
 
@@ -127,7 +127,7 @@ class EditProfileRefereeFormTest(TestCase):
 
     def test_valid_form_updates_referee_profile(self):
         """Test that valid form data updates the Referee and ProfileReferee instances."""
-        form = AddProfileRefereeForm(data=self.valid_form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=self.valid_form_data, instance=self.referee)
 
         # Assert the form is valid
         self.assertTrue(form.is_valid(), msg=str(form.errors))
@@ -141,7 +141,7 @@ class EditProfileRefereeFormTest(TestCase):
 
     def test_invalid_form_empty_fields(self):
         """Test that the form is invalid when required fields are missing."""
-        form = AddProfileRefereeForm(data=self.empty_form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=self.empty_form_data, instance=self.referee)
         self.assertFalse(form.is_valid())
         self.assertEqual(len(form.errors), 4)
 
@@ -151,7 +151,7 @@ class EditProfileRefereeFormTest(TestCase):
         form_data['name'] = '  jan  '  # Leading and trailing spaces
         form_data['surname'] = '  novak  '  # Leading and trailing spaces
 
-        form = AddProfileRefereeForm(data=form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=form_data, instance=self.referee)
         form.is_valid()  # Call is_valid to trigger clean methods
 
         self.assertEqual(form.cleaned_data['name'], 'Jan')
@@ -161,7 +161,7 @@ class EditProfileRefereeFormTest(TestCase):
         """Test that rating is valid between 0 and 100."""
         form_data = self.valid_form_data.copy()
         form_data['rating'] = 75  # Valid rating
-        form = AddProfileRefereeForm(data=form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=form_data, instance=self.referee)
         self.assertTrue(form.is_valid())  # Rating is valid
 
     def test_clean_rating_out_of_bounds(self):
@@ -170,19 +170,19 @@ class EditProfileRefereeFormTest(TestCase):
 
         # Test with a rating less than 0
         form_data['rating'] = -1
-        form = AddProfileRefereeForm(data=form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=form_data, instance=self.referee)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
 
         # Test with a rating greater than 100
         form_data['rating'] = 101
-        form = AddProfileRefereeForm(data=form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=form_data, instance=self.referee)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
 
         # Test with a rating with more than one decimal place
         form_data['rating'] = 75.432
-        form = AddProfileRefereeForm(data=form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=form_data, instance=self.referee)
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors)
 
@@ -193,7 +193,7 @@ class EditProfileRefereeFormTest(TestCase):
         # Do not include the 'rating' key in the form data to simulate an unchanged rating
         form_data.pop('rating', None)
 
-        form = AddProfileRefereeForm(data=form_data, instance=self.referee)
+        form = ProfileRefereeForm(data=form_data, instance=self.referee)
         self.assertTrue(form.is_valid())  # Form should be valid even without the rating field
 
         # Save form and update related instances
