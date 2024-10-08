@@ -28,6 +28,10 @@
                                     1.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                 {% elif delegation.referee_role == '2.R' %}
                                     2.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
+                                {% elif delegation.referee_role == '1.L' %}
+                                    1.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
+                                {% elif delegation.referee_role == '2.L' %}
+                                    2.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                 {% endif %}
                             {% endfor %}
                         {% else %}

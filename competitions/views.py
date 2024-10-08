@@ -1,11 +1,10 @@
-from datetime import datetime
 from logging import getLogger
 
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from competitions.forms import CityModelForm, MatchModelForm, TeamModelForm
-from competitions.models import Match, CompetitionInSeason, Team, City, Season, Competition
+from competitions.models import Match, CompetitionInSeason, Team, City, Season
 from competitions.view_home import get_current_season
 
 LOGGER = getLogger()
@@ -28,7 +27,6 @@ class MatchesListView(ListView):
 
 
 class MatchAddView(CreateView):
-    model = Match
     form_class = MatchModelForm
     template_name = "form.html"
     success_url = reverse_lazy('matches_list')
@@ -87,7 +85,7 @@ class TeamsListView(ListView):
         competitions = CompetitionInSeason.objects.filter(season=current_season)
 
         # For each competition in season we get teams
-        competitions_teams = []
+        competitions_teams = [] # [(competition), ([team1, team2...]),
         for competition_in_season in competitions:
             teams_in_competition = Team.objects.filter(
                 competition_in_season=competition_in_season).order_by('name')
@@ -148,7 +146,6 @@ class CitiesListView(ListView):
 
 
 class CityAddView(CreateView):
-    model = City
     form_class = CityModelForm
     template_name = "form.html"
     success_url = reverse_lazy('cities_list')
