@@ -6,12 +6,36 @@
             <div class="col-md-8">
                 <h2>Referees:</h2>
                 <ul>
+                    {% if user.is_authenticated %}
+                        {% with profile_referee=user.profile %}
+                            {% if profile_referee.referee %}
+                                <li style="font-weight: bold;">
+                                    <a href="{% url 'referee_detail' profile_referee.referee.id %}">
+                                        {{ profile_referee.referee.surname }} {{ profile_referee.referee.name }} (my profile)
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                    <br>
                     {% for referee in referees %}
-                        <li>
-                            <a href="{% url 'referee_detail' referee.id %}">
-                                {{ referee.surname }} {{ referee.name }}
-                            </a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            {% with profile_referee=user.profile %}
+                                {% if profile_referee.referee.id != referee.id %}
+                                    <li>
+                                        <a href="{% url 'referee_detail' referee.id %}">
+                                            {{ referee.surname }} {{ referee.name }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            <li>
+                                <a href="{% url 'referee_detail' referee.id %}">
+                                    {{ referee.surname }} {{ referee.name }}
+                                </a>
+                            </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>

@@ -27,6 +27,14 @@ class RefereesListView(ListView):
         selected_licence_id = context['selected_licence_id']
         selected_city_id = context['selected_city_id']
 
+        current_user = self.request.user
+        current_referee = None
+
+        if current_user.is_authenticated and hasattr(current_user, 'profile'):
+            profile = current_user.profile
+            if hasattr(profile, 'referee'):
+                current_referee = profile.referee
+
         referees = Referee.objects.all()
 
         if selected_licence_id:
@@ -39,7 +47,14 @@ class RefereesListView(ListView):
 
         referees = referees.order_by('profile__user__last_name', 'profile__user__first_name')
 
+        if current_referee:
+            referees = list(referees)  # Create list for manipulations
+            if current_referee not in referees:  # Making sure we don’t add a referee twice
+                referees.insert(0, current_referee)
+
         context['referees'] = referees
+        context['current_referee'] = current_referee
+
         return context
 
 
@@ -52,7 +67,27 @@ class RefereeDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['licences'] = RefereeLicenceType.objects.all()
         context['cities'] = City.objects.all()
+
+        # Kontrola, zda je uživatel přihlášený
+        if self.request.user.is_authenticated:
+            profile_referee = getattr(self.request.user, 'profile', None)
+            is_referee = profile_referee and profile_referee.referee == self.object
+            has_permission = self.request.user.has_perm('referees.view_unavailability')
+
+            # Umožnit rozhodčímu vidět vlastní nedostupnosti
+            if is_referee:
+                context['unavailabilities'] = Unavailability.objects.filter(referee=self.object)
+                context['show_unavailability_button'] = True  # Tlačítko pro vlastní nedostupnosti
+
+            # Umožnit administrátorům a profilovým manažerům vidět nedostupnosti jakéhokoli rozhodčího
+            if has_permission:
+                context['unavailability_list_url'] = reverse('unavailabilities_list', kwargs={'pk': self.object.id})
+                context['show_unavailability_button'] = True  # Tlačítko pro jakéhokoli rozhodčího
+
         return context
+
+
+from django.core.exceptions import PermissionDenied
 
 
 class UnavailabilityListView(ListView):
@@ -65,52 +100,17 @@ class UnavailabilityListView(ListView):
         referee_id = self.kwargs['pk']
         referee = Referee.objects.get(id=referee_id)
 
-        if referee.profile.user != self.request.user:
-            raise PermissionDenied
+        # Allows access to the logged-in user or user with permission
+        if referee.profile.user == self.request.user or self.request.user.has_perm('referees.view_unavailability'):
+            self.referee = referee
+            return Unavailability.objects.filter(referee=referee).order_by('date_from', 'date_to')
 
-        self.referee = referee
-
-        return Unavailability.objects.filter(referee=referee).order_by('date_from', 'date_to')
+        raise PermissionDenied
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['referee'] = self.referee
         context['referee_id'] = self.referee.id
-        return context
-
-
-class AllUnavailabilitiesListView(PermissionRequiredMixin, ListView):
-    model = Unavailability
-    template_name = "all_unavailabilities_list.html"
-    context_object_name = 'all_unavailabilities'
-    permission_required = 'referees.view_unavailability'
-
-    def get_queryset(self):
-        # Getting all unavailabilities with a referee
-        return Unavailability.objects.select_related('referee').order_by('referee', 'date_from', 'date_to')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        referees = Referee.objects.filter(unavailabilities__isnull=False).distinct()
-        referee_unavailabilities = []
-
-        # Getting selected referee from GET parameter
-        selected_referee_pk = self.request.GET.get('referee')
-
-        # If selected filter his unavailabilities
-        if selected_referee_pk:
-            selected_referee = Referee.objects.get(pk=selected_referee_pk)
-            referee_unavailability = Unavailability.objects.filter(referee=selected_referee).order_by('date_from')
-            referee_unavailabilities.append((selected_referee, referee_unavailability))
-        else:
-            # If not selected, show all
-            for referee in referees:
-                referee_unavailability = Unavailability.objects.filter(referee=referee).order_by('date_from')
-                referee_unavailabilities.append((referee, referee_unavailability))
-
-        context['referee_unavailabilities'] = referee_unavailabilities
-        context['referees'] = referees
-        context['selected_referee'] = selected_referee_pk
         return context
 
 
@@ -121,38 +121,42 @@ class UnavailabilityCreateView(CreateView):
     success_url = reverse_lazy('unavailabilities_list')
 
     def form_valid(self, form):
-        # Getting ProfileReferee for logged-in User
-        profile_referee = ProfileReferee.objects.get(user=self.request.user)
-        form.instance.referee = profile_referee.referee  # assigning referee
+        referee_id = self.kwargs['pk']  # Get referee ID from URL
+        referee = Referee.objects.get(id=referee_id)
+
+        # Assign the referee to the form instance
+        form.instance.referee = referee
+
+        # Check if the logged-in user is the referee or has the right permission
+        if referee.profile.user != self.request.user and not self.request.user.has_perm('referees.add_unavailability'):
+            raise PermissionDenied
+
         return super().form_valid(form)
 
     def get_success_url(self):
-        referee_id = self.kwargs['pk'] # ID from URL
+        referee_id = self.kwargs['pk']  # ID from URL
         return reverse('unavailabilities_list', kwargs={'pk': referee_id})
 
 
 class UnavailabilityUpdateView(LoginRequiredMixin, UpdateView):
     model = Unavailability
-    fields = ['date_from', 'date_to']
+    form_class = UnavailabilityForm
     template_name = 'unavailability_form.html'
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
 
-        if obj.referee.profile.user != self.request.user:
+        # Check if the user is the referee or has the right permission
+        if obj.referee.profile.user != self.request.user and not self.request.user.has_perm('referees.change_unavailability'):
             raise PermissionDenied
         return obj
-
-    def get_queryset(self):
-        referee_id = self.kwargs['referee_pk']
-        return Unavailability.objects.filter(referee_id=referee_id)
 
     def get_success_url(self):
         referee_id = self.kwargs['referee_pk']
         return reverse('unavailabilities_list', kwargs={'pk': referee_id})
 
 
-class UnavailabilityDeleteView(DeleteView):
+class UnavailabilityDeleteView(LoginRequiredMixin, DeleteView):
     model = Unavailability
     template_name = "unavailability_delete.html"
     success_url = reverse_lazy('unavailabilities_list')
@@ -160,13 +164,10 @@ class UnavailabilityDeleteView(DeleteView):
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
 
-        if obj.referee.profile.user != self.request.user:
-            raise PermissionDenied("You do not have permission to delete this unavailability.")
+        # Check if the user is the referee or has the right permission
+        if obj.referee.profile.user != self.request.user and not self.request.user.has_perm('referees.delete_unavailability'):
+            raise PermissionDenied
         return obj
-
-    def get_queryset(self):
-        referee_id = self.kwargs['referee_pk']
-        return Unavailability.objects.filter(referee_id=referee_id)
 
     def get_success_url(self):
         referee_id = self.kwargs['referee_pk']

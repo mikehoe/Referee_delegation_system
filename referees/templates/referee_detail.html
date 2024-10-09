@@ -16,6 +16,13 @@
 <p><strong>Phone:</strong> {{ referee.phone }}</p>
 <p><strong>Rating:</strong> {{ referee.rating }}</p>
 
+{% if user.is_authenticated %}
+    {% if show_unavailability_button %}
+        <!-- Všichni, kdo mohou vidět tlačítko, budou přesměrováni na seznam nedostupností -->
+        <a href="{% url 'unavailabilities_list' referee.id %}" class="btn btn-primary">Unavailabilities</a>
+    {% endif %}
+{% endif %}
+
 <div class="d-flex justify-content-end">
     <a href="{% url 'referees_list' %}" class="btn btn-secondary">Back</a>
 </div>
