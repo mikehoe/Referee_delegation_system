@@ -1,5 +1,7 @@
 import datetime
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 from referee_delegation_system.settings import SEASON_NAMES, COMPETITION_NAMES, COMPETITION_LEVELS, \
     COMPETITION_CATEGORIES
 
@@ -95,7 +97,7 @@ class Team(Model):
     name = CharField(max_length=64, null=False, blank=False)
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='teams')
     contact_person = CharField(max_length=64, null=True, blank=True)
-    phone = CharField(max_length=20, null=True, blank=True)
+    phone = PhoneNumberField(max_length=20, null=True, blank=True)
     email = EmailField(null=True, blank=True)
     competition_in_season = ForeignKey(CompetitionInSeason, null=True, blank=True, on_delete=SET_NULL,
                                        related_name='teams')

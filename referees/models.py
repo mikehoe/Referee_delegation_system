@@ -1,4 +1,6 @@
 from django.db.models import *
+from phonenumber_field.modelfields import PhoneNumberField
+
 from competitions.models import City, CompetitionLevel
 from referee_delegation_system.settings import REFEREE_LICENCE_TYPES
 
@@ -24,7 +26,7 @@ class Referee(Model):
     licence_type = ForeignKey(RefereeLicenceType, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     rating = FloatField(null=True, blank=True)
-    phone = CharField(max_length=20, null=True, blank=True)
+    phone = PhoneNumberField(max_length=20, null=True, blank=True)
 
     @property
     def name(self):

@@ -25,6 +25,8 @@ from referees.views import RefereesListView, RefereeDetailView, UnavailabilityLi
     UnavailabilityDeleteView, UnavailabilityUpdateView, AllUnavailabilitiesListView
 from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
 from competitions.view_home import competitions_in_season
+from referees.views import RefereesListView, RefereeDetailView
+from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -56,8 +58,8 @@ urlpatterns = [
     path('referee/<referee_pk>/unavailability/<pk>/delete', UnavailabilityDeleteView.as_view(), name='unavailability_delete'),
 
     path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),
-    path('accounts/profilereferee/<pk>/edit/', ProfileRefereeEditView.as_view(), name='profile_referee_edit'),
-    path('accounts/profilereferee/<pk>/delete/', ProfileRefereeDeleteView.as_view(), name='profile_referee_delete'),
+    path('accounts/profilereferee/<pk>/update/', profile_referee_update, name='profile_referee_update'),
+    path('accounts/profilereferee/<pk>/delete/', profile_referee_delete, name='profile_referee_delete'),
 
     path('accounts/logout/', user_logout, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
