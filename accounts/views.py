@@ -14,7 +14,6 @@ class ProfileRefereeAddView(CreateView):
     success_url = reverse_lazy('referees_list')
 
 
-# TODO FIX
 def profile_referee_update(request, pk):
     referee = get_object_or_404(Referee, pk=pk)
     profile_referee = ProfileReferee.objects.get(referee=referee)
