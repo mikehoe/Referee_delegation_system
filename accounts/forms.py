@@ -22,13 +22,17 @@ def remove_diacritics(input_str):
 
 
 def generate_unique_username_and_password(first_name, last_name, number):
+    first_name = first_name.strip().split()[0]  # If there are more names, it takes first one.
+    last_name = '-'.join(last_name.strip().split())  # If there are more surnames, is takes all
     base_username = remove_diacritics(f"{first_name}.{last_name}".lower())
     username = base_username
-    counter = 1
+    counter = 2
     while User.objects.filter(username=username).exists():
         username = f"{base_username}{counter}"
         counter += 1
-    return username, f"{username}{number}"
+    password = f"{username}-{number}"
+    print(f"username = {username}, password: {password}")
+    return username, password
 
 
 class ProfileRefereeForm(ModelForm):
@@ -44,14 +48,16 @@ class ProfileRefereeForm(ModelForm):
         first_name = self.cleaned_data.get('first_name')
         if first_name:
             first_name = ' '.join([n.capitalize() for n in first_name.strip().split()])  # Capitalize also middle names
-            print(f"clean:{first_name}")
+            print(f"clean first name: {first_name}")
             return first_name
         return first_name
 
     def clean_last_name(self):
         last_name = self.cleaned_data.get('last_name')
         if last_name:
-            return last_name.strip().capitalize()
+            last_name = ' '.join([n.capitalize() for n in last_name.strip().split()])  # Capitalize all surnames
+            print(f"clean last name: {last_name}")
+            return last_name
         return last_name
 
     def clean_rating(self):

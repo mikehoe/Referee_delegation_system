@@ -1,6 +1,9 @@
 from django.contrib.auth.models import User
-from django.db.models import Model, OneToOneField, CASCADE, CharField
+from django.db.models import Model, OneToOneField, CASCADE
+from phonenumber_field.modelfields import PhoneNumberField
+
 from referees.models import Referee
+
 
 class ProfileReferee(Model):
     user = OneToOneField(User, on_delete=CASCADE, related_name='profile')
@@ -18,7 +21,7 @@ class ProfileReferee(Model):
 
 class ProfileManager(Model):
     user = OneToOneField(User, on_delete=CASCADE)
-    phone = CharField(max_length=20, null=True, blank=True)
+    phone = PhoneNumberField(max_length=20, null=True, blank=True)
 
     class Meta:
         ordering = ['user__username']
