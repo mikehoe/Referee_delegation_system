@@ -188,23 +188,3 @@ class CityDeleteView(DeleteView):
     success_url = reverse_lazy('cities_list')
 
 
-class SeasonAddView(CreateView):
-    model = Season
-    form_class = SeasonModelForm
-    template_name = 'form.html'
-    success_url = reverse_lazy('competitions_in_season')
-
-
-class SeasonUpdateView(UpdateView):
-    model = Season
-    form_class = SeasonModelForm
-    template_name = 'form.html'
-    success_url = reverse_lazy('competitions_in_season')
-
-class SeasonDeleteView(DeleteView):
-    model = Season
-    template_name = 'season_delete.html'
-    success_url = reverse_lazy('competitions_in_season')
-
-    def get_success_url(self):
-        return self.success_url

@@ -173,4 +173,3 @@ class UnavailabilityDeleteView(DeleteView):
         return reverse('unavailabilities_list', kwargs={'pk': referee_id})
 
 
-# TODO: merge of unavailabilities in case of overlaying time intervals

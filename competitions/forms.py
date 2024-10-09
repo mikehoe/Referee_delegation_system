@@ -62,31 +62,5 @@ class TeamModelForm(ModelForm):
         return contact_person
 
 
-class SeasonModelForm(ModelForm):
-    class Meta:
-        model = Season
-        fields = ['name', 'date_of_start', 'date_of_end']
-        widgets = {
-            'date_of_start': DateInput(attrs={'type': 'date'}),
-            'date_of_end': DateInput(attrs={'type': 'date'}),
-        }
 
-    def clean_name(self):
-        name = self.cleaned_data.get("name")
-        if name:
-            name = name.strip()
-            # Control of format - 2 numbers divided by '/'
-            if not all(part.isdigit() for part in name.split('/')) or name.count('/') != 1:
-                raise ValidationError("Season name must be in the format 'YYYY/YYYY' with numbers only.")
-            cleaned_name = name
-            return cleaned_name
-        raise ValidationError("Season name cannot be empty.")
-
-    def clean(self):
-        cleaned_data = super().clean()
-        date_of_start = cleaned_data.get("date_of_start")
-        date_of_end = cleaned_data.get("date_of_end")
-        if date_of_start and date_of_end and date_of_start > date_of_end:
-            raise ValidationError("Start date cannot be after end date.")
-        return cleaned_data
 
