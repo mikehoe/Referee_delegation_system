@@ -3,7 +3,7 @@ from logging import getLogger
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from competitions.forms import CityModelForm, MatchModelForm, TeamModelForm, SeasonModelForm
+from competitions.forms import CityModelForm, MatchModelForm, TeamModelForm
 from competitions.models import Match, CompetitionInSeason, Team, City, Season
 from competitions.view_home import get_current_season
 
