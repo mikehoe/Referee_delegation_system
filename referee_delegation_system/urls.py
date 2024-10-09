@@ -23,9 +23,7 @@ from competitions.views import MatchesListView, TeamDetailView, TeamsListView, C
     TeamDeleteView
 from referees.views import RefereesListView, RefereeDetailView, UnavailabilityListView, UnavailabilityCreateView, \
     UnavailabilityDeleteView, UnavailabilityUpdateView, AllUnavailabilitiesListView
-from accounts.views import ProfileRefereeAddView, ProfileRefereeEditView, ProfileRefereeDeleteView
 from competitions.view_home import competitions_in_season
-from referees.views import RefereesListView, RefereeDetailView
 from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete
 
 urlpatterns = [
