@@ -3,7 +3,7 @@ from logging import getLogger
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from competitions.forms import CityModelForm, MatchModelForm, TeamModelForm
+from competitions.forms import CityModelForm, MatchModelForm, TeamModelForm, SeasonModelForm
 from competitions.models import Match, CompetitionInSeason, Team, City, Season
 from competitions.view_home import get_current_season
 
@@ -29,7 +29,10 @@ class MatchesListView(ListView):
 class MatchAddView(CreateView):
     form_class = MatchModelForm
     template_name = "form.html"
-    success_url = reverse_lazy('matches_list')
+
+    def get_success_url(self):
+        # Gets correct URL with 'pk' of CompetitionInSeason from kwargs
+        return reverse_lazy('matches_list', kwargs={'pk': self.kwargs['pk']})
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -42,7 +45,7 @@ class MatchAddView(CreateView):
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
         competition_in_season = CompetitionInSeason.objects.get(pk=self.kwargs['pk'])
-        # Limits the choice of teams to home_team a away_team from the chosen competition_in_season
+        # Limits the choice of teams to home_team an away_team from the chosen competition_in_season
         form.fields['home_team'].queryset = Team.objects.filter(competition_in_season=competition_in_season)
         form.fields['away_team'].queryset = Team.objects.filter(competition_in_season=competition_in_season)
         return form
@@ -56,17 +59,30 @@ class MatchUpdateView(UpdateView):
     model = Match
     form_class = MatchModelForm
     template_name = "form.html"
-    success_url = reverse_lazy('matches_list')
+
+    def get_success_url(self):
+        return reverse_lazy('matches_list', kwargs={'pk': self.object.competition_in_season.pk})
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        competition_in_season = self.object.competition_in_season
+        form.fields['home_team'].queryset = Team.objects.filter(competition_in_season=competition_in_season)
+        form.fields['away_team'].queryset = Team.objects.filter(competition_in_season=competition_in_season)
+        return form
 
     def form_invalid(self, form):
-        LOGGER.warning('User provided invalid data while updating a city.')
+        LOGGER.warning('User provided invalid data while updating a match.')
         return super().form_invalid(form)
 
 
 class MatchDeleteView(DeleteView):
     model = Match
     template_name = "match_delete.html"
-    success_url = reverse_lazy('matches_list')
+
+    def get_success_url(self):
+        # gets back to the CompetitionInSeason of the deleted match
+        competition_in_season_id = self.object.competition_in_season.id
+        return reverse_lazy('matches_list', kwargs={'pk': competition_in_season_id})
 
 
 class TeamsListView(ListView):
@@ -172,3 +188,23 @@ class CityDeleteView(DeleteView):
     success_url = reverse_lazy('cities_list')
 
 
+class SeasonAddView(CreateView):
+    model = Season
+    form_class = SeasonModelForm
+    template_name = 'form.html'
+    success_url = reverse_lazy('competitions_in_season')
+
+
+class SeasonUpdateView(UpdateView):
+    model = Season
+    form_class = SeasonModelForm
+    template_name = 'form.html'
+    success_url = reverse_lazy('competitions_in_season')
+
+class SeasonDeleteView(DeleteView):
+    model = Season
+    template_name = 'season_delete.html'
+    success_url = reverse_lazy('competitions_in_season')
+
+    def get_success_url(self):
+        return self.success_url

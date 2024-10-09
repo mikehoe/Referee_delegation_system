@@ -14,11 +14,19 @@
                     <div class="flex-shrink-0 text-center" style="width: 180px;">{{ match.city }}</div>
                     <div class="flex-grow-1 d-flex justify-content-center align-items-center">
                         <span style="flex: 1; text-align: right; max-width: 210px;">
-                            <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
+                            {% if match.home_team %}
+                                <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
+                            {% else %}
+                                <span>No Home Team</span>
+                            {% endif %}
                         </span>
                         <span style="margin: 0 20px; text-align: center;"> - </span>
                         <span style="flex: 1; text-align: left; max-width: 210px;">
-                            <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
+                            {% if match.away_team %}
+                                <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
+                            {% else %}
+                                <span>No Away Team</span>
+                            {% endif %}
                         </span>
                     </div>
                     <div class="flex-shrink-0 text-center" style="width: 150px;">

@@ -4,9 +4,10 @@
 <form method="POST">
     {% csrf_token %}
     <table>{{ form.as_table }}</table>
-    <input id="id_submit" type="submit" value="Uložit" class="btn btn-primary">
-    <div class="d-flex justify-content-end">
-    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+    <br>
+    <div class="d-flex justify-content-between">
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+        <input id="id_submit" type="submit" value="Save" class="btn btn-primary">
     </div>
 </form>
 {% endblock %}
