@@ -2,10 +2,15 @@ import unicodedata
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from django.db.transaction import atomic
 from django.forms import ModelForm, CharField, EmailField
 from django.shortcuts import redirect
+from django.urls import reverse
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 
 from accounts.models import ProfileReferee
 from referees.models import Referee
@@ -33,6 +38,41 @@ def generate_unique_username_and_password(first_name, last_name, number):
     password = f"{username}-{number}"
     print(f"username = {username}, password: {password}")
     return username, password
+
+
+def send_welcome_email(user, raw_password):
+    # Vytvoření URL pro reset hesla
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
+    token = default_token_generator.make_token(user)
+    reset_url = reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
+
+    full_reset_url = f'localhost:8000{reset_url}'
+
+    # Zpráva pro uživatele
+    subject = 'Welcome to the Referee Delegation System'
+    message = f"""
+        Dear {user.first_name},
+
+        Your account has been created. Here are your login credentials:
+
+        Username: {user.username}
+        Password: {raw_password}
+
+        You can reset your password using the following link:
+        {full_reset_url}
+
+        Best regards,
+        The Referee Delegation System Team
+        """
+
+    # Odeslání e-mailu
+    send_mail(
+        subject,
+        message,
+        'delegationsystem@seznam.cz',  # From email
+        [user.email],  # To email
+        fail_silently=False,
+    )
 
 
 class ProfileRefereeForm(ModelForm):
@@ -93,6 +133,8 @@ class ProfileRefereeForm(ModelForm):
             referee.save()
             profile_referee.save()
             print(f"Add profile_referee = {profile_referee}")
+
+            send_welcome_email(user, raw_password)
 
         return profile_referee
 
