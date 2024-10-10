@@ -48,7 +48,7 @@ def send_welcome_email(user, raw_password):
 
     full_reset_url = f'localhost:8000{reset_url}'
 
-    # Zpráva pro uživatele
+    # Message for user
     subject = 'Welcome to the Referee Delegation System'
     message = f"""
         Dear {user.first_name},
@@ -65,12 +65,11 @@ def send_welcome_email(user, raw_password):
         The Referee Delegation System Team
         """
 
-    # Odeslání e-mailu
     send_mail(
         subject,
         message,
-        'delegationsystem@seznam.cz',  # From email
-        [user.email],  # To email
+        'delegationsystem@seznam.cz',
+        [user.email],
         fail_silently=False,
     )
 
@@ -132,9 +131,10 @@ class ProfileRefereeForm(ModelForm):
             user.save()
             referee.save()
             profile_referee.save()
-            print(f"Add profile_referee = {profile_referee}")
+            print(f"Add profile_referee: {profile_referee}")
 
             send_welcome_email(user, raw_password)
+            print(f"Welcome email sent to user: {profile_referee}")
 
         return profile_referee
 

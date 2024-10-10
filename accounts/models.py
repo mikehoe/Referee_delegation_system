@@ -20,7 +20,7 @@ class ProfileReferee(Model):
 
 
 class ProfileManager(Model):
-    user = OneToOneField(User, on_delete=CASCADE)
+    user = OneToOneField(User, on_delete=CASCADE, related_name='profile_manager')
     phone = PhoneNumberField(max_length=20, null=True, blank=True)
 
     class Meta:
