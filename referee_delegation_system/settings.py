@@ -13,10 +13,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from decouple import config
 from pathlib import Path
 
+from .federation_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -28,7 +28,6 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -79,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'referee_delegation_system.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -93,7 +91,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -104,14 +101,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-   # {
-   #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-   # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -140,57 +136,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Setting for sending e-mails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.seznam.cz'
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_SUBJECT_PREFIX = '[Referee Delegation System - Password Reset]'
-
-# Settings for Slovak volleyball federation
-SEASON_NAMES = [
-    ('2024/2025', '2024/2025'),
-    ('2023/2024', '2023/2024'),
-    ('2022/2023', '2022/2023'),
-]
-
-COMPETITION_NAMES = [
-    ('Extraliga muži', 'Extraliga muži'),
-    ('Extraliga ženy', 'Extraliga ženy'),
-    ('1. liga muži', '1. liga muži'),
-    ('1. liga ženy', '1. liga ženy'),
-    ('1. liga juniori', '1. liga juniori'),
-    ('1. liga juniorky', '1. liga juniorky'),
-    ('Kadeti západ', 'Kadeti západ'),
-    ('Kadetky západ', 'Kadetky západ'),
-]
-
-COMPETITION_LEVELS = [
-    ('extra_league', 'extra_league'),
-    ('first_league', 'first_league'),
-    ('regional', 'regional'),
-]
-
-COMPETITION_CATEGORIES = [
-    ('men', 'men'),
-    ('women', 'women'),
-    ('junior boys', 'junior boys'),
-    ('junior girls', 'junior girls'),
-    ('cadet boys', 'cadet boys'),
-    ('cadet girls', 'cadet girls'),
-]
-
-REFEREE_ROLES = [
-    ('1.R', '1.R'),
-    ('2.R', '2.R'),
-    ('1.L', '1.L'),
-    ('2.L', '2.L'),
-]
-
-REFEREE_LICENCE_TYPES = [
-    ('AM', 'AM'),
-    ('A', 'A'),
-    ('B', 'B'),
-    ('C', 'C'),
-]
+EMAIL_SUBJECT_PREFIX = '[Referee Delegation System]'
