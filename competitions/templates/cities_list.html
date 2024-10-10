@@ -3,13 +3,19 @@
 {% block content %}
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Cities:</h1>
-    <a href="{% url 'city_add' %}" class="btn btn-primary">Add City</a>
+    {% if perms.competitions.add_city %}
+        <a href="{% url 'city_add' %}" class="btn btn-primary">Add City</a>
+    {% endif %}
   </div>
   <ul>
     {% for city in cities %}
       <li><a>{{ city.name }}</a>
-          <a href="{% url 'city_update' city.id %}">✏️</a>
-          <a href="{% url 'city_delete' city.id %}">❌</a>
+          {% if perms.competitions.change_city %}
+            <a href="{% url 'city_update' city.id %}">✏️</a>
+        {% endif %}
+        {% if perms.competitions.delete_city %}
+            <a href="{% url 'city_delete' city.id %}">❌</a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

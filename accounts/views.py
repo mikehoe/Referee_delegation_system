@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.transaction import atomic
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
@@ -8,12 +10,13 @@ from accounts.models import ProfileReferee
 from referees.models import Referee
 
 
-class ProfileRefereeAddView(CreateView):
+class ProfileRefereeAddView(PermissionRequiredMixin, CreateView):
     form_class = ProfileRefereeForm
     template_name = "form.html"
     success_url = reverse_lazy('referees_list')
+    permission_required = 'accounts.add_referee'
 
-
+@permission_required('accounts.change_referee', raise_exception=True)
 def profile_referee_update(request, pk):
     referee = get_object_or_404(Referee, pk=pk)
     profile_referee = ProfileReferee.objects.get(referee=referee)
@@ -36,7 +39,7 @@ def profile_referee_update(request, pk):
 
     return render(request, 'form.html', {'form': form})
 
-
+@permission_required('accounts.delete_referee', raise_exception=True)
 @atomic
 def profile_referee_delete(request, pk):
     referee = get_object_or_404(Referee, pk=pk)

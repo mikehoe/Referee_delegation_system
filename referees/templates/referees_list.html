@@ -74,9 +74,11 @@
                     </div>
                 </div>
 
-                <div class="text-left">
-                    <a href="{% url 'profile_referee_add' %}" class="btn btn-primary d-inline-block mb-2">Add Referee</a>
-                </div>
+                {% if perms.accounts.add_referee %}
+                    <div class="text-left">
+                        <a href="{% url 'profile_referee_add' %}" class="btn btn-primary d-inline-block mb-2">Add Referee</a>
+                    </div>
+                {% endif %}
 
             </div>
         </div>

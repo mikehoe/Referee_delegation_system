@@ -15,7 +15,9 @@
                 {% endfor %}
             </div>
         </div>
-        <a href="{% url 'team_add' %}" class="btn btn-primary">Add Team</a>
+        {% if perms.competitions.add_team %}
+            <a href="{% url 'team_add' %}" class="btn btn-primary">Add Team</a>
+        {% endif %}
         </div>
 </div>
 
@@ -33,8 +35,12 @@
                         {% for team in teams %}
                             <li>
                                 <a href="{% url 'team_detail' team.id %}">{{ team.name }}</a>
-                                <a href="{% url 'team_update' team.id %}" title="Edit"><span class="emoji">✏️</span></a>
-                                <a href="{% url 'team_delete' team.id %}" title="Delete"><span class="emoji">❌</span></a>
+                                {% if perms.competitions.change_team %}
+                                    <a href="{% url 'team_update' team.id %}" title="Edit"><span class="emoji">✏️</span></a>
+                                {% endif %}
+                                {% if perms.competitions.delete_team %}
+                                    <a href="{% url 'team_delete' team.id %}" title="Delete"><span class="emoji">❌</span></a>
+                                {% endif %}
                             </li>
                         {% empty %}
                             <li>No teams available</li>

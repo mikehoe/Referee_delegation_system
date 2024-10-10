@@ -4,7 +4,9 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
-    <a href="{% url 'match_add' competition_in_season.pk%}" class="btn btn-primary">Add Match</a>
+    {% if perms.competitions.add_match %}
+        <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
+    {% endif %}
     </div>
     {% if competition_matches %}
         <ul class="list-group">
@@ -47,8 +49,12 @@
                         {% endif %}
                     </div>
                     <div class="d-flex flex-column text-center">
-                        <a href="{% url 'match_update' match.id %}">✏️</a>
-                        <a href="{% url 'match_delete' match.id %}">❌</a>
+                        {% if perms.competitions.change_match %}
+                            <a href="{% url 'match_update' match.id %}">✏️</a>
+                        {% endif %}
+                        {% if perms.competitions.delete_match %}
+                            <a href="{% url 'match_delete' match.id %}" class="text-danger">❌</a>
+                        {% endif %}
                     </div>
                 </li>
             {% endfor %}

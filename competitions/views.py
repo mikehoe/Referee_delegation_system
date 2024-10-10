@@ -1,5 +1,6 @@
 from logging import getLogger
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -26,9 +27,10 @@ class MatchesListView(ListView):
         return Match.objects.filter(competition_in_season=competition_in_season)
 
 
-class MatchAddView(CreateView):
+class MatchAddView(PermissionRequiredMixin, CreateView):
     form_class = MatchModelForm
     template_name = "form.html"
+    permission_required = 'competitions.add_match'
 
     def get_success_url(self):
         # Gets correct URL with 'pk' of CompetitionInSeason from kwargs
@@ -55,10 +57,11 @@ class MatchAddView(CreateView):
         return super().form_invalid(form)
 
 
-class MatchUpdateView(UpdateView):
+class MatchUpdateView(PermissionRequiredMixin, UpdateView):
     model = Match
     form_class = MatchModelForm
     template_name = "form.html"
+    permission_required = 'competitions.change_match'
 
     def get_success_url(self):
         return reverse_lazy('matches_list', kwargs={'pk': self.object.competition_in_season.pk})
@@ -75,9 +78,10 @@ class MatchUpdateView(UpdateView):
         return super().form_invalid(form)
 
 
-class MatchDeleteView(DeleteView):
+class MatchDeleteView(PermissionRequiredMixin, DeleteView):
     model = Match
     template_name = "match_delete.html"
+    permission_required = 'competitions.delete_match'
 
     def get_success_url(self):
         # gets back to the CompetitionInSeason of the deleted match
@@ -127,32 +131,35 @@ class TeamDetailView(DetailView):
         return context
 
 
-class TeamAddView(CreateView):
+class TeamAddView(PermissionRequiredMixin, CreateView):
     model = Team
     form_class = TeamModelForm
     template_name = "form.html"
     success_url = reverse_lazy('teams_list')
+    permission_required = 'competitions.add_team'
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data while adding a city.')
         return super().form_invalid(form)
 
 
-class TeamUpdateView(UpdateView):
+class TeamUpdateView(PermissionRequiredMixin, UpdateView):
     model = Team
     form_class = TeamModelForm
     template_name = "form.html"
     success_url = reverse_lazy('teams_list')
+    permission_required = 'competitions.change_team'
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data while updating a city.')
         return super().form_invalid(form)
 
 
-class TeamDeleteView(DeleteView):
+class TeamDeleteView(PermissionRequiredMixin, DeleteView):
     model = Team
     template_name = "team_delete.html"
     success_url = reverse_lazy('teams_list')
+    permission_required = 'competitions.delete_team'
 
 
 class CitiesListView(ListView):
@@ -161,30 +168,33 @@ class CitiesListView(ListView):
     context_object_name = 'cities'
 
 
-class CityAddView(CreateView):
+class CityAddView(PermissionRequiredMixin, CreateView):
     form_class = CityModelForm
     template_name = "form.html"
     success_url = reverse_lazy('cities_list')
+    permission_required = 'competitions.add_city'
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data while adding a city.')
         return super().form_invalid(form)
 
 
-class CityUpdateView(UpdateView):
+class CityUpdateView(PermissionRequiredMixin, UpdateView):
     model = City
     form_class = CityModelForm
     template_name = "form.html"
     success_url = reverse_lazy('cities_list')
+    permission_required = 'competitions.change_city'
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data while updating a city.')
         return super().form_invalid(form)
 
 
-class CityDeleteView(DeleteView):
+class CityDeleteView(PermissionRequiredMixin, DeleteView):
     model = City
     template_name = "city_delete.html"
     success_url = reverse_lazy('cities_list')
+    permission_required = 'competitions.delete_city'
 
 
