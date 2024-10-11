@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []#['localhost']
 
 
 # Application definition
@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
         'TEST': {
-            'NAME': BASE_DIR / 'test_db.sqlite3',  # I explicitly specify the path to the test database.
+            'NAME': BASE_DIR / 'test_db.sqlite3',  # Explicitly specified the path to the test database.
         },
     }
 }
@@ -104,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-   # {
-   #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-   # },
+#    {
+#        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#    },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -124,18 +124,22 @@ USE_I18N = True
 
 USE_TZ = False
 
-# login redirect
-LOGIN_REDIRECT_URL = 'competitions_in_season'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Login redirect
+LOGIN_REDIRECT_URL = 'competitions_in_season'
+
 
 # Setting for sending e-mails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -147,6 +151,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_SUBJECT_PREFIX = '[Referee Delegation System]'
+
 
 # Settings for Slovak volleyball federation
 SEASON_NAMES = [
