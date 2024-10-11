@@ -1,36 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="d-flex align-items-center">
-    <h1 class="mr-2">{{ referee.name }} {{ referee.surname }}</h1>
-    {% if user.is_authenticated %}
-        {% if user == referee.profile.user or perms.accounts.change_referee %}
-            <a href="{% url 'profile_referee_update' referee.id %}" class="btn btn-link">✏️</a>
+    <div class="d-flex align-items-center">
+        <h1 class="mr-2">{{ referee.name }} {{ referee.surname }}</h1>
+        {% if user.is_authenticated %}
+            {% if user == referee.profile.user or perms.referees.change_referee %}
+                <a href="{% url 'profile_referee_update' referee.id %}" class="btn btn-link">✏️</a>
+            {% endif %}
         {% endif %}
-    {% endif %}
-    {% if perms.accounts.delete_referee %}
-        <a href="{% url 'profile_referee_delete' referee.id %}" class="btn btn-link text-danger">❌</a>
-    {% endif %}
-</div>
+        {% if perms.referees.delete_referee %}
+            <a href="{% url 'profile_referee_delete' referee.id %}" class="btn btn-link text-danger">❌</a>
+        {% endif %}
+    </div>
 
-<p style="margin-bottom: 30px;"></p>
+    <p style="margin-bottom: 30px;"></p>
 
-<p><strong>City:</strong> {{ referee.city }}</p>
-<p><strong>Licence Number:</strong> {{ referee.licence_number }}</p>
-<p><strong>Licence Type:</strong> {{ referee.licence_type }}</p>
-<p><strong>Email:</strong> {{ referee.email }}</p>
-<p><strong>Phone:</strong> {{ referee.phone }}</p>
-<p><strong>Rating:</strong> {{ referee.rating }}</p>
+    <p><strong>City:</strong> {{ referee.city }}</p>
+    <p><strong>Licence Number:</strong> {{ referee.licence_number }}</p>
+    <p><strong>Licence Type:</strong> {{ referee.licence_type }}</p>
+    <p><strong>Email:</strong> {{ referee.email }}</p>
+    <p><strong>Phone:</strong> {{ referee.phone }}</p>
+    <p><strong>Rating:</strong> {{ referee.rating }}</p>
 
-{% if user.is_authenticated %}
-    {% if show_unavailability_button %}
-        <!-- Všichni, kdo mohou vidět tlačítko, budou přesměrováni na seznam nedostupností -->
-        <a href="{% url 'unavailabilities_list' referee.id %}" class="btn btn-primary">Unavailabilities</a>
-    {% endif %}
-{% endif %}
 
-<div class="d-flex justify-content-end">
-    <a href="{% url 'referees_list' %}" class="btn btn-secondary">Back</a>
-</div>
+    <div class="d-flex justify-content-between">
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+        {% if user.is_authenticated %}
+            {% if show_unavailability_button %}
+                <!-- Všichni, kdo mohou vidět tlačítko, budou přesměrováni na seznam nedostupností -->
+                <a href="{% url 'unavailabilities_list' referee.id %}" class="btn btn-primary">Unavailabilities</a>
+            {% endif %}
+        {% endif %}
+    </div>
 
 {% endblock %}
