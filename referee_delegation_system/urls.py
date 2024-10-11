@@ -27,7 +27,7 @@ from competitions.view_home import competitions_in_season
 from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', competitions_in_season, name='competitions_in_season'),
 
     path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='matches_list'),
