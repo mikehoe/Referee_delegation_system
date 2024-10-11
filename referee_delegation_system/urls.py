@@ -17,17 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from accounts.forms import user_logout
 from competitions.views import MatchesListView, TeamDetailView, TeamsListView, CityAddView, CityUpdateView, \
     CitiesListView, CityDeleteView, MatchAddView, MatchUpdateView, MatchDeleteView, TeamAddView, TeamUpdateView, \
     TeamDeleteView
 from referees.views import RefereesListView, RefereeDetailView, UnavailabilityListView, UnavailabilityCreateView, \
     UnavailabilityDeleteView, UnavailabilityUpdateView
 from competitions.view_home import competitions_in_season
-from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete
+from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete, user_logout
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', competitions_in_season, name='competitions_in_season'),
 
     path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='matches_list'),

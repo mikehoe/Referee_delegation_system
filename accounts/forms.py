@@ -1,13 +1,10 @@
 import unicodedata
-from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db.transaction import atomic
 from django.forms import ModelForm, CharField, EmailField
-from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
@@ -161,7 +158,7 @@ class ProfileRefereeForm(ModelForm):
         return profile_referee
 
 
-@login_required
-def user_logout(request):
-    logout(request)
-    return redirect('competitions_in_season')
+class ProfileLoggedRefereeForm(ProfileRefereeForm):
+    class Meta:
+        model = Referee
+        fields = ['first_name', 'last_name', 'email', 'city', 'phone']
