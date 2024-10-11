@@ -2,6 +2,8 @@ import csv
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 
+from accounts.models import ProfileManager
+
 
 class Command(BaseCommand):
     help = 'Create users from a CSV file'
@@ -23,15 +25,25 @@ class Command(BaseCommand):
                 is_staff = row['is_staff']
                 is_active = row['is_active']
                 date_joined = row['date_joined']
-                #last_login = row['last_login']
+                # last_login = row['last_login']
 
+                phone = row['phone']
+
+                # TODO: atomic
                 user, user_created = User.objects.get_or_create(
                     username=username, first_name=first_name, last_name=last_name, email=email,
-                    is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, date_joined=date_joined,)
-                    #last_login=last_login)
+                    is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, date_joined=date_joined, )
+                # last_login=last_login)
                 if user_created:
                     user.set_password(password)
                     user.save()
                     self.stdout.write(self.style.SUCCESS(f'Successfully created user: {username}'))
                 else:
                     self.stdout.write(self.style.WARNING(f'User {username} already exists'))
+
+                profile_manager, profile_manager_created = ProfileManager.objects.get_or_create(
+                    user_id=user.id, phone=phone)
+                if profile_manager_created:
+                    self.stdout.write(self.style.SUCCESS(f'Successfully created profile_referee: {username}'))
+                else:
+                    self.stdout.write(self.style.WARNING(f'Profile_referee {username} already exists'))
