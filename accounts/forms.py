@@ -1,4 +1,5 @@
 import unicodedata
+from django.conf import settings
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -41,19 +42,18 @@ def generate_unique_username_and_password(first_name, last_name, number):
 
 
 def send_welcome_email(user, raw_password):
-    # Vytvoření URL pro reset hesla
+    # Create reset URL using uidb64 and token
     uid = urlsafe_base64_encode(force_bytes(user.pk))
     token = default_token_generator.make_token(user)
     reset_url = reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
-
-    full_reset_url = f'localhost:8000{reset_url}'
+    full_reset_url = f"http://localhost:8000{reset_url}"
 
     # Message for user
-    subject = 'Welcome to the Referee Delegation System'
+    subject = f"{settings.EMAIL_SUBJECT_PREFIX}: Welcome {user.first_name}!"
     message = f"""
         Dear {user.first_name},
 
-        Your account has been created. Here are your login credentials:
+        your account has been created. Here are your login credentials:
 
         Username: {user.username}
         Password: {raw_password}
