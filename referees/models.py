@@ -1,8 +1,10 @@
+from django.core.validators import MinValueValidator
 from django.db.models import *
 from phonenumber_field.modelfields import PhoneNumberField
 
 from competitions.models import City, CompetitionLevel
 from referee_delegation_system.settings import REFEREE_LICENCE_TYPES
+from validators.validators import validate_rating
 
 
 class RefereeLicenceType(Model):
@@ -22,10 +24,10 @@ class RefereeLicenceType(Model):
 
 
 class Referee(Model):
-    licence_number = IntegerField(null=False, blank=False, unique=True, default=None)
+    licence_number = IntegerField(null=False, blank=False, unique=True, default=None, validators=[MinValueValidator(1)])
     licence_type = ForeignKey(RefereeLicenceType, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
     city = ForeignKey(City, null=True, blank=True, on_delete=SET_NULL, related_name='referees')
-    rating = FloatField(null=True, blank=True)
+    rating = FloatField(null=True, blank=True, validators=[validate_rating])
     phone = PhoneNumberField(max_length=20, null=True, blank=True)
 
     @property
