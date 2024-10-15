@@ -1,13 +1,12 @@
 import unicodedata
 from django.conf import settings
-from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db.transaction import atomic
 from django.forms import ModelForm, CharField, EmailField
+from django.forms.widgets import NumberInput
 from django.urls import reverse
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
@@ -81,6 +80,10 @@ class ProfileRefereeForm(ModelForm):
     class Meta:
         model = Referee
         fields = ['first_name', 'last_name', 'licence_number', 'licence_type', 'email', 'city', 'rating', 'phone']
+        widgets = {
+            'licence_number': NumberInput(attrs={'min': 1}),
+            'rating': NumberInput(attrs={'min': 0.1, 'max': 100, 'step': 0.1})
+        }
 
     def clean_first_name(self):
         first_name = self.cleaned_data.get('first_name')
