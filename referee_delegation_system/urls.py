@@ -37,7 +37,7 @@ urlpatterns = [
     path('competitions/teams/', TeamsListView.as_view(), name='teams_list'),
     path('competitions/team/add/', TeamAddView.as_view(), name='team_add'),
     path('competitions/team/<pk>/', TeamDetailView.as_view(), name='team_detail'),
-    path('competitions/team/<pk>/update', TeamUpdateView.as_view(), name='team_update'),
+    path('competitions/team/<pk>/update/', TeamUpdateView.as_view(), name='team_update'),
     path('competitions/team/<pk>/delete/', TeamDeleteView.as_view(), name='team_delete'),
 
     path('competitions/cities/', CitiesListView.as_view(), name='cities_list'),
@@ -49,9 +49,9 @@ urlpatterns = [
     path('referees/referee/<pk>/', RefereeDetailView.as_view(), name='referee_detail'),
 
     path('referee/<pk>/unavailabilities/', UnavailabilityListView.as_view(), name='unavailabilities_list'),
-    path('referee/<pk>/unavailability/add', UnavailabilityCreateView.as_view(), name='unavailability_add'),
-    path('referee/<referee_pk>/unavailability/<pk>/update', UnavailabilityUpdateView.as_view(), name='unavailability_update'),
-    path('referee/<referee_pk>/unavailability/<pk>/delete', UnavailabilityDeleteView.as_view(), name='unavailability_delete'),
+    path('referee/<pk>/unavailability/add/', UnavailabilityCreateView.as_view(), name='unavailability_add'),
+    path('referee/<referee_pk>/unavailability/<pk>/update/', UnavailabilityUpdateView.as_view(), name='unavailability_update'),
+    path('referee/<referee_pk>/unavailability/<pk>/delete/', UnavailabilityDeleteView.as_view(), name='unavailability_delete'),
 
     path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),
     path('accounts/profilereferee/<pk>/update/', profile_referee_update, name='profile_referee_update'),
