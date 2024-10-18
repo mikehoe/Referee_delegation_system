@@ -3,15 +3,16 @@
 {% block content %}
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
-    {% if perms.competitions.add_match %}
-        <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
-    {% endif %}
+        <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
+        {% if perms.competitions.add_match %}
+            <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
+        {% endif %}
     </div>
+
     {% if competition_matches %}
         <ul class="list-group">
             {% for match in competition_matches %}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center transparent-background"> <!-- Přidání třídy pro průhlednost -->
                     <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.date_time|date:"d.m.Y H:i" }}</div>
                     <div class="flex-shrink-0 text-center" style="width: 180px;">{{ match.city }}</div>
                     <div class="flex-grow-1 d-flex justify-content-center align-items-center">

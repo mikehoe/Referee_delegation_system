@@ -21,7 +21,7 @@
 {% if current_season %}
     <ul class="list-group text-center">
         {% for competition in competitions %}
-            <li class="list-group-item">
+            <li class="list-group-item transparent-background">
                 <a href="{% url 'matches_list' competition.pk %}">
                 {{ competition.competition.name }} - {{ competition.season.name }}
                 </a>

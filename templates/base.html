@@ -9,7 +9,33 @@
     <title>Slovenská Volejbalová Federácia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- an example using static <link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+
+    <!-- Přidání vlastního stylu pro pozadí -->
+    <style>
+        body {
+            background-image: url("{% static 'images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        /* Zajištění, aby obsah měl průhledné pozadí */
+        .jumbotron {
+            background-color: rgba(255, 255, 255, 0.8); /* Poloprůhledné bílé pozadí */
+            padding: 2rem;
+            border-radius: 0.5rem; /* Mírné zaoblení rohů */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný stín pro lepší kontrast */
+        }
+
+        .transparent-background {
+            background-color: rgba(255, 255, 255, 0.8); /* Poloprůhledné pozadí pro formuláře */
+            padding: 10px;
+            border-radius: 5px; /* Přidání zaoblených rohů */
+        }
+    </style>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>

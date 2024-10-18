@@ -18,13 +18,13 @@
         {% if perms.competitions.add_team %}
             <a href="{% url 'team_add' %}" class="btn btn-primary">Add Team</a>
         {% endif %}
-        </div>
+    </div>
 </div>
 
 {% if current_season %}
     <ul class="list-group text-center">
         {% for competition_in_season, teams in competitions_teams %}
-            <li class="list-group-item d-flex justify-content-start align-items-start">
+            <li class="list-group-item d-flex justify-content-start align-items-start transparent-background"> <!-- Přidání třídy pro průhlednost -->
                 <div class="flex-shrink-0 text-left" style="flex-basis: 33.33%;">
                     <a href="{% url 'matches_list' competition_in_season.competition.pk %}">
                         <strong>{{ competition_in_season.competition.name }}</strong>
