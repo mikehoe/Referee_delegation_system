@@ -15,10 +15,10 @@ class ProfileReferee(Model):
         ordering = ['user__username']
 
     def __repr__(self):
-        return f"ProfileReferee(username='{self.user.username}' licence={self.referee.licence_number})"
+        return f"ProfileReferee(username={self.user.username}, licence={self.referee.licence_number})"
 
     def __str__(self):
-        return f"Profile referee {self.user.first_name} {self.user.last_name} (username='{self.user.username}')"
+        return f"Profile referee {self.user.first_name} {self.user.last_name} (username={self.user.username})"
 
 
 class ProfileManager(Model):
@@ -36,10 +36,10 @@ class ProfileManager(Model):
         ordering = ['user__username']
 
     def __repr__(self):
-        return f"ProfileManager(username='{self.user.username}', type={self.manager_type})"
+        return f"ProfileManager(username={self.user.username}, type={self.manager_type})"
 
     def __str__(self):
-        return f"Profile manager {self.user.first_name} {self.user.last_name} (username='{self.user.username}', type={self.manager_type})"
+        return f"Profile manager {self.user.first_name} {self.user.last_name} (username={self.user.username}, type={self.manager_type})"
 
     def set_permissions(self):
         if self.manager_type == 'Referee Manager':
