@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="mr-2">{{ profile_manager.user.first_name }} {{ profile_manager.user.last_name }}</h1>
+        {% if user.is_authenticated %}
+            {% if user == profile_manager.user or perms.accounts.change_profile_manager %}
+                <a href="{% url 'profile_manager_update' profile_manager.id %}" class="btn btn-link">✏️</a>
+            {% endif %}
+        {% endif %}
+        {% if perms.accounts.delete_profile_manager %}
+            <a href="{% url 'profile_manager_delete' profile_manager.id %}" class="btn btn-link text-danger">❌</a>
+        {% endif %}
+    </div>
+
+    <p style="margin-bottom: 10px;"></p>
+
+    <h5>{{ profile_manager.manager_type }} </h5>
+    <p style="margin-bottom: 30px;"></p>
+
+    <p><strong>Email:</strong> {{ profile_manager.user.email }}</p>
+    <p><strong>Phone:</strong> {{ profile_manager.phone }}</p>
+
+    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+
+{% endblock %}

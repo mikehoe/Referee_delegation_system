@@ -9,8 +9,9 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="{% url 'competitions_in_season' %}">Competitions</a>
                 <a class="nav-item nav-link active" href="{% url 'teams_list' %}">Teams</a>
-                <a class="nav-item nav-link active" href="{% url 'referees_list' %}">Referees</a>
                 <a class="nav-item nav-link active" href="{% url 'cities_list' %}">Cities</a>
+                <a class="nav-item nav-link active" href="{% url 'referees_list' %}">Referees</a>
+                <a class="nav-item nav-link active" href="{% url 'profile_managers_list' %}">Managers</a>
             </div>
         </div>
     </div>
@@ -24,14 +25,17 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     {% if user.is_staff %}
                         <a class="dropdown-item text-right" href="{% url 'admin:index' %}">ADMINISTRATION</a>
-                    {% endif %}
-                    {% if user.profile.referee %}
-                        <a class="dropdown-item text-right" href="{% url 'referee_detail' user.profile.referee.id %}">
-                            My profile</a>
-                    {% endif %}
-                    {% if user.profile_manager %}
-                       <!-- TODO <a class="dropdown-item text-right" href="{% url 'referee_list' %}">
-                                My profile</a>-->
+                    {% else %}
+                        {% if user.profile.referee %}
+                            <a class="dropdown-item text-right"
+                               href="{% url 'referee_detail' user.profile.referee.id %}">
+                                My profile</a>
+                        {% endif %}
+                        {% if user.profile_manager %}
+                            <a class="dropdown-item text-right"
+                               href="{% url 'profile_manager_detail' user.profile_manager.id %}">
+                                My profile</a>
+                        {% endif %}
                     {% endif %}
                     <a class="dropdown-item text-right" href="{% url 'logout' %}">Logout</a>
                     <a class="dropdown-item text-right" href="{% url 'password_change' %}">Change password</a>
@@ -44,6 +48,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item text-right" href="{% url 'login' %}">Login</a>
+                <a class="dropdown-item text-right" href="{% url 'password_reset' %}">Reset password</a>
             </div>
         {% endif %}
     </div>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Managers:</h2>
+                <ul>
+                    {% if not user.is_staff %}
+                        {% if user.is_authenticated %}
+                            {% with current_profile_manager=user.profile_manager %}
+                                {% if current_profile_manager %}
+                                    <li style="font-weight: bold;">
+                                        <a href="{% url 'profile_manager_detail' current_profile_manager.id %}">
+                                            {{ current_profile_manager.user.last_name }}
+                                            {{ current_profile_manager.user.first_name }}
+                                            (my profile)
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
+                    {% endif %}
+                    <br>
+                    {% for profile_manager in profile_managers %}
+                        {% if user.is_authenticated %}
+                            {% with current_profile_manager=user.profile_manager %}
+                                {% if current_profile_manager.id != profile_manager.id %}
+                                    <li>
+                                        <a href="{% url 'profile_manager_detail' profile_manager.id %}">
+                                            {{ profile_manager.user.last_name }} {{ profile_manager.user.first_name }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            <li>
+                                <a href="{% url 'profile_manager_detail' profile_manager.id %}">
+                                    {{ profile_manager.user.last_name }} {{ profile_manager.user.first_name }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4">
+
+                {% if perms.accounts.add_profile_manager %}
+                    <div class="text-left">
+                        <a href="{% url 'profile_manager_add' %}" class="btn btn-primary d-inline-block mb-2">Add
+                            Manager</a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

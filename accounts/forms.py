@@ -11,8 +11,26 @@ from django.urls import reverse
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 
-from accounts.models import ProfileReferee
+from accounts.models import ProfileReferee, ProfileManager
 from referees.models import Referee
+
+
+def clean_first_name(self):
+    first_name = self.cleaned_data.get('first_name')
+    if first_name:
+        first_name = ' '.join([n.capitalize() for n in first_name.strip().split()])  # Capitalize also middle names
+        print(f"clean first name: {first_name}")
+        return first_name
+    return first_name
+
+
+def clean_last_name(self):
+    last_name = self.cleaned_data.get('last_name')
+    if last_name:
+        last_name = ' '.join([n.capitalize() for n in last_name.strip().split()])  # Capitalize all surnames
+        print(f"clean last name: {last_name}")
+        return last_name
+    return last_name
 
 
 def remove_diacritics(input_str):
@@ -86,20 +104,10 @@ class ProfileRefereeForm(ModelForm):
         }
 
     def clean_first_name(self):
-        first_name = self.cleaned_data.get('first_name')
-        if first_name:
-            first_name = ' '.join([n.capitalize() for n in first_name.strip().split()])  # Capitalize also middle names
-            print(f"clean first name: {first_name}")
-            return first_name
-        return first_name
+        return clean_first_name(self)
 
     def clean_last_name(self):
-        last_name = self.cleaned_data.get('last_name')
-        if last_name:
-            last_name = ' '.join([n.capitalize() for n in last_name.strip().split()])  # Capitalize all surnames
-            print(f"clean last name: {last_name}")
-            return last_name
-        return last_name
+        return clean_last_name(self)
 
     def clean_rating(self):
         rating = self.cleaned_data.get('rating')
@@ -167,3 +175,85 @@ class ProfileLoggedRefereeForm(ProfileRefereeForm):
     class Meta:
         model = Referee
         fields = ['first_name', 'last_name', 'email', 'city', 'phone']
+
+
+class ProfileManagerForm(ModelForm):
+    first_name = CharField(max_length=150, required=True)
+    last_name = CharField(max_length=150, required=True)
+    email = EmailField(required=True)
+
+    class Meta:
+        model = ProfileManager
+        fields = ['manager_type', 'first_name', 'last_name', 'email', 'phone']
+
+    def clean_first_name(self):
+        return clean_first_name(self)
+
+    def clean_last_name(self):
+        return clean_last_name(self)
+
+    @atomic
+    def save(self, commit=True):
+        first_name = self.cleaned_data['first_name']
+        last_name = self.cleaned_data.get('last_name')
+        email = self.cleaned_data.get('email')
+
+        username, raw_password = generate_unique_username_and_password(first_name, last_name, "1234")
+
+        user = User(
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            email=email
+        )
+        profile_manager = super().save(commit=False)
+        profile_manager.user = user
+
+        profile_manager.set_permissions()
+        print(f"Set permissions: {profile_manager.manager_type}")
+
+        if commit:
+            user.set_password(raw_password)
+            user.save()
+            profile_manager.save()
+            print(f"Add profile_manager: {profile_manager}")
+
+            send_welcome_email(user, raw_password)
+            print(f"Welcome email sent to user: {profile_manager}")
+
+        return profile_manager
+
+    @atomic
+    def update(self, pk, commit=True):
+
+        first_name = self.cleaned_data['first_name']
+        last_name = self.cleaned_data.get('last_name')
+        email = self.cleaned_data.get('email')
+
+        profile_manager = ProfileManager.objects.get(pk=pk)
+        user = profile_manager.user
+
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+
+        profile_manager.unset_permissions()
+        print(f"Unset permissions: {profile_manager.manager_type}")
+
+        profile_manager = super().save(commit=False)
+
+        profile_manager.set_permissions()
+        print(f"Set permissions: {profile_manager.manager_type}")
+
+        if commit:
+            user.save()
+            profile_manager.save()
+            print(f"Update manager profile = {profile_manager}")
+
+        return profile_manager
+
+
+class ProfileLoggedManagerForm(ProfileManagerForm):
+    class Meta:
+        model = ProfileManager
+        fields = ['first_name', 'last_name', 'email', 'phone']

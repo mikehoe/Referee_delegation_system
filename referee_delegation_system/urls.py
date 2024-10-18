@@ -23,7 +23,9 @@ from competitions.views import MatchesListView, TeamDetailView, TeamsListView, C
 from referees.views import RefereesListView, RefereeDetailView, UnavailabilityListView, UnavailabilityCreateView, \
     UnavailabilityDeleteView, UnavailabilityUpdateView
 from competitions.view_home import competitions_in_season
-from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete, user_logout
+from accounts.views import ProfileRefereeAddView, profile_referee_update, profile_referee_delete, user_logout, \
+    ProfileManagerDetailView, profile_manager_update, ProfileManagersListView, ProfileManagerAddView, \
+    profile_manager_delete
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -50,12 +52,20 @@ urlpatterns = [
 
     path('referee/<pk>/unavailabilities/', UnavailabilityListView.as_view(), name='unavailabilities_list'),
     path('referee/<pk>/unavailability/add/', UnavailabilityCreateView.as_view(), name='unavailability_add'),
-    path('referee/<referee_pk>/unavailability/<pk>/update/', UnavailabilityUpdateView.as_view(), name='unavailability_update'),
-    path('referee/<referee_pk>/unavailability/<pk>/delete/', UnavailabilityDeleteView.as_view(), name='unavailability_delete'),
+    path('referee/<referee_pk>/unavailability/<pk>/update/', UnavailabilityUpdateView.as_view(),
+         name='unavailability_update'),
+    path('referee/<referee_pk>/unavailability/<pk>/delete/', UnavailabilityDeleteView.as_view(),
+         name='unavailability_delete'),
 
     path('accounts/profilereferee/add/', ProfileRefereeAddView.as_view(), name='profile_referee_add'),
     path('accounts/profilereferee/<pk>/update/', profile_referee_update, name='profile_referee_update'),
     path('accounts/profilereferee/<pk>/delete/', profile_referee_delete, name='profile_referee_delete'),
+
+    path('accounts/profilemanagers/', ProfileManagersListView.as_view(), name='profile_managers_list'),
+    path('accounts/profilemanager/add/', ProfileManagerAddView.as_view(), name='profile_manager_add'),
+    path('accounts/profilemanager/<pk>/update/', profile_manager_update, name='profile_manager_update'),
+    path('accounts/profilemanager/<pk>/delete/', profile_manager_delete, name='profile_manager_delete'),
+    path('accounts/profilemanager/<pk>/', ProfileManagerDetailView.as_view(), name='profile_manager_detail'),
 
     path('accounts/logout/', user_logout, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
