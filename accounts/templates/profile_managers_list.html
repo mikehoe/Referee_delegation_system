@@ -29,6 +29,7 @@
                                     <li>
                                         <a href="{% url 'profile_manager_detail' profile_manager.id %}">
                                             {{ profile_manager.user.last_name }} {{ profile_manager.user.first_name }}
+                                            ({{ profile_manager.manager_type }})
                                         </a>
                                     </li>
                                 {% endif %}
@@ -37,6 +38,7 @@
                             <li>
                                 <a href="{% url 'profile_manager_detail' profile_manager.id %}">
                                     {{ profile_manager.user.last_name }} {{ profile_manager.user.first_name }}
+                                    ({{ profile_manager.manager_type }})
                                 </a>
                             </li>
                         {% endif %}
