@@ -19,10 +19,10 @@ class RefereeLicenceTypeModelTest(TestCase):
         licence_1 = RefereeLicenceType.objects.create(name="A")
         licence_2 = RefereeLicenceType.objects.create(name="B")
 
-        licence_1.competition_level.add(level_1)
-        licence_1.competition_level.add(level_2)
-        licence_1.competition_level.add(level_3)
-        licence_2.competition_level.add(level_3)
+        licence_1.competition_levels.add(level_1)
+        licence_1.competition_levels.add(level_2)
+        licence_1.competition_levels.add(level_3)
+        licence_2.competition_levels.add(level_3)
 
         licence_1.save()
         licence_2.save()
@@ -39,7 +39,7 @@ class RefereeLicenceTypeModelTest(TestCase):
 
     def test_referee_licence_has_level(self):
         licence = RefereeLicenceType.objects.get(name="A")
-        level_count = licence.competition_level.count()
+        level_count = licence.competition_levels.count()
         print(f"test_referee_licence_has_level: {level_count}")
         self.assertEqual(level_count, 3)
 
@@ -71,7 +71,7 @@ class RefereeModelTest(TestCase):
     def test_referee_repr(self):
         referee = Referee.objects.get(licence_number=12345)
         print(f"test_referee_repr: '{referee.__repr__()}'")
-        self.assertEqual(referee.__repr__(), "Referee(name=Jan, surname=Novák)")
+        self.assertEqual(referee.__repr__(), "Referee(name=Jan, surname=Novák, licence=A, rating=95.5, city=Praha)")
 
     def test_referee_city_relation(self):
         referee = Referee.objects.get(licence_number=12345)

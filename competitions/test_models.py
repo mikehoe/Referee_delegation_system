@@ -133,7 +133,7 @@ class MatchModelTest(TestCase):
 
     def test_match_repr(self):
         match = Match.objects.get(code="M001")
-        self.assertEqual(match.__repr__(), "Match(code=M001, competition_in_season=Extraliga muži 2023/2024, home_team=Volejbal Brno, away_team=VK Lvi Praha, date_time=2023-10-01 15:30:00, city=Brno)")
+        self.assertEqual(match.__repr__(), "Match(code=M001, competition_in_season=Extraliga muži 2023/2024, home_team=Volejbal Brno, away_team=VK Lvi Praha, date_time=10/01/23 15:30, city=Brno)")
 
     def test_match_teams_relation(self):
         match = Match.objects.get(code="M001")

@@ -6,8 +6,8 @@ class RefereeLicenceTypeAdmin(admin.ModelAdmin):
     ordering = ['id']
     list_display = ['id', 'name']
     list_display_links = ['id', 'name']
-    list_filter = ['name', 'competition_level']
-    search_fields = ['name', 'competition_level__name']
+    list_filter = ['name', 'competition_levels']
+    search_fields = ['name', 'competition_levels__name']
     list_per_page = 20
 
 

@@ -187,13 +187,6 @@ COMPETITION_CATEGORIES = [
     ('cadet girls', 'cadet girls'),
 ]
 
-REFEREE_ROLES = [
-    ('1.R', '1.R'),
-    ('2.R', '2.R'),
-    ('1.L', '1.L'),
-    ('2.L', '2.L'),
-]
-
 REFEREE_LICENCE_TYPES = [
     ('AM', 'AM'),
     ('A', 'A'),

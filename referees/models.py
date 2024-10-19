@@ -11,7 +11,7 @@ class RefereeLicenceType(Model):
     REFEREE_LICENCE_TYPES = REFEREE_LICENCE_TYPES
 
     name = CharField(max_length=5, null=False, blank=False, choices=REFEREE_LICENCE_TYPES)
-    competition_level = ManyToManyField(CompetitionLevel, blank=True, related_name='licence_types')
+    competition_levels = ManyToManyField(CompetitionLevel, blank=True, related_name='referee_licence_types')
 
     class Meta:
         ordering = ['id']
@@ -46,7 +46,8 @@ class Referee(Model):
         ordering = ['licence_type__id', 'profile__user__last_name', 'profile__user__first_name']
 
     def __repr__(self):
-        return f"Referee(name={self.name}, surname={self.surname})"
+        return (f"Referee(name={self.name}, surname={self.surname}, licence={self.licence_type}, rating={self.rating}, "
+                f"city={self.city})")
 
     def __str__(self):
         return f"{self.name} {self.surname} ({self.licence_type}, {self.rating}, {self.city})"

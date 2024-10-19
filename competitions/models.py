@@ -132,7 +132,7 @@ class Match(Model):
                 f"competition_in_season={self.competition_in_season.competition.name} "
                 f"{self.competition_in_season.season.name}, "
                 f"home_team={self.home_team.name}, away_team={self.away_team.name}, "
-                f"date_time={self.date_time.strftime('%Y-%m-%d %H:%M:%S')}, city={self.city.name})")
+                f"date_time={self.date_time.strftime('%x %H:%M')}, city={self.city.name})")
 
     def __str__(self):
         return (f"{self.code} {self.home_team} vs. {self.away_team} {self.date_time.strftime("%x %H:%M")} "
