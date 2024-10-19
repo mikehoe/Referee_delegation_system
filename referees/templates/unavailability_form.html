@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <h2>{{ view.action }} Unavailability</h2>
@@ -23,7 +24,7 @@
     <input id="id_submit" type="submit" value="Save" class="btn btn-primary">
 </form>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="{% static "scripts/http_cdn.jsdelivr.net_npm_fullcalendar@6.1.8_index.global.min.js" %}"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
