@@ -8,12 +8,12 @@ from referees.models import Referee
 
 
 class BulkDelegationForm(forms.Form):
-    matches = forms.ModelMultipleChoiceField(
+    hidden = forms.ModelMultipleChoiceField(
         queryset=Match.objects.none(), widget=forms.HiddenInput()
     )
 
     def __init__(self, *args, **kwargs):
-        matches = kwargs.pop('matches', None)
+        matches = kwargs.pop('matches')
         super().__init__(*args, **kwargs)
 
         if matches:
