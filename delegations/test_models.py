@@ -82,6 +82,10 @@ class DelegationModelTest(TestCase):
         cls.referee10 = Referee.objects.create(licence_number=10, city=city_mt, licence_type=licence_a, rating=95.5)
         cls.profile10 = ProfileReferee.objects.create(user=cls.user10, referee=cls.referee10)
 
+        cls.user11 = User.objects.create(username="peter.toman", first_name="Peter", last_name="Toman")
+        cls.referee11 = Referee.objects.create(licence_number=11)
+        cls.profile11 = ProfileReferee.objects.create(user=cls.user11, referee=cls.referee11)
+
         team_ba = Team.objects.create(name="VKP FTVŠ UK Bratislava")
         team_my = Team.objects.create(name="TJ Spartak Myjava")
         team_nr = Team.objects.create(name="VK Slávia SPU Nitra")
@@ -172,6 +176,7 @@ class DelegationModelTest(TestCase):
         self.assertNotIn(self.referee8, available_referees)
         self.assertIn(self.referee9, available_referees)
         self.assertNotIn(self.referee10, available_referees)
+        self.assertNotIn(self.referee11, available_referees)
 
         available_line_judges = Delegation.get_available_referees(self.match_em02, RefereeRole.FIRST_LINE_JUDGE)
 
@@ -187,3 +192,4 @@ class DelegationModelTest(TestCase):
         self.assertIn(self.referee8, available_line_judges)
         self.assertIn(self.referee9, available_line_judges)
         self.assertNotIn(self.referee10, available_line_judges)
+        self.assertIn(self.referee11, available_line_judges)

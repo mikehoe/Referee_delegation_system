@@ -20,6 +20,7 @@ from django.urls import path, include
 from competitions.views import MatchesListView, TeamDetailView, TeamsListView, CityAddView, CityUpdateView, \
     CitiesListView, CityDeleteView, MatchAddView, MatchUpdateView, MatchDeleteView, TeamAddView, TeamUpdateView, \
     TeamDeleteView
+from delegations.views import bulk_delegation_view
 from referees.views import RefereesListView, RefereeDetailView, UnavailabilityListView, UnavailabilityCreateView, \
     UnavailabilityDeleteView, UnavailabilityUpdateView
 from competitions.view_home import competitions_in_season
@@ -30,7 +31,7 @@ from accounts.views import ProfileRefereeAddView, profile_referee_update, profil
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', competitions_in_season, name='competitions_in_season'),
-
+    path('delegations/<pk>/bulk-delegation/', bulk_delegation_view, name='bulk_delegation'),
     path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='matches_list'),
     path('competitions/competitioninseason/<pk>/match/add/', MatchAddView.as_view(), name='match_add'),
     path('competitions/match/<pk>/update/', MatchUpdateView.as_view(), name='match_update'),
