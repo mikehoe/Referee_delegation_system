@@ -52,11 +52,23 @@
                                     {% for delegation in match.delegated_referees.all %}
                                         {% if delegation.referee_role == '1.R' %}
                                             1.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% elif delegation.referee_role == '2.R' %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% for delegation in match.delegated_referees.all %}
+                                        {% if delegation.referee_role == '2.R' %}
                                             2.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% elif delegation.referee_role == '1.L' %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% for delegation in match.delegated_referees.all %}
+                                        {% if delegation.referee_role == '1.L' %}
                                             1.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% elif delegation.referee_role == '2.L' %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% for delegation in match.delegated_referees.all %}
+                                        {% if delegation.referee_role == '2.L' %}
                                             2.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                         {% endif %}
                                     {% endfor %}
