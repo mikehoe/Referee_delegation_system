@@ -6,43 +6,48 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
-                {% if perms.competitions.add_match %}
-                    <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
-                {% endif %}
+                <div class="d-flex">
+                    {% if perms.delegations.add_delegation %}
+                        <button type="submit" class="btn btn-primary me-3">Delegate Selected Matches</button>
+                    {% endif %}
+                    <div style="margin-right: 10px;"></div>
+                    {% if perms.competitions.add_match %}
+                        <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
+                    {% endif %}
+                </div>
             </div>
 
             {% if competition_matches %}
                 <ul class="list-group">
                     {% for match in competition_matches %}
                         <li class="list-group-item d-flex justify-content-between align-items-center transparent-background">
-                            <label>
-                                <input type="checkbox" name="selected_matches" value="{{ match.id }}"
-                                       class="form-check-input">
-                            </label>
-                            <div class="flex-shrink-0 text-center"
-                                 style="width: 100px;">{{ match.code }}</div>
-                            <div class="flex-shrink-0 text-center"
-                                 style="width: 100px;">{{ match.date_time|date:"d.m.Y H:i" }}</div>
+                            <div class="flex-shrink-0">
+                                <label>
+                                    <input type="checkbox" name="selected_matches" value="{{ match.id }}"
+                                           class="form-check-input">
+                                </label>
+                            </div>
+                            <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.code }}</div>
+                            <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.date_time|date:"d.m.Y H:i" }}</div>
                             <div class="flex-shrink-0 text-center" style="width: 180px;">{{ match.city }}</div>
                             <div class="flex-grow-1 d-flex justify-content-center align-items-center">
-                            <span style="flex: 1; text-align: right; max-width: 210px;">
-                                {% if match.home_team %}
-                                    <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
-                                {% else %}
-                                    <span>No Home Team</span>
-                                {% endif %}
-                            </span>
+                                <span style="flex: 1; text-align: right; max-width: 210px;">
+                                    {% if match.home_team %}
+                                        <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
+                                    {% else %}
+                                        <span>No Home Team</span>
+                                    {% endif %}
+                                </span>
                                 <span style="margin: 0 20px; text-align: center;"> - </span>
                                 <span style="flex: 1; text-align: left; max-width: 210px;">
-                                {% if match.away_team %}
-                                    <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
-                                {% else %}
-                                    <span>No Away Team</span>
-                                {% endif %}
-                            </span>
+                                    {% if match.away_team %}
+                                        <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
+                                    {% else %}
+                                        <span>No Away Team</span>
+                                    {% endif %}
+                                </span>
                             </div>
                             <div class="flex-shrink-0 text-center" style="width: 150px;">
-                                <!-- Delegovaní rozhodčí -->
                                 {% if match.delegated_referees.count > 0 %}
                                     {% for delegation in match.delegated_referees.all %}
                                         {% if delegation.referee_role == '1.R' %}
@@ -55,8 +60,6 @@
                                             2.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                         {% endif %}
                                     {% endfor %}
-                                {% else %}
-                                    {# if no delegation yet, leave empty #}
                                 {% endif %}
                             </div>
                             <div class="d-flex flex-column text-center">
@@ -66,16 +69,19 @@
                                 {% if perms.competitions.delete_match %}
                                     <a href="{% url 'match_delete' match.id %}" class="text-danger">❌</a>
                                 {% endif %}
+                                {% if perms.delegations.add_delegation %}
+                                <a href="{% url 'match_delegation' match.id %}" class="btn btn-secondary mt-1">Delegate</a>
+                                {% endif %}
                             </div>
                         </li>
                     {% endfor %}
                 </ul>
-            {% else %}
-                {# if no matches in competition_in_season, leave empty #}
             {% endif %}
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Delegate Selected Matches</button>
+        {# Error if no selected match #}
+        {% if error %}
+            <div class="alert alert-danger mt-3">{{ error }}</div>
+        {% endif %}
     </form>
-
 {% endblock %}
