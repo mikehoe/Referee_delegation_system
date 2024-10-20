@@ -26,13 +26,19 @@ class MatchModelForm(ModelForm):
         model = Match
         fields = ['competition_in_season', 'code', 'city', 'date_time', 'home_team', 'away_team']
 
-    def clean_teams(self):
+    def clean(self):
         cleaned_data = super().clean()
         home_team = cleaned_data.get("home_team")
         away_team = cleaned_data.get("away_team")
+        match_city = cleaned_data.get("city")
 
+        # 1. validation: Home team can't be the same as away team
         if home_team == away_team:
-            raise ValidationError("Home team and Away team must be different.")
+            raise ValidationError("Home team can't be the same as away team.")
+
+        # 2. validation: The city of the match must correspond to the city of the home team
+        if home_team and home_team.city and match_city and home_team.city != match_city:
+            raise ValidationError("The city of the match doesn't correspond to the city of the home team.")
 
         return cleaned_data
 
@@ -40,7 +46,7 @@ class MatchModelForm(ModelForm):
         code = self.cleaned_data.get("code")
         if code:
             code = code.strip()
-            code = ''.join(code.split())  # Deletes all the spaces
+            code = ''.join(code.split())
         return code
 
 
