@@ -209,14 +209,14 @@ class ProfileManagerForm(ModelForm):
         profile_manager = super().save(commit=False)
         profile_manager.user = user
 
-        profile_manager.set_permissions()
-        print(f"Set permissions: {profile_manager.manager_type}")
-
         if commit:
             user.set_password(raw_password)
             user.save()
             profile_manager.save()
             print(f"Add profile_manager: {profile_manager}")
+
+            profile_manager.set_permissions()
+            print(f"Set permissions: {profile_manager.manager_type}")
 
             send_welcome_email(user, raw_password)
             print(f"Welcome email sent to user: {profile_manager}")
