@@ -22,15 +22,23 @@
     <p><strong>Phone:</strong> {{ referee.phone }}</p>
     <p><strong>Rating:</strong> {{ referee.rating }}</p>
 
-
-    <div class="d-flex justify-content-between">
-        <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
-        {% if user.is_authenticated %}
-            {% if show_unavailability_button %}
-                <!-- Všichni, kdo mohou vidět tlačítko, budou přesměrováni na seznam nedostupností -->
-                <a href="{% url 'unavailabilities_list' referee.id %}" class="btn btn-primary">Unavailabilities</a>
-            {% endif %}
-        {% endif %}
-    </div>
+    {% if user.is_authenticated and assigned_matches %}
+    <p><strong>Assigned Matches:</strong></p>
+    <ul>
+        {% for match in assigned_matches %}
+            <li>
+                <strong>{{ match.date_time|date:"d.m.Y H:i" }} in {{ match.city }}:</strong>
+                {{ match.competition_in_season.competition.name }} - {{ match.home_team }} vs {{ match.away_team }}
+                {% for delegation in match.delegated_referees.all %}
+                    {% if delegation.referee == referee %}
+                        <strong>(Role: {{ delegation.referee_role }})</strong>
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p></p>
+{% endif %}
 
 {% endblock %}

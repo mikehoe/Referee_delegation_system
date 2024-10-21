@@ -1,11 +1,11 @@
 from logging import getLogger
 
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from accounts.models import ProfileReferee
+from competitions.models import Match
 from referees.forms import UnavailabilityForm
 from referees.models import Referee, RefereeLicenceType, City, Unavailability
 
@@ -68,26 +68,25 @@ class RefereeDetailView(DetailView):
         context['licences'] = RefereeLicenceType.objects.all()
         context['cities'] = City.objects.all()
 
-        # Kontrola, zda je uživatel přihlášený
+        # Checks, if the user is logged-in
         if self.request.user.is_authenticated:
             profile_referee = getattr(self.request.user, 'profile', None)
             is_referee = profile_referee and profile_referee.referee == self.object
             has_permission = self.request.user.has_perm('referees.view_unavailability')
 
-            # Umožnit rozhodčímu vidět vlastní nedostupnosti
+            # Referee can see their own unavailibilities and assigned matches
             if is_referee:
                 context['unavailabilities'] = Unavailability.objects.filter(referee=self.object)
-                context['show_unavailability_button'] = True  # Tlačítko pro vlastní nedostupnosti
+                context['show_unavailability_button'] = True
+                context['assigned_matches'] = Match.objects.filter(delegated_referees__referee=self.object)
 
-            # Umožnit administrátorům a profilovým manažerům vidět nedostupnosti jakéhokoli rozhodčího
-            if has_permission:
+            # Manager can see the unavailabilities of any referee and assigned matches
+            elif has_permission:
                 context['unavailability_list_url'] = reverse('unavailabilities_list', kwargs={'pk': self.object.id})
-                context['show_unavailability_button'] = True  # Tlačítko pro jakéhokoli rozhodčího
+                context['show_unavailability_button'] = True
+                context['assigned_matches'] = Match.objects.filter(delegated_referees__referee=self.object)
 
         return context
-
-
-from django.core.exceptions import PermissionDenied
 
 
 class UnavailabilityListView(ListView):
