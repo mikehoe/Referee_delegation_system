@@ -1,16 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form method="POST" action="{% url 'bulk_delegation' %}">
         {% csrf_token %}
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
                 <div class="d-flex">
-                    {% if perms.delegations.add_delegation %}
-                        <button type="submit" class="btn btn-primary me-3">Delegate Selected Matches</button>
-                    {% endif %}
-                    <div style="margin-right: 10px;"></div>
                     {% if perms.competitions.add_match %}
                         <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
                     {% endif %}
@@ -82,7 +77,7 @@
                                     <a href="{% url 'match_delete' match.id %}" class="text-danger">❌</a>
                                 {% endif %}
                                 {% if perms.delegations.add_delegation %}
-                                <a href="{% url 'match_delegation' match.id %}" class="btn btn-secondary mt-1">Delegate</a>
+                                <a href="{% url 'delegation_add' match.id %}" class="btn btn-secondary mt-1">Delegate</a>
                                 {% endif %}
                             </div>
                         </li>
@@ -91,9 +86,4 @@
             {% endif %}
         </div>
 
-        {# Error if no selected match #}
-        {% if error %}
-            <div class="alert alert-danger mt-3">{{ error }}</div>
-        {% endif %}
-    </form>
 {% endblock %}

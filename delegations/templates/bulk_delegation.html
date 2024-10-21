@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}  <!-- Vykreslí dynamická pole formuláře pro každý zápas a roli -->
-    <button type="submit" class="btn btn-primary">Delegate</button>
-</form>
-{% endblock %}

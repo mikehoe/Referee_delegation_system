@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Referee delegation for: {{ match }}</h2>
+<h2>Referee delegation for:</h2>
+<h2> {{ match }} </h2>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    <br>
+    <div class="d-flex justify-content-between">
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+        <input id="id_submit" type="submit" value="Delegate" class="btn btn-primary">
+    </div>
     <button type="submit">Delegate</button>
 </form>
 {% endblock %}
