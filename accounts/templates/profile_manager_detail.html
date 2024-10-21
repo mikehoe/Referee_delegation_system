@@ -4,11 +4,11 @@
     <div class="d-flex align-items-center">
         <h1 class="mr-2">{{ profile_manager.user.first_name }} {{ profile_manager.user.last_name }}</h1>
         {% if user.is_authenticated %}
-            {% if user == profile_manager.user or perms.accounts.change_profile_manager %}
+            {% if user == profile_manager.user or perms.accounts.change_profilemanager %}
                 <a href="{% url 'profile_manager_update' profile_manager.id %}" class="btn btn-link">✏️</a>
             {% endif %}
         {% endif %}
-        {% if perms.accounts.delete_profile_manager %}
+        {% if perms.accounts.delete_profilemanager %}
             <a href="{% url 'profile_manager_delete' profile_manager.id %}" class="btn btn-link text-danger">❌</a>
         {% endif %}
     </div>

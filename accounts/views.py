@@ -112,14 +112,14 @@ class ProfileManagerAddView(PermissionRequiredMixin, CreateView):
     form_class = ProfileManagerForm
     template_name = "form.html"
     success_url = reverse_lazy('profile_managers_list')
-    permission_required = 'accounts.add_profile_manager'
+    permission_required = 'accounts.add_profilemanager'
 
 
 def profile_manager_update(request, pk):
     profile_manager = get_object_or_404(ProfileManager, pk=pk)
     user = profile_manager.user
 
-    if request.user == profile_manager.user or request.user.has_perm('accounts.change_profile_manager'):
+    if request.user == profile_manager.user or request.user.has_perm('accounts.change_profilemanager'):
         initial_data = {
             'first_name': user.first_name,
             'last_name': user.last_name,
@@ -146,7 +146,7 @@ def profile_manager_update(request, pk):
         raise PermissionDenied
 
 
-@permission_required('accounts.delete_profile_manager', raise_exception=True)
+@permission_required('accounts.delete_profilemanager', raise_exception=True)
 @atomic
 def profile_manager_delete(request, pk):
     profile_manager = ProfileManager.objects.get(pk=pk)
