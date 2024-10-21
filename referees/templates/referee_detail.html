@@ -41,4 +41,12 @@
     <p></p>
 {% endif %}
 
+    <div class="d-flex justify-content-between">
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+        {% if user.is_authenticated %}
+            {% if show_unavailability_button %}
+                <a href="{% url 'unavailabilities_list' referee.id %}" class="btn btn-primary">Unavailabilities</a>
+            {% endif %}
+        {% endif %}
+    </div>
 {% endblock %}
