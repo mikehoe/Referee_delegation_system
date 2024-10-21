@@ -48,7 +48,7 @@ class MatchDelegationForm(forms.Form):
         super().__init__(*args, **kwargs)
 
         if match:
-            self.set_default_referee_names(match)
+            # self.set_default_referee_names(match)
 
             self.fields['referee_1R'].queryset = Delegation.get_available_referees(match, RefereeRole.FIRST_REFEREE)
             self.fields['referee_2R'].queryset = Delegation.get_available_referees(match, RefereeRole.SECOND_REFEREE)
@@ -60,7 +60,6 @@ class MatchDelegationForm(forms.Form):
 
     def clean(self):
         cleaned_data = super().clean()
-        match_id = self.data.get('match_id')
 
         referee_1R = cleaned_data.get("referee_1R")
         referee_2R = cleaned_data.get("referee_2R")
@@ -73,17 +72,6 @@ class MatchDelegationForm(forms.Form):
                 if referee in assigned_referees:
                     raise ValidationError("Each referee must be delegated only once.")
                 assigned_referees.add(referee)
-
-        for role in ['1.R', '2.R', '1.L', '2.L']:
-            referee = cleaned_data.get(f'referee_{role}')
-            if referee:
-                if Delegation.objects.filter(match_id=match_id, referee=referee).exists():
-                    raise ValidationError(f"Referee {referee} is already delegated to this match.")
-
-                match = Match.objects.get(id=match_id)
-                if Delegation.objects.filter(match__date_time__date=match.date_time.date(), referee=referee).exists():
-                    raise ValidationError(
-                        f"Referee {referee} is already delegated on {match.date_time.date()} for another match.")
 
     def save(self, match):
         referees = {
@@ -105,5 +93,3 @@ class MatchDelegationForm(forms.Form):
             else:
                 # If no referee selected, delete delegation
                 Delegation.objects.filter(match=match, referee_role=role).delete()
-
-

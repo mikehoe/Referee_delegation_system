@@ -166,7 +166,11 @@ class DelegationModelTest(TestCase):
         print(f"test_get_available_referees(EM02, {RefereeRole.FIRST_REFEREE}): \n{available_referees}")
 
         self.assertNotIn(self.referee1, available_referees)
-        self.assertNotIn(self.referee2, available_referees)
+
+        # referee2 is In, we handle this in clean method in delegations.forms
+        # and in delegations.models by unique_together_constraint
+        self.assertIn(self.referee2, available_referees)
+
         self.assertNotIn(self.referee3, available_referees)
         self.assertIn(self.referee4, available_referees)
         self.assertNotIn(self.referee5, available_referees)
@@ -183,7 +187,7 @@ class DelegationModelTest(TestCase):
         print(f"test_get_available_referees(EM02, {RefereeRole.FIRST_LINE_JUDGE}): \n{available_line_judges}")
 
         self.assertNotIn(self.referee1, available_line_judges)
-        self.assertNotIn(self.referee2, available_line_judges)
+        self.assertIn(self.referee2, available_line_judges)
         self.assertNotIn(self.referee3, available_line_judges)
         self.assertIn(self.referee4, available_line_judges)
         self.assertNotIn(self.referee5, available_line_judges)
