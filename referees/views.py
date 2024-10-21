@@ -72,7 +72,10 @@ class RefereeDetailView(DetailView):
         if self.request.user.is_authenticated:
             profile_referee = getattr(self.request.user, 'profile', None)
             is_referee = profile_referee and profile_referee.referee == self.object
-            has_permission = self.request.user.has_perm('referees.view_unavailability')
+            has_view_unavailability_permission = self.request.user.has_perm('referees.view_unavailability')
+            has_view_delegation_permission = self.request.user.has_perm('delegations.view_delegation')
+
+            has_permission = has_view_unavailability_permission or has_view_delegation_permission
 
             # Referee can see their own unavailibilities and assigned matches
             if is_referee:
