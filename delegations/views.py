@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import View
 
@@ -15,7 +15,7 @@ class MatchDelegationView(PermissionRequiredMixin, View):
     def get(self, request, pk):
         match = get_object_or_404(Match, id=pk)
         form = MatchDelegationForm(match=match)
-        return render(request, 'match_delegation.html', {'form': form, 'match': match})
+        return render(request, 'match_delegations.html', {'form': form, 'match': match})
 
     def post(self, request, pk):
         match = get_object_or_404(Match, id=pk)
@@ -26,14 +26,13 @@ class MatchDelegationView(PermissionRequiredMixin, View):
 
             messages.success(request, 'Referees have been successfully delegated to the match.')
 
-            # Gets competition_in_season for given match
             competition_in_season = match.competition_in_season
 
-            # create URL for redirect
             redirect_url = reverse('matches_list', args=[competition_in_season.id])
             return HttpResponseRedirect(redirect_url)
+        else:
+            messages.error(request, "Each referee can be delegated to only one role.")
 
-        return render(request, 'match_delegation.html', {'form': form, 'match': match})
-
+        return render(request, 'match_delegations.html', {'form': form, 'match': match})
 
 

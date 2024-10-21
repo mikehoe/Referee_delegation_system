@@ -7,10 +7,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Slovenská Volejbalová Federácia</title>
-    <link rel="stylesheet" href="{% static "css/http_stackpath.bootstrapcdn.com_bootstrap_4.2.1_css_bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static 'css/http_stackpath.bootstrapcdn.com_bootstrap_4.2.1_css_bootstrap.min.css' %}">
 
-    <!-- Přidání vlastního stylu pro pozadí -->
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
         body {
             background-image: url("{% static 'images/background.png' %}");
             background-size: cover;
@@ -19,25 +25,35 @@
             background-repeat: no-repeat;
         }
 
-        /* Zajištění, aby obsah měl průhledné pozadí */
+        .container {
+            flex: 1;
+        }
+
         .jumbotron {
-            background-color: rgba(255, 255, 255, 0.8); /* Poloprůhledné bílé pozadí */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 2rem;
-            border-radius: 0.5rem; /* Mírné zaoblení rohů */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný stín pro lepší kontrast */
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .transparent-background {
-            background-color: rgba(255, 255, 255, 0.8); /* Poloprůhledné pozadí pro formuláře */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 10px;
-            border-radius: 5px; /* Přidání zaoblených rohů */
+            border-radius: 5px;
+        }
+
+        footer {
+            height: auto;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
         }
     </style>
 
-
-    <script src="{% static "scripts/http_code.jquery.com_jquery-3.3.1.slim.min.js" %}"></script>
-    <script src="{% static "scripts/http_cdnjs.cloudflare.com_ajax_libs_popper.js_1.14.6_umd_popper.min.js" %}"></script>
-    <script src="{% static "scripts/http_stackpath.bootstrapcdn.com_bootstrap_4.2.1_js_bootstrap.min.js" %}"></script>
+    <script src="{% static 'scripts/http_code.jquery.com_jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'scripts/http_cdnjs.cloudflare.com_ajax_libs_popper.js_1.14.6_umd_popper.min.js' %}"></script>
+    <script src="{% static 'scripts/http_stackpath.bootstrapcdn.com_bootstrap_4.2.1_js_bootstrap.min.js' %}"></script>
 </head>
 
 <body>

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Referee delegation for:</h2>
+
+<br>
+
+<h4>{{ match.code }} - {{ match.date_time|date:"d.m.Y H:i" }} - Sports hall: {{ match.city }}
+<br>
+    <strong>{{ match.home_team }} - {{ match.away_team }}</strong><br>
+</h4>
+
+<br>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label for="id_referee_1R"><strong>1.R:</strong></label>
+    <select name="referee_1R" id="id_referee_1R">
+        <option value="">None</option>
+        {% for referee in form.fields.referee_1R.queryset %}
+            <option value="{{ referee.id }}" {% if referee.id == form.fields.referee_1R.initial.id %}selected{% endif %}>
+                {{ referee }}
+            </option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="id_referee_2R"><strong>2.R:</strong></label>
+    <select name="referee_2R" id="id_referee_2R">
+        <option value="">None</option>
+        {% for referee in form.fields.referee_2R.queryset %}
+            <option value="{{ referee.id }}" {% if referee == form.fields.referee_2R.initial %}selected{% endif %}>
+                {{ referee }}
+            </option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="id_referee_1L"><strong>1.L:</strong></label>
+    <select name="referee_1L" id="id_referee_1L">
+        <option value="">None</option>
+        {% for referee in form.fields.referee_1L.queryset %}
+            <option value="{{ referee.id }}" {% if referee == form.fields.referee_1L.initial %}selected{% endif %}>
+                {{ referee }}
+            </option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="id_referee_2L"><strong>2.L:</strong></label>
+    <select name="referee_2L" id="id_referee_2L">
+        <option value="">None</option>
+        {% for referee in form.fields.referee_2L.queryset %}
+            <option value="{{ referee.id }}" {% if referee == form.fields.referee_2L.initial %}selected{% endif %}>
+                {{ referee }}
+            </option>
+        {% endfor %}
+    </select>
+    <br>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+    <div class="d-flex justify-content-between">
+        <input id="id_submit" type="submit" value="Delegate" class="btn btn-primary">
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Back</a>
+    </div>
+</form>
+
+{% endblock %}

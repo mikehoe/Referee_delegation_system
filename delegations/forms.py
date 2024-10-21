@@ -1,6 +1,5 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from django.forms import CharField, EmailField
 
 from competitions.models import Match
 from delegations.models import Delegation, RefereeRole
@@ -34,12 +33,16 @@ class MatchDelegationForm(forms.Form):
         for delegation in delegations:
             if delegation.referee_role == RefereeRole.FIRST_REFEREE:
                 self.fields['referee_1R'].initial = delegation.referee
+                print(f"Initial 1.R set to: {delegation.referee}")
             elif delegation.referee_role == RefereeRole.SECOND_REFEREE:
                 self.fields['referee_2R'].initial = delegation.referee
+                print(f"Initial 2.R set to: {delegation.referee}")
             elif delegation.referee_role == RefereeRole.FIRST_LINE_JUDGE:
                 self.fields['referee_1L'].initial = delegation.referee
+                print(f"Initial 1.L set to: {delegation.referee}")
             elif delegation.referee_role == RefereeRole.SECOND_LINE_JUDGE:
                 self.fields['referee_2L'].initial = delegation.referee
+                print(f"Initial 2.L set to: {delegation.referee}")
 
     def __init__(self, *args, match=None, **kwargs):
         super().__init__(*args, **kwargs)
@@ -52,20 +55,24 @@ class MatchDelegationForm(forms.Form):
             self.fields['referee_1L'].queryset = Delegation.get_available_referees(match, RefereeRole.FIRST_LINE_JUDGE)
             self.fields['referee_2L'].queryset = Delegation.get_available_referees(match, RefereeRole.SECOND_LINE_JUDGE)
 
-            delegations = Delegation.objects.filter(match=match)
-            for delegation in delegations:
-                if delegation.referee_role == RefereeRole.FIRST_REFEREE:
-                    self.fields['referee_1R'].initial = delegation.referee
-                elif delegation.referee_role == RefereeRole.SECOND_REFEREE:
-                    self.fields['referee_2R'].initial = delegation.referee
-                elif delegation.referee_role == RefereeRole.FIRST_LINE_JUDGE:
-                    self.fields['referee_1L'].initial = delegation.referee
-                elif delegation.referee_role == RefereeRole.SECOND_LINE_JUDGE:
-                    self.fields['referee_2L'].initial = delegation.referee
+            # Set initial values
+            self.set_default_referee_names(match)
 
     def clean(self):
         cleaned_data = super().clean()
         match_id = self.data.get('match_id')
+
+        referee_1R = cleaned_data.get("referee_1R")
+        referee_2R = cleaned_data.get("referee_2R")
+        referee_1L = cleaned_data.get("referee_1L")
+        referee_2L = cleaned_data.get("referee_2L")
+
+        assigned_referees = set()
+        for referee in [referee_1R, referee_2R, referee_1L, referee_2L]:
+            if referee:
+                if referee in assigned_referees:
+                    raise ValidationError("Each referee must be delegated only once.")
+                assigned_referees.add(referee)
 
         for role in ['1.R', '2.R', '1.L', '2.L']:
             referee = cleaned_data.get(f'referee_{role}')
@@ -88,17 +95,15 @@ class MatchDelegationForm(forms.Form):
 
         for role, referee in referees.items():
             if referee is not None:
-                # Trying to find existing delegation
+                # Finds existing delegations
                 existing_delegation = Delegation.objects.filter(match=match, referee_role=role).first()
                 if existing_delegation:
-                    # If exists, update it
                     existing_delegation.referee = referee
                     existing_delegation.save()
                 else:
-                    # If doesn’t exist, create new
                     Delegation.objects.create(match=match, referee_role=role, referee=referee)
             else:
-                # If referee is None ('----'), delete delegation
+                # If no referee selected, delete delegation
                 Delegation.objects.filter(match=match, referee_role=role).delete()
 
 

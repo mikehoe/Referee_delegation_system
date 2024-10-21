@@ -36,10 +36,6 @@ class MatchModelForm(ModelForm):
         if home_team == away_team:
             raise ValidationError("Home team can't be the same as away team.")
 
-        # 2. validation: The city of the match must correspond to the city of the home team
-        if home_team and home_team.city and match_city and home_team.city != match_city:
-            raise ValidationError("The city of the match doesn't correspond to the city of the home team.")
-
         return cleaned_data
 
     def clean_code(self):

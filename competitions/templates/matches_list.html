@@ -1,89 +1,80 @@
 {% extends "base.html" %}
 
 {% block content %}
-        {% csrf_token %}
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
-                <div class="d-flex">
-                    {% if perms.competitions.add_match %}
-                        <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
-                    {% endif %}
-                </div>
-            </div>
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>{{ competition_in_season.competition.name }} {{ competition_in_season.season.name }}</h1>
+        {% if perms.competitions.add_match %}
+            <a href="{% url 'match_add' competition_in_season.pk %}" class="btn btn-primary">Add Match</a>
+        {% endif %}
+    </div>
 
-            {% if competition_matches %}
-                <ul class="list-group">
-                    {% for match in competition_matches %}
-                        <li class="list-group-item d-flex justify-content-between align-items-center transparent-background">
-                            <div class="flex-shrink-0">
-                                <label>
-                                    <input type="checkbox" name="selected_matches" value="{{ match.id }}"
-                                           class="form-check-input">
-                                </label>
-                            </div>
-                            <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.code }}</div>
-                            <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.date_time|date:"d.m.Y H:i" }}</div>
-                            <div class="flex-shrink-0 text-center" style="width: 180px;">{{ match.city }}</div>
-                            <div class="flex-grow-1 d-flex justify-content-center align-items-center">
-                                <span style="flex: 1; text-align: right; max-width: 210px;">
-                                    {% if match.home_team %}
-                                        <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
-                                    {% else %}
-                                        <span>No Home Team</span>
-                                    {% endif %}
-                                </span>
-                                <span style="margin: 0 20px; text-align: center;"> - </span>
-                                <span style="flex: 1; text-align: left; max-width: 210px;">
-                                    {% if match.away_team %}
-                                        <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
-                                    {% else %}
-                                        <span>No Away Team</span>
-                                    {% endif %}
-                                </span>
-                            </div>
-                            <div class="flex-shrink-0 text-center" style="width: 150px;">
-                                {% if match.delegated_referees.count > 0 %}
-                                    {% for delegation in match.delegated_referees.all %}
-                                        {% if delegation.referee_role == '1.R' %}
-                                            1.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% endif %}
-                                    {% endfor %}
-
-                                    {% for delegation in match.delegated_referees.all %}
-                                        {% if delegation.referee_role == '2.R' %}
-                                            2.R: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% endif %}
-                                    {% endfor %}
-
-                                    {% for delegation in match.delegated_referees.all %}
-                                        {% if delegation.referee_role == '1.L' %}
-                                            1.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% endif %}
-                                    {% endfor %}
-
-                                    {% for delegation in match.delegated_referees.all %}
-                                        {% if delegation.referee_role == '2.L' %}
-                                            2.L: {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
-                                        {% endif %}
-                                    {% endfor %}
+    {% if competition_matches %}
+        <ul class="list-group">
+            {% for match in competition_matches %}
+                <li class="list-group-item d-flex justify-content-between align-items-center transparent-background">
+                    <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.code }}</div>
+                    <div class="flex-shrink-0 text-center" style="width: 100px;">{{ match.date_time|date:"d.m.Y H:i" }}</div>
+                    <div class="flex-shrink-0 text-center" style="width: 180px;">{{ match.city }}</div>
+                    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+                        <span style="flex: 1; text-align: right; max-width: 210px;">
+                            {% if match.home_team %}
+                                <a href="{% url 'team_detail' match.home_team.id %}">{{ match.home_team.name }}</a>
+                            {% else %}
+                                <span>No Home Team</span>
+                            {% endif %}
+                        </span>
+                        <span style="margin: 0 20px; text-align: center;"> - </span>
+                        <span style="flex: 1; text-align: left; max-width: 210px;">
+                            {% if match.away_team %}
+                                <a href="{% url 'team_detail' match.away_team.id %}">{{ match.away_team.name }}</a>
+                            {% else %}
+                                <span>No Away Team</span>
+                            {% endif %}
+                        </span>
+                    <div class="flex-shrink-0 text-center" style="width: 230px;">
+                        {% if match.delegated_referees.count > 0 %}
+                            {% for delegation in match.delegated_referees.all %}
+                                {% if delegation.referee_role == '1.R' %}
+                                    <strong>1.R:</strong> {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                 {% endif %}
-                            </div>
-                            <div class="d-flex flex-column text-center">
-                                {% if perms.competitions.change_match %}
-                                    <a href="{% url 'match_update' match.id %}">✏️</a>
+                            {% endfor %}
+                            {% for delegation in match.delegated_referees.all %}
+                                {% if delegation.referee_role == '2.R' %}
+                                    <strong>2.R:</strong> {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                 {% endif %}
-                                {% if perms.competitions.delete_match %}
-                                    <a href="{% url 'match_delete' match.id %}" class="text-danger">❌</a>
+                            {% endfor %}
+                            {% for delegation in match.delegated_referees.all %}
+                                {% if delegation.referee_role == '1.L' %}
+                                    <strong>1.L:</strong> {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                 {% endif %}
-                                {% if perms.delegations.add_delegation %}
-                                <a href="{% url 'delegation_add' match.id %}" class="btn btn-secondary mt-1">Delegate</a>
+                            {% endfor %}
+                            {% for delegation in match.delegated_referees.all %}
+                                {% if delegation.referee_role == '2.L' %}
+                                    <strong>2.L:</strong> {{ delegation.referee.name }} {{ delegation.referee.surname }}<br>
                                 {% endif %}
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
+                            {% endfor %}
+                        {% else %}
+                            {# if no delegation yet, leave empty #}
+                        {% endif %}
+                    </div>
 
+                    <div class="d-flex flex-column text-center">
+                        {% if perms.competitions.change_match %}
+                            <a href="{% url 'match_update' match.id %}">✏️</a>
+                        {% endif %}
+                        {% if perms.competitions.delete_match %}
+                            <a href="{% url 'match_delete' match.id %}" class="text-danger">❌</a>
+                        {% endif %}
+                        {% if perms.delegations.add_delegation %}
+                            <button type="button" class="btn btn-secondary mt-1" onclick="window.location.href='{% url 'match_delegations' match.id %}'">Delegations</button>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {# if no matches in competition_in_season, leave empty #}
+    {% endif %}
+</div>
 {% endblock %}

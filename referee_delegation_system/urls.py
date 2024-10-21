@@ -32,7 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', competitions_in_season, name='competitions_in_season'),
 
-    path('delegations/match/<pk>/delegation/add', MatchDelegationView.as_view(), name='delegation_add'),
+    path('delegations/match/<pk>/delegations', MatchDelegationView.as_view(), name='match_delegations'),
 
     path('competitions/competitioninseason/<pk>/matches_list/', MatchesListView.as_view(), name='matches_list'),
     path('competitions/competitioninseason/<pk>/match/add/', MatchAddView.as_view(), name='match_add'),
